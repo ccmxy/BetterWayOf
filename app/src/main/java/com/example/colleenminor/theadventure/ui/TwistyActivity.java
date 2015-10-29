@@ -17,6 +17,7 @@ import com.example.colleenminor.theadventure.models.User;
 public class TwistyActivity extends AppCompatActivity {
     private User mUser;
     private SharedPreferences mPreferences;
+    private int mActions;
 
     //Common textViews:
     private TextView mOptionChoice1; //re-light candle
@@ -30,11 +31,16 @@ public class TwistyActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_twisty);
         setTheItemButton();
-        getPreferencesAndUser();
+        getPreferencesAndUserAndActions();
 
         mOptionChoice1 = (TextView) findViewById(R.id.optionChoice1);
         mOptionChoice2 = (TextView) findViewById(R.id.optionChoice2);
         mOptionChoice3 = (TextView) findViewById(R.id.optionChoice3);
+
+        //Remove later
+        mOptionChoice2.setText("" + mActions);
+
+        //Remove later
 
         mOptionChoice1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,10 +74,11 @@ public class TwistyActivity extends AppCompatActivity {
 
     }
 
-    private void getPreferencesAndUser() {
+    private void getPreferencesAndUserAndActions() {
         mPreferences = getApplicationContext().getSharedPreferences("TheAdventure", Context.MODE_PRIVATE);
         String username =  mPreferences.getString("username", null);
         mUser = User.find(username);
+        mActions = mUser.getActions();
     }
 
     //Have to set the correct intent for this one
