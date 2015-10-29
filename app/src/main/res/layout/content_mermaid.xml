@@ -77,7 +77,8 @@
                 android:text="Throw crab at her"
                 android:padding="8dp"
                 android:layout_above="@+id/actionsRemaining"
-                android:layout_centerHorizontal="true" />
+                android:layout_centerHorizontal="true"
+                android:visibility="invisible" />
 
             <TextView
                 android:layout_width="wrap_content"
