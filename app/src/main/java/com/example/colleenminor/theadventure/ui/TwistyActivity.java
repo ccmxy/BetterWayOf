@@ -28,8 +28,12 @@ public class TwistyActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_twisty);
+        getActionsFromIntent();
+
+
         setTheItemButton();
         getPreferencesAndUserAndActions();
+        getActionsFromIntent();
         addActions(1);
         setActionsText();
 
@@ -71,11 +75,16 @@ public class TwistyActivity extends AppCompatActivity {
 
     }
 
+    private void getActionsFromIntent() {
+        Bundle extras = getIntent().getExtras();
+        String myActions = extras.getString("theActions");
+        mActions = Integer.parseInt(myActions);
+    }
     private void getPreferencesAndUserAndActions() {
         mPreferences = getApplicationContext().getSharedPreferences("TheAdventure", Context.MODE_PRIVATE);
         String username =  mPreferences.getString("username", null);
         mUser = User.find(username);
-        mActions = mUser.getActions();
+        //mActions = mUser.getActions();
     }
 
     //Have to set the correct intent for this one
@@ -105,12 +114,10 @@ public class TwistyActivity extends AppCompatActivity {
 
     private void subtractActions(int numToSubtract) {
         mUser.subtractActions(numToSubtract);
-        mActions = mUser.getActions();
     }
 
     private void addActions(int numToAdd) {
         mUser.addActions(numToAdd);
-        mActions = mUser.getActions();
     }
 
 }

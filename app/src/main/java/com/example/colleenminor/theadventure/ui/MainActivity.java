@@ -56,6 +56,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, TwistyActivity.class);
+                String actionString = String.valueOf(mActions);
+                intent.putExtra("theActions", actionString);
                 startActivity(intent);
             }
 
