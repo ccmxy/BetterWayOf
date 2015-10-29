@@ -33,8 +33,6 @@ tools:context="com.example.colleenminor.theadventure.ui.TwistyActivity">
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"/>
 
-
-
     />
 
 <RelativeLayout
@@ -43,7 +41,8 @@ tools:context="com.example.colleenminor.theadventure.ui.TwistyActivity">
     android:layout_below="@+id/albumNameText"
     android:layout_above="@+id/optionChoice"
     android:layout_alignParentLeft="true"
-    android:layout_alignParentStart="true">
+    android:layout_alignParentStart="true"
+    android:id="@+id/relativeLayout">
 
     <ImageView
         android:layout_width="wrap_content"
@@ -52,3 +51,38 @@ tools:context="com.example.colleenminor.theadventure.ui.TwistyActivity">
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"/>
 </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/relativeLayout"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/optionChoice1"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:layout_above="@+id/optionChoice2"
+            android:text="optionChoice1" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/optionChoice2"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:layout_above="@+id/optionChoice3"
+            android:text="optionChoice2" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/optionChoice3"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:text="optionChoice3" />
+    </RelativeLayout>
+    </RelativeLayout>
