@@ -14,30 +14,31 @@ public class User extends Model {
     @Column(name = "Name")
     private String mName;
 
+    @Column(name = "Actions")
+    private int mActions;
+
     public int getActions() {
         return mActions;
     }
     public void addActions(int numActions) {
-        this.mActions += numActions;
+        this.mActions = (this.mActions + numActions);
     }
     public void subtractActions(int numActions) {
-        this.mActions -= numActions;
+        this.mActions = (this.mActions - numActions);
     }
 
     public void setActions(int mActions) {
         this.mActions = mActions;
     }
 
-    @Column(name = "Actions")
-    private int mActions;
-
     public User() {
         super();
     }
 
-    public User(String name) {
+    public User(String name, int actions) {
         super();
         mName = name;
+        mActions = actions;
     }
 
     public String getName() {

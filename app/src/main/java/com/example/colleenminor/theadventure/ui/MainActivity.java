@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
             mUser = user;
             mActions = mUser.getActions();
         } else {
-            mUser = new User(username);
+            mUser = new User(username, 1);
             mUser.save();
             mActions = mUser.getActions();
         }
@@ -110,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void addActions(int numToAdd) {
-        mUser.addActions(1);
+        mUser.addActions(numToAdd);
         mActions = mUser.getActions();
     }
 

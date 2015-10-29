@@ -37,7 +37,8 @@ private TextView mOptionChoice3; //explore this strange place
         mOptionChoice2 = (TextView) findViewById(R.id.optionChoice2);
         mOptionChoice3 = (TextView) findViewById(R.id.optionChoice3);
 
-      //"Take seashells"
+
+        //"Take seashells"
         mOptionChoice1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -103,12 +104,12 @@ private TextView mOptionChoice3; //explore this strange place
     }
 
     private void subtractActions(int numToSubtract) {
-        mUser.subtractActions(1);
+        mUser.subtractActions(numToSubtract);
         mActions = mUser.getActions();
     }
 
     private void addActions(int numToAdd) {
-        mUser.addActions(1);
+        mUser.addActions(numToAdd);
         mActions = mUser.getActions();
     }
 
