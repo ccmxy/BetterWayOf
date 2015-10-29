@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/nextDiscButton"
-        android:layout_below="@+id/relativeLayout"
+        android:layout_below="@+id/actionsRemaining"
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true">
 

@@ -67,13 +67,6 @@ private TextView mOptionChoice3; //explore this strange place
                 startActivity(intent);
             }
         });
-        //Where other stuff goes
-
-
-
-
-        //End of custom stuffs
-
 
     }
 
