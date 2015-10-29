@@ -39,7 +39,12 @@ public class MermaidActivity extends AppCompatActivity {
         mOptionChoice2 = (TextView) findViewById(R.id.optionChoice2);
         mOptionChoice3 = (TextView) findViewById(R.id.optionChoice3);
 
-       // mOptionChoice1.setVisibility(View.GONE);
+        boolean hasCrab = checkForCrabs();
+
+        if(hasCrab){
+            mOptionChoice3 .setVisibility(TextView.VISIBLE);
+
+        }
         mOptionChoice1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -55,6 +60,7 @@ public class MermaidActivity extends AppCompatActivity {
             }
         });
 
+
         //"Throw crab at her"
         mOptionChoice3.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,6 +69,7 @@ public class MermaidActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
         //Where other stuff goes
 
 
@@ -71,6 +78,15 @@ public class MermaidActivity extends AppCompatActivity {
         //End of custom stuffs
 
 
+    }
+
+    private boolean checkForCrabs() {
+        Item crabItem = Item.find("crab");
+        if (crabItem != null) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     private void addActionsToIntent(Intent intent){

@@ -21,7 +21,6 @@ public class MainActivity extends AppCompatActivity {
     private TextView mTakeItem;
     private TextView mActionsTextView;
     private TextView mNextRoom;
-    private SharedPreferences mPrefrefences;
 
 
     @Override

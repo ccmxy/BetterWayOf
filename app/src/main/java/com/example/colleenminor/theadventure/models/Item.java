@@ -43,6 +43,13 @@ public class Item extends Model {
         mUser = user;
     }
 
+    public static Item find(String itemname) {
+        return new Select()
+                .from(Item.class)
+                .where("Item = ?", itemname)
+                .executeSingle();
+    }
+
     public static List<Item> all() { //maybe send user thru to onle get some...
         return new Select()
                 .from(Item.class)
