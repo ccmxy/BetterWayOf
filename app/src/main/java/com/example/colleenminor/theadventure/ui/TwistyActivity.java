@@ -18,12 +18,10 @@ public class TwistyActivity extends AppCompatActivity {
     private User mUser;
     private SharedPreferences mPreferences;
     private int mActions;
-
-    //Common textViews:
+    private TextView mActionsTextView;
     private TextView mOptionChoice1; //re-light candle
     private TextView mOptionChoice2; //go upstairs (moaning)
     private TextView mOptionChoice3; //go downstairs (ocean)
-    //Common textView end
 
 
     @Override
@@ -32,6 +30,8 @@ public class TwistyActivity extends AppCompatActivity {
         setContentView(R.layout.activity_twisty);
         setTheItemButton();
         getPreferencesAndUserAndActions();
+        addActions(1);
+        setActionsText();
 
         mOptionChoice1 = (TextView) findViewById(R.id.optionChoice1);
         mOptionChoice2 = (TextView) findViewById(R.id.optionChoice2);
@@ -41,6 +41,7 @@ public class TwistyActivity extends AppCompatActivity {
         mOptionChoice2.setText("" + mActions);
 
         //Remove later
+
 
         mOptionChoice1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,6 +94,12 @@ public class TwistyActivity extends AppCompatActivity {
         });
     }
 
+    private void setActionsText() {
+        mActions = mUser.getActions();
+        mActionsTextView = (TextView) findViewById(R.id.actionsRemaining);
+        mActionsTextView.setText("Actions remaining " + mActions);
+    }
+
     private void addItem(String itemName) {
         Item item = new Item(itemName, mUser);
         item.save();
@@ -100,5 +107,12 @@ public class TwistyActivity extends AppCompatActivity {
 
     }
 
+    private void subtractActions(int numToSubtract) {
+        mUser.subtractActions(1);
+    }
+
+    private void addActions(int numToAdd) {
+        mUser.addActions(1);
+    }
 
 }

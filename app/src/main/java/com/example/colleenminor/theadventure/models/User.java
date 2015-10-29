@@ -17,8 +17,11 @@ public class User extends Model {
     public int getActions() {
         return mActions;
     }
-    private void addActions(int numActions) {
+    public void addActions(int numActions) {
         this.mActions += numActions;
+    }
+    public void subtractActions(int numActions) {
+        this.mActions -= numActions;
     }
 
     public void setActions(int mActions) {
