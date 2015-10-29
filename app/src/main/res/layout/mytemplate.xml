@@ -13,7 +13,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/nextDiscButton"
-
         android:layout_below="@+id/relativeLayout"
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true">
@@ -25,18 +24,19 @@
             android:text="Oooh, a twisty scary hallway! Yikes! :o"
             android:id="@+id/introText"
             android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"/>
-
+            android:layout_centerHorizontal="true"
+            android:padding="8dp"
+            android:layout_marginTop="18dp" />
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_above="@+id/whatDo"
             android:layout_below="@+id/introText"
-
             android:id="@+id/theImage2"
             android:layout_centerHorizontal="true"
-            android:src="@drawable/twisty" />
+            android:src="@drawable/twisty"
+            android:padding="8dp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -45,7 +45,8 @@
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true"
             android:layout_above="@+id/optionChoice1"
-            android:text="What do you do?" />
+            android:text="What do you do?"
+            android:padding="8dp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -54,7 +55,8 @@
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true"
             android:layout_above="@+id/optionChoice2"
-            android:text="optionChoice1" />
+            android:text="optionChoice1"
+            android:padding="8dp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -63,15 +65,19 @@
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true"
             android:layout_above="@+id/optionChoice3"
-            android:text="optionChoice2" />
+            android:text="optionChoice2"
+            android:padding="8dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/optionChoice3"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true"
-            android:text="optionChoice3" />
+            android:text="optionChoice3"
+            android:padding="8dp"
+            android:layout_marginBottom="56dp"
+            android:layout_above="@+id/actionsRemaining"
+            android:layout_alignLeft="@+id/optionChoice2"
+            android:layout_alignStart="@+id/optionChoice2" />
 
         <TextView
             android:layout_width="wrap_content"
