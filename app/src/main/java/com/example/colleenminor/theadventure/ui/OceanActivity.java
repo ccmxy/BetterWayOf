@@ -111,10 +111,12 @@ private TextView mOptionChoice3; //explore this strange place
 
     private void subtractActions(int numToSubtract) {
         mUser.subtractActions(1);
+        mActions = mUser.getActions();
     }
 
     private void addActions(int numToAdd) {
         mUser.addActions(1);
+        mActions = mUser.getActions();
     }
 
 }

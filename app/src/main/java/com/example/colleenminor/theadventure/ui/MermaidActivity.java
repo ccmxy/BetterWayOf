@@ -105,10 +105,12 @@ public class MermaidActivity extends AppCompatActivity {
 
     private void subtractActions(int numToSubtract) {
         mUser.subtractActions(1);
+        mActions = mUser.getActions();
     }
 
     private void addActions(int numToAdd) {
         mUser.addActions(1);
+        mActions = mUser.getActions();
     }
 
 }
