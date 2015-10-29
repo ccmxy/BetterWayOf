@@ -42,6 +42,11 @@
             android:label="@string/title_activity_twisty"
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
+        <activity
+            android:name=".ui.OceanActivity"
+            android:label="@string/title_activity_ocean"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
     </application>
 
 </manifest>
