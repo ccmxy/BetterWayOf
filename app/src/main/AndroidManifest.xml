@@ -47,6 +47,11 @@
             android:label="@string/title_activity_ocean"
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
+        <activity
+            android:name=".ui.MermaidActivity"
+            android:label="@string/title_activity_mermaid"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
     </application>
 
 </manifest>
