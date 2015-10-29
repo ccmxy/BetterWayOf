@@ -41,8 +41,11 @@ public class MainActivity extends AppCompatActivity {
         mUser.setActions(1);
         setActionsText();
 
+       Item.delete("crab");
+       Item.delete("candlestick");
 
-        mTakeItem.setOnClickListener(new View.OnClickListener() {
+
+            mTakeItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 addItem("candlestick");

@@ -42,6 +42,10 @@ public class Item extends Model {
         mItem = item;
         mUser = user;
     }
+    public static void delete(String itemname) {
+        Item item = Item.find(itemname);
+        item.delete();
+    }
 
     public static Item find(String itemname) {
         return new Select()
