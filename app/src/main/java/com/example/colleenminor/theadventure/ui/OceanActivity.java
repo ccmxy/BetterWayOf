@@ -30,6 +30,7 @@ private TextView mOptionChoice3; //explore this strange place
         setContentView(R.layout.activity_ocean);
         setTheItemButton();
         getPreferencesAndUserAndActions();
+        getActionsFromIntent();
         addActions(1);
         setActionsText();
 
@@ -65,10 +66,21 @@ private TextView mOptionChoice3; //explore this strange place
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(OceanActivity.this, MermaidActivity.class);
+                addActionsToIntent(intent);
                 startActivity(intent);
             }
         });
 
+    }
+    private void addActionsToIntent(Intent intent){
+        String actionString = String.valueOf(mActions);
+        intent.putExtra("theActions", actionString);
+    }
+    private void getActionsFromIntent() {
+        Bundle extras = getIntent().getExtras();
+        String myActions = extras.getString("theActions");
+        mActions = Integer.parseInt(myActions);
+        mUser.setActions(mActions);
     }
 
     private void getPreferencesAndUserAndActions() {
@@ -109,8 +121,8 @@ private TextView mOptionChoice3; //explore this strange place
     }
 
     private void addActions(int numToAdd) {
-        mUser.addActions(numToAdd);
-        mActions = mUser.getActions();
+            mUser.addActions(numToAdd);
+            mActions += numToAdd;
     }
 
 }

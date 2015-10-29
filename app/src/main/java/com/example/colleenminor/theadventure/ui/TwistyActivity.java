@@ -62,6 +62,7 @@ public class TwistyActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(TwistyActivity.this, OceanActivity.class);
+                addActionsToIntent(intent);
                 startActivity(intent);
             }
         });
@@ -75,10 +76,15 @@ public class TwistyActivity extends AppCompatActivity {
 
     }
 
+    private void addActionsToIntent(Intent intent){
+        String actionString = String.valueOf(mActions);
+        intent.putExtra("theActions", actionString);
+    }
     private void getActionsFromIntent() {
         Bundle extras = getIntent().getExtras();
         String myActions = extras.getString("theActions");
         mActions = Integer.parseInt(myActions);
+        //mUser.setActions(mActions);
     }
     private void getPreferencesAndUserAndActions() {
         mPreferences = getApplicationContext().getSharedPreferences("TheAdventure", Context.MODE_PRIVATE);
