@@ -54,7 +54,7 @@ public class MermaidActivity extends AppCompatActivity {
             }
         });
 
-
+        //"Throw crab at her"
         mOptionChoice3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
