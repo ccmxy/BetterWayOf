@@ -100,6 +100,10 @@ public class MermaidActivity extends AppCompatActivity {
         // mUser.setActions(mActions);
     }
 
+    private void deleteItem(String itemName) {
+        Item.delete(itemName);
+    }
+
 
     private void getPreferencesAndUser() {
         mPreferences = getApplicationContext().getSharedPreferences("TheAdventure", Context.MODE_PRIVATE);

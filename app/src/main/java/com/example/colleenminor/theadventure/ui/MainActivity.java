@@ -41,8 +41,7 @@ public class MainActivity extends AppCompatActivity {
         mUser.setActions(1);
         setActionsText();
 
-       Item.delete("crab");
-       Item.delete("candlestick");
+        deleteAllItems();
 
 
             mTakeItem.setOnClickListener(new View.OnClickListener() {
@@ -95,6 +94,12 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    private void deleteAllItems() {
+        Item.delete("crab");
+        Item.delete("candlestick");
+
+    }
+    
     private void addItem(String itemName) {
         Item item = new Item(itemName, mUser);
         item.save();

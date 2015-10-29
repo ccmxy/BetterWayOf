@@ -111,6 +111,10 @@ public class TwistyActivity extends AppCompatActivity {
         mActionsTextView.setText("Actions remaining " + mActions);
     }
 
+    private void deleteItem(String itemName) {
+        Item.delete(itemName);
+    }
+
     private void addItem(String itemName) {
         Item item = new Item(itemName, mUser);
         item.save();
