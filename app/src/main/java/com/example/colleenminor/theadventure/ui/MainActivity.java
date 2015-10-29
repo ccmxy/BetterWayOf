@@ -29,25 +29,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-//        setSupportActionBar(toolbar);
+        setTheItemButton();
+
         mTakeItem = (TextView) findViewById(R.id.takeItem);
         mNextRoom = (TextView) findViewById(R.id.nextLagoon);
         mActionsRemaining = (TextView) findViewById(R.id.actionsRemaining);
-        mPreferences = getApplicationContext().getSharedPreferences("TheAdventure", Context.MODE_PRIVATE);
-
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, ItemsListActivity.class);
-                startActivity(intent);
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-            }
-        });
-
         mPreferences = getApplicationContext().getSharedPreferences("TheAdventure", Context.MODE_PRIVATE);
 
 
@@ -59,9 +45,8 @@ public class MainActivity extends AppCompatActivity {
         mTakeItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Item item = new Item("candlestick", mUser);
-                item.save();
-                Toast.makeText(MainActivity.this, mUser.getName() + ", candlestick has been added to your inventory", Toast.LENGTH_LONG).show();
+                addItem("candlestick");
+//                Toast.makeText(MainActivity.this, mUser.getName() + ", candlestick has been added to your inventory", Toast.LENGTH_LONG).show();
                 mActions--;
                 mActionsRemaining.setText("Actions remaining: " + String.valueOf(mActions));
                 mTakeItem.setVisibility(View.GONE);
@@ -78,7 +63,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
-
 
 
     private boolean nameChosen() {
@@ -99,10 +83,30 @@ public class MainActivity extends AppCompatActivity {
             mUser = new User(username);
             mUser.save();
         }
-        Toast.makeText(this, "Welcome " + mUser.getName() + "Welcome to the start of your great adventure!"
-                +"In this game, you will always be allowed to take up to 2 actions per turn. The number of actions that you have " +
+        Toast.makeText(this, "Welcome to the start of your great adventure, " + mUser.getName()
+                +"! In this game, you will always be allowed to take up to 2 actions per turn. The number of actions that you have " +
                 "can be viewed by clicking the icon in the icon in the bottom left corner. " +
                 "You can view your item inventory any time by clicking the bottom right icon.", Toast.LENGTH_LONG).show();
 
+    }
+
+    private void addItem(String itemName) {
+        Item item = new Item(itemName, mUser);
+        item.save();
+        Toast.makeText(this, mUser.getName() + ", candlestick has been added to your inventory", Toast.LENGTH_LONG).show();
+
+    }
+
+    private void setTheItemButton() {
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, ItemsListActivity.class);
+                startActivity(intent);
+//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
+            }
+        });
     }
 }
