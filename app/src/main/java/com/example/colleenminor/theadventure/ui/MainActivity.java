@@ -20,11 +20,7 @@ public class MainActivity extends AppCompatActivity {
     private int mActions;
     private TextView mTakeItem;
     private TextView mActionsTextView;
-    private int mOldActions = 2;
-
-
     private TextView mNextRoom;
-    private int mChoice;
     private SharedPreferences mPrefrefences;
 
 
@@ -51,7 +47,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 addItem("candlestick");
-                subtractActions(1);
                 setActionsText();
                 mTakeItem.setVisibility(View.GONE);
             }

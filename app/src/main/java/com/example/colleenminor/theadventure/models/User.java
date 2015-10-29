@@ -38,7 +38,6 @@ public class User extends Model {
     public User(String name) {
         super();
         mName = name;
-        mActions = 1;
     }
 
     public String getName() {
