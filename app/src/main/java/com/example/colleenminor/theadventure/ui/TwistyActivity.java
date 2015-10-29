@@ -37,18 +37,13 @@ public class TwistyActivity extends AppCompatActivity {
         mOptionChoice2 = (TextView) findViewById(R.id.optionChoice2);
         mOptionChoice3 = (TextView) findViewById(R.id.optionChoice3);
 
-        //Remove later
-        mOptionChoice2.setText("" + mActions);
-
-        //Remove later
-
-
-        mOptionChoice1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
+        mOptionChoice1.setVisibility(View.GONE);
+//        mOptionChoice1.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//            }
+//        });
 
 
         mOptionChoice2.setOnClickListener(new View.OnClickListener() {
@@ -62,7 +57,8 @@ public class TwistyActivity extends AppCompatActivity {
         mOptionChoice3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(TwistyActivity.this, OceanActivity.class);
+                startActivity(intent);
             }
         });
         //Where other stuff goes
@@ -103,7 +99,7 @@ public class TwistyActivity extends AppCompatActivity {
     private void addItem(String itemName) {
         Item item = new Item(itemName, mUser);
         item.save();
-        Toast.makeText(this, mUser.getName() + ", candlestick has been added to your inventory", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, mUser.getName() + "," + itemName + " has been added to your inventory", Toast.LENGTH_LONG).show();
 
     }
 

@@ -25,11 +25,6 @@ public class TwistyActivity extends AppCompatActivity {
         mOptionChoice2 = (TextView) findViewById(R.id.optionChoice2);
         mOptionChoice3 = (TextView) findViewById(R.id.optionChoice3);
 
-        //Remove later
-        mOptionChoice2.setText("" + mActions);
-
-        //Remove later
-
 
         mOptionChoice1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -91,7 +86,8 @@ public class TwistyActivity extends AppCompatActivity {
     private void addItem(String itemName) {
         Item item = new Item(itemName, mUser);
         item.save();
-        Toast.makeText(this, mUser.getName() + ", candlestick has been added to your inventory", Toast.LENGTH_LONG).show();
+        //Toast.makeText(this, mUser.getName() + ", candlestick has been added to your inventory", Toast.LENGTH_LONG).show();
+        Toast.makeText( this, mUser.getName() + "," + itemName + ",  has been added to your inventory", Toast.LENGTH_LONG).show();
 
     }
 
