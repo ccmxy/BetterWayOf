@@ -6,4 +6,6 @@
     <string name="title_activity_twisty">TwistyActivity</string>
     <string name="title_activity_ocean">OceanActivity</string>
     <string name="title_activity_mermaid">MermaidActivity</string>
+    <string name="title_activity_merstake">Merstake</string>
+    <string name="title_activity_mermer">MermerActivity</string>
 </resources>
