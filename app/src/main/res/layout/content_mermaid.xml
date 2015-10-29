@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:showIn="@layout/activity_mermaid"
+    tools:context="com.example.colleenminor.theadventure.ui.MermaidActivity">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/nextDiscButton"
+            android:layout_below="@+id/relativeLayout"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="45dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="&quot;Who are you, and how did you get into the mermaid kingdom?&quot;"
+                android:id="@+id/introText"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:padding="8dp"
+                android:layout_marginTop="18dp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/whatDo"
+                android:layout_below="@+id/introText"
+                android:id="@+id/theImage2"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/melinda"
+                android:padding="8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/whatDo"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:layout_above="@+id/optionChoice1"
+                android:text="What do you do?"
+                android:padding="8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/optionChoice1"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:layout_above="@+id/optionChoice2"
+                android:text="&quot;I have no idea who I am. I woke up and I was here.&quot;"
+                android:padding="8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/optionChoice2"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:layout_above="@+id/optionChoice3"
+                android:text="&quot;I mean no harm. I was just leaving.&quot;"
+                android:padding="8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/optionChoice3"
+                android:text="Throw crab at her"
+                android:padding="8dp"
+                android:layout_above="@+id/actionsRemaining"
+                android:layout_centerHorizontal="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Actions Remaning: 2"
+                android:id="@+id/actionsRemaining"
+                android:background="#4169E1"
+                android:textColor="@android:color/white"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+        </RelativeLayout>
+    </RelativeLayout>
+
