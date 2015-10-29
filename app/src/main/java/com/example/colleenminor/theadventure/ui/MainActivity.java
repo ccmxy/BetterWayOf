@@ -107,13 +107,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void subtractActions(int numToSubtract) {
-        mUser.subtractActions(1);
-        mActions = mUser.getActions();
+      /*  mUser.subtractActions(numToAdd);
+        mActions = mUser.getActions();*/
+        mActions = mActions - numToSubtract;
     }
 
     private void addActions(int numToAdd) {
-        mUser.addActions(numToAdd);
-        mActions = mUser.getActions();
+        //Got rid of mUser.addActions(numToAdd);
+       // mUser.addActions(numToAdd);
+        mActions = mActions + numToAdd;
     }
 
     private void setTheItemButton() {

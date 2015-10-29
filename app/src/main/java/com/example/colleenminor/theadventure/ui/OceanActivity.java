@@ -80,7 +80,7 @@ private TextView mOptionChoice3; //explore this strange place
         Bundle extras = getIntent().getExtras();
         String myActions = extras.getString("theActions");
         mActions = Integer.parseInt(myActions);
-        mUser.setActions(mActions);
+       // mUser.setActions(mActions);
     }
 
     private void getPreferencesAndUserAndActions() {
@@ -103,7 +103,7 @@ private TextView mOptionChoice3; //explore this strange place
     }
 
     private void setActionsText() {
-        mActions = mUser.getActions();
+      //  mActions = mUser.getActions();
         mActionsTextView = (TextView) findViewById(R.id.actionsRemaining);
         mActionsTextView.setText("Actions remaining " + mActions);
     }
@@ -116,12 +116,10 @@ private TextView mOptionChoice3; //explore this strange place
     }
 
     private void subtractActions(int numToSubtract) {
-        mUser.subtractActions(numToSubtract);
-        mActions = mUser.getActions();
+        mActions -= numToSubtract;
     }
 
     private void addActions(int numToAdd) {
-            mUser.addActions(numToAdd);
             mActions += numToAdd;
     }
 

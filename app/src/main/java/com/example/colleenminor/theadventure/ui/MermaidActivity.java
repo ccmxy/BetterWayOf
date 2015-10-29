@@ -30,7 +30,8 @@ public class MermaidActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mermaid);
         setTheItemButton();
-        getPreferencesAndUserAndActions();
+        getPreferencesAndUser();
+        getActionsFromIntent();
         addActions(1);
         setActionsText();
 
@@ -72,11 +73,23 @@ public class MermaidActivity extends AppCompatActivity {
 
     }
 
-    private void getPreferencesAndUserAndActions() {
+    private void addActionsToIntent(Intent intent){
+        String actionString = String.valueOf(mActions);
+        intent.putExtra("theActions", actionString);
+    }
+    private void getActionsFromIntent() {
+        Bundle extras = getIntent().getExtras();
+        String myActions = extras.getString("theActions");
+        mActions = Integer.parseInt(myActions);
+        // mUser.setActions(mActions);
+    }
+
+
+    private void getPreferencesAndUser() {
         mPreferences = getApplicationContext().getSharedPreferences("TheAdventure", Context.MODE_PRIVATE);
         String username =  mPreferences.getString("username", null);
         mUser = User.find(username);
-        mActions = mUser.getActions();
+      //  mActions = mUser.getActions();
     }
 
     //Have to set the correct intent for this one
@@ -92,7 +105,7 @@ public class MermaidActivity extends AppCompatActivity {
     }
 
     private void setActionsText() {
-        mActions = mUser.getActions();
+     //   mActions = mUser.getActions();
         mActionsTextView = (TextView) findViewById(R.id.actionsRemaining);
         mActionsTextView.setText("Actions remaining " + mActions);
     }
@@ -104,13 +117,21 @@ public class MermaidActivity extends AppCompatActivity {
     }
 
     private void subtractActions(int numToSubtract) {
-        mUser.subtractActions(numToSubtract);
-        mActions = mUser.getActions();
+        mActions -= numToSubtract;
     }
 
     private void addActions(int numToAdd) {
-        mUser.addActions(numToAdd);
-        mActions = mUser.getActions();
+        mActions += numToAdd;
     }
+
+//    private void subtractActions(int numToSubtract) {
+//        mUser.subtractActions(numToSubtract);
+//        mActions = mUser.getActions();
+//    }
+//
+//    private void addActions(int numToAdd) {
+//        mUser.addActions(numToAdd);
+//        mActions = mUser.getActions();
+//    }
 
 }

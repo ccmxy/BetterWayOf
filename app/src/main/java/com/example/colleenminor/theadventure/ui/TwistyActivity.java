@@ -32,7 +32,7 @@ public class TwistyActivity extends AppCompatActivity {
 
 
         setTheItemButton();
-        getPreferencesAndUserAndActions();
+        getPreferencesAndUser();
         getActionsFromIntent();
         addActions(1);
         setActionsText();
@@ -86,7 +86,7 @@ public class TwistyActivity extends AppCompatActivity {
         mActions = Integer.parseInt(myActions);
         //mUser.setActions(mActions);
     }
-    private void getPreferencesAndUserAndActions() {
+    private void getPreferencesAndUser() {
         mPreferences = getApplicationContext().getSharedPreferences("TheAdventure", Context.MODE_PRIVATE);
         String username =  mPreferences.getString("username", null);
         mUser = User.find(username);
@@ -106,7 +106,7 @@ public class TwistyActivity extends AppCompatActivity {
     }
 
     private void setActionsText() {
-        mActions = mUser.getActions();
+      //  mActions = mUser.getActions();
         mActionsTextView = (TextView) findViewById(R.id.actionsRemaining);
         mActionsTextView.setText("Actions remaining " + mActions);
     }
@@ -119,11 +119,11 @@ public class TwistyActivity extends AppCompatActivity {
     }
 
     private void subtractActions(int numToSubtract) {
-        mUser.subtractActions(numToSubtract);
+       mActions -= numToSubtract;
     }
 
     private void addActions(int numToAdd) {
-        mUser.addActions(numToAdd);
+        mActions += numToAdd;
     }
 
 }
