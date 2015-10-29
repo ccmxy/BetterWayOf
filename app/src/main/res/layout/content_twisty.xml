@@ -13,26 +13,37 @@ tools:context="com.example.colleenminor.theadventure.ui.TwistyActivity">
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:textAppearance="?android:attr/textAppearanceLarge"
-    android:text="Yep yep, just putting a bunch of wordsss in here... yaaaay I can make them smaller this way!"
+    android:text="Oooh, a twisty scary hallway! Yikes! :o"
     android:id="@+id/albumNameText"
     android:layout_alignParentTop="true"
     android:layout_centerHorizontal="true"/>
 
-<Button
+<RelativeLayout
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:text="Next"
+    android:text="Where some choices can go jajaja!!!!"
     android:id="@+id/nextDiscButton"
     android:layout_alignParentBottom="true"
-    android:layout_centerHorizontal="true"/>
+    android:layout_centerHorizontal="true"
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/optionChoice"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"/>
+
+
+
+    />
 
 <RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_below="@+id/albumNameText"
+    android:layout_above="@+id/optionChoice"
     android:layout_alignParentLeft="true"
-    android:layout_alignParentStart="true"
-    android:layout_above="@+id/nextDiscButton">
+    android:layout_alignParentStart="true">
 
     <ImageView
         android:layout_width="wrap_content"
