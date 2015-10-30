@@ -35,7 +35,7 @@
             android:layout_below="@+id/introText"
             android:id="@+id/theImage7"
             android:layout_centerHorizontal="true"
-            android:src="@drawable/twisty"
+            android:src="@drawable/moaningman"
             android:padding="8dp"
             android:layout_alignParentStart="false"
             android:layout_alignParentLeft="false"/>
