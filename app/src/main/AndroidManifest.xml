@@ -8,8 +8,7 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat.NoActionBar">
-
+        android:theme="@style/Theme.AppCompat.NoActionBar" >
         <activity
             android:name=".ui.MainActivity"
             android:label="@string/app_name"
@@ -62,6 +61,16 @@
             android:name=".ui.MermerActivity"
             android:label="@string/title_activity_mermer"
             android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+        <activity
+            android:name=".ui.MoanerActivity"
+            android:label="@string/title_activity_moaner"
+            android:theme="@style/Theme.AppCompat.NoActionBar" >
+        </activity>
+        <activity
+            android:name=".ui.GiveActivity"
+            android:label="@string/title_activity_give"
+            android:theme="@style/Theme.AppCompat.NoActionBar" >
         </activity>
     </application>
 

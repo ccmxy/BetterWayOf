@@ -8,4 +8,6 @@
     <string name="title_activity_mermaid">MermaidActivity</string>
     <string name="title_activity_merstake">Merstake</string>
     <string name="title_activity_mermer">MermerActivity</string>
+    <string name="title_activity_moaner">MoanerActivity</string>
+    <string name="title_activity_give">GiveActivit</string>
 </resources>

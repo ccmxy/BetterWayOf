@@ -44,19 +44,9 @@
                 android:id="@+id/whatDo"
                 android:layout_centerVertical="true"
                 android:layout_centerHorizontal="true"
-                android:layout_above="@+id/optionChoice1"
                 android:text="What do you do?"
-                android:padding="8dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_centerHorizontal="true"
-                android:layout_above="@+id/optionChoice2"
-                android:id="@+id/optionChoice1"
-                android:text="Re-light the candle"
-                android:padding="8dp" />
+                android:padding="8dp"
+                android:layout_above="@+id/optionChoice2" />
 
             <TextView
                 android:layout_width="wrap_content"

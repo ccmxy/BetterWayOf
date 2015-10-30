@@ -14,7 +14,7 @@ import com.example.colleenminor.theadventure.R;
 import com.example.colleenminor.theadventure.models.Item;
 import com.example.colleenminor.theadventure.models.User;
 
-public class TwistyActivity extends AppCompatActivity {
+public class MoanerActivity extends AppCompatActivity {
     private User mUser;
     private SharedPreferences mPreferences;
     private int mActions;
@@ -30,32 +30,32 @@ public class TwistyActivity extends AppCompatActivity {
         setContentView(R.layout.activity_twisty);
         getActionsFromIntent();
 
-
         setTheItemButton();
         getPreferencesAndUser();
         getActionsFromIntent();
         addActions(1);
         setActionsText();
 
+        mOptionChoice1 = (TextView) findViewById(R.id.optionChoice1);
         mOptionChoice2 = (TextView) findViewById(R.id.optionChoice2);
         mOptionChoice3 = (TextView) findViewById(R.id.optionChoice3);
 
-
+//Give the old man what he needs
         mOptionChoice2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(TwistyActivity.this, MoanerActivity.class);
+                Intent intent = new Intent(MoanerActivity.this, GiveActivity.class);
                 addActionsToIntent(intent);
                 startActivity(intent);
+
 
             }
         });
 
-
         mOptionChoice3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(TwistyActivity.this, OceanActivity.class);
+                Intent intent = new Intent(MoanerActivity.this, OceanActivity.class);
                 addActionsToIntent(intent);
                 startActivity(intent);
             }
@@ -93,14 +93,14 @@ public class TwistyActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(TwistyActivity.this, ItemsListActivity.class);
+                Intent intent = new Intent(MoanerActivity.this, ItemsListActivity.class);
                 startActivity(intent);
             }
         });
     }
 
     private void setActionsText() {
-      //  mActions = mUser.getActions();
+        //  mActions = mUser.getActions();
         mActionsTextView = (TextView) findViewById(R.id.actionsRemaining);
         mActionsTextView.setText("Actions remaining " + mActions);
     }
@@ -117,7 +117,7 @@ public class TwistyActivity extends AppCompatActivity {
     }
 
     private void subtractActions(int numToSubtract) {
-       mActions -= numToSubtract;
+        mActions -= numToSubtract;
     }
 
     private void addActions(int numToAdd) {
