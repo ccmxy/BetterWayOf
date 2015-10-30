@@ -1,4 +1,4 @@
-package com.example.colleenminor.theadventure.ui;
+package com.example.colleenminor.theadventure.ui.water;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;

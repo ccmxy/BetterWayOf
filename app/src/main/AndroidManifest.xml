@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar" >
         <activity
-            android:name=".ui.MainActivity"
+            android:name=".ui.house.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar" >
             <intent-filter>
@@ -38,17 +38,17 @@
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
         <activity
-            android:name=".ui.TwistyActivity"
+            android:name=".ui.house.TwistyActivity"
             android:label="@string/title_activity_twisty"
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
         <activity
-            android:name=".ui.OceanActivity"
+            android:name=".ui.water.OceanActivity"
             android:label="@string/title_activity_ocean"
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
         <activity
-            android:name=".ui.MermaidActivity"
+            android:name=".ui.water.MermaidActivity"
             android:label="@string/title_activity_mermaid"
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
@@ -58,27 +58,27 @@
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
         <activity
-            android:name=".ui.MermerActivity"
+            android:name=".ui.water.MermerActivity"
             android:label="@string/title_activity_mermer"
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
         <activity
-            android:name=".ui.MoanerActivity"
+            android:name=".ui.house.MoanerActivity"
             android:label="@string/title_activity_moaner"
             android:theme="@style/Theme.AppCompat.NoActionBar" >
         </activity>
         <activity
-            android:name=".ui.GiveActivity"
+            android:name=".ui.house.GiveActivity"
             android:label="@string/title_activity_give"
             android:theme="@style/Theme.AppCompat.NoActionBar" >
         </activity>
         <activity
-            android:name=".ui.MermaidPalaceActivity"
+            android:name=".ui.water.MermaidPalaceActivity"
             android:label="@string/title_activity_mermaid_palace"
             android:theme="@style/Theme.AppCompat.NoActionBar" >
         </activity>
         <activity
-            android:name=".ui.MermaidGiveActivity"
+            android:name=".ui.water.MermaidGiveActivity"
             android:label="@string/title_activity_mermaid_give"
             android:theme="@style/Theme.AppCompat.NoActionBar" >
         </activity>

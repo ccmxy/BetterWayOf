@@ -1,4 +1,4 @@
-package com.example.colleenminor.theadventure.ui;
+package com.example.colleenminor.theadventure.ui.house;
 
 import android.content.Context;
 import android.content.Intent;
@@ -7,14 +7,21 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
+import android.view.animation.LinearInterpolator;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.colleenminor.theadventure.R;
 import com.example.colleenminor.theadventure.models.Item;
 import com.example.colleenminor.theadventure.models.User;
+import com.example.colleenminor.theadventure.ui.ItemsListActivity;
+import com.example.colleenminor.theadventure.ui.water.OceanActivity;
 
-public class MoanerActivity extends AppCompatActivity {
+
+
+public class TwistyActivity extends AppCompatActivity {
     private User mUser;
     private SharedPreferences mPreferences;
     private int mActions;
@@ -27,63 +34,72 @@ public class MoanerActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_moaner);
-        getActionsFromIntent();
+        setContentView(R.layout.activity_twisty);
 
         setTheItemButton();
         getPreferencesAndUser();
         getActionsFromIntent();
+        checkIfRoomHasBeenVisited("Twisty");
 
-        checkIfRoomHasBeenVisited("Moaner");
-        setActionsText();
-
-        mOptionChoice1 = (TextView) findViewById(R.id.optionChoice1);
         mOptionChoice2 = (TextView) findViewById(R.id.optionChoice2);
         mOptionChoice3 = (TextView) findViewById(R.id.optionChoice3);
 
-//Give the old man what he needs
-        mOptionChoice1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MoanerActivity.this, GiveActivity.class);
-                addActionsToIntent(intent);
-                startActivity(intent);
-
-
-            }
-        });
-
-        //"Leave"
         mOptionChoice2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MoanerActivity.this, TwistyActivity.class);
+                Intent intent = new Intent(TwistyActivity.this, MoanerActivity.class);
+                addActionsToIntent(intent);
+                startActivity(intent);
+
+            }
+        });
+
+        mOptionChoice3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(TwistyActivity.this, OceanActivity.class);
                 addActionsToIntent(intent);
                 startActivity(intent);
             }
         });
+
     }
 
     private void checkIfRoomHasBeenVisited(String roomName){
         //Read to see if room has been visited:
         boolean userHasBeenHere = mPreferences.getBoolean(roomName, false);
         if(userHasBeenHere == true){
+            setActionsText();
             return;
         }
         else {
-            addActions(1);
             //If room has not been visited:
-            Toast.makeText(MoanerActivity.this, "New location! +1 action", Toast.LENGTH_SHORT).show();
+            addActions(1);
+            Toast.makeText(TwistyActivity.this, "New location! +1 action", Toast.LENGTH_SHORT).show();
             SharedPreferences.Editor editor = mPreferences.edit();
             editor.putBoolean(roomName, true);
             editor.commit();
+            setActionsText();
+            actionButtonAnimation();
         }
 
     }
 
+    //Add a bigger bundle here which says if rooms have been visited, validate if room is visited by checking if it's in the bundle
     private void addActionsToIntent(Intent intent){
         String actionString = String.valueOf(mActions);
         intent.putExtra("theActions", actionString);
+    }
+
+    private boolean checkIntentForRoom(String roomName) {
+        Bundle extras = getIntent().getExtras();
+        String isRoom = extras.getString(roomName);
+        if(isRoom != null){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
     private void getActionsFromIntent() {
         Bundle extras = getIntent().getExtras();
@@ -104,17 +120,12 @@ public class MoanerActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MoanerActivity.this, ItemsListActivity.class);
+                Intent intent = new Intent(TwistyActivity.this, ItemsListActivity.class);
                 startActivity(intent);
             }
         });
     }
 
-    private void setActionsText() {
-        //  mActions = mUser.getActions();
-        mActionsTextView = (TextView) findViewById(R.id.actionsRemaining);
-        mActionsTextView.setText("Actions remaining " + mActions);
-    }
 
     private void deleteItem(String itemName) {
         Item.delete(itemName);
@@ -128,11 +139,25 @@ public class MoanerActivity extends AppCompatActivity {
     }
 
     private void subtractActions(int numToSubtract) {
-        mActions -= numToSubtract;
+       mActions -= numToSubtract;
     }
 
     private void addActions(int numToAdd) {
         mActions += numToAdd;
+    }
+
+    private void setActionsText() {
+        mActionsTextView = (TextView) findViewById(R.id.actionsRemaining);
+        mActionsTextView.setText("Actions remaining: " + mActions);
+    }
+    private void actionButtonAnimation(){
+        final Animation animation = new AlphaAnimation(1, 0); // Change alpha from fully visible to invisible
+        animation.setDuration(500); // duration - half a second
+        animation.setInterpolator(new LinearInterpolator()); // do not alter animation rate
+        animation.setRepeatCount(5); // Repeat animation infinitely
+        animation.setRepeatMode(Animation.REVERSE); // Reverse animation at the end so the button will fade back in
+        mActionsTextView.startAnimation(animation);
+
     }
 
 }

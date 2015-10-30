@@ -8,7 +8,7 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:showIn="@layout/activity_moaner"
-    tools:context="com.example.colleenminor.theadventure.ui.MoanerActivity">
+    tools:context="com.example.colleenminor.theadventure.ui.house.MoanerActivity">
 
 
     <RelativeLayout
@@ -64,7 +64,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/optionChoice2"
-            android:text="Leave"
+            android:text="Go back to staircase"
             android:padding="8dp"
             android:layout_marginBottom="31dp"
             android:layout_alignParentBottom="true"

@@ -1,4 +1,4 @@
-package com.example.colleenminor.theadventure.ui;
+package com.example.colleenminor.theadventure.ui.house;
 
 import android.content.Context;
 import android.content.Intent;
@@ -13,6 +13,8 @@ import android.widget.Toast;
 import com.example.colleenminor.theadventure.R;
 import com.example.colleenminor.theadventure.models.Item;
 import com.example.colleenminor.theadventure.models.User;
+import com.example.colleenminor.theadventure.ui.ItemsListActivity;
+import com.example.colleenminor.theadventure.ui.NameActivity;
 
 public class MainActivity extends AppCompatActivity {
     private SharedPreferences mPreferences;

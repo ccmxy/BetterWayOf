@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.colleenminor.theadventure.R;
+import com.example.colleenminor.theadventure.ui.house.MainActivity;
 
 public class NameActivity extends AppCompatActivity {
     private EditText mNameEdit;
