@@ -38,7 +38,8 @@
                 android:layout_centerHorizontal="true"
                 android:src="@drawable/melinda"
                 android:padding="8dp"
-                android:layout_alignParentStart="false" />
+                android:layout_alignParentStart="false"
+                android:layout_alignParentEnd="true" />
 
             <TextView
                 android:layout_width="wrap_content"

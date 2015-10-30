@@ -20,7 +20,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="&quot;Ahhh! Where am I?&quot; "
+            android:text="Suddenly she pulls you under water!"
             android:id="@+id/introText"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
@@ -45,7 +45,7 @@
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true"
             android:layout_above="@+id/optionChoice1"
-            android:text="What do you do?"
+            android:text="And you can still breath?! Well, it looks like you don&apos;t have much of a choice now..."
             android:padding="8dp" />
 
         <TextView
@@ -54,19 +54,9 @@
             android:id="@+id/optionChoice1"
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true"
-            android:layout_above="@+id/optionChoice2"
-            android:text="&quot;I have no idea who I am. I woke up and I was here.&quot;"
-            android:padding="8dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/optionChoice2"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true"
-            android:layout_above="@+id/optionChoice3"
-            android:text="&quot;I mean no harm. I was just leaving.&quot;"
-            android:padding="8dp" />
+            android:text="Enter kingdom"
+            android:padding="8dp"
+            android:layout_above="@+id/optionChoice3" />
 
         <TextView
             android:layout_width="wrap_content"
