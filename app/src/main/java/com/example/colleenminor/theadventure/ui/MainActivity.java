@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         mTakeItem = (TextView) findViewById(R.id.takeItem);
         mNextRoom = (TextView) findViewById(R.id.nextLagoon);
         mPreferences = getApplicationContext().getSharedPreferences("TheAdventure", Context.MODE_PRIVATE);
-
+        mRooms = new Rooms();
 
         if (!nameChosen()) {
             Intent intent = new Intent(this, NameActivity.class);

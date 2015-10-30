@@ -32,6 +32,8 @@ public class TwistyActivity extends AppCompatActivity {
         setContentView(R.layout.activity_twisty);
         getActionsFromIntent();
 
+        Rooms.mTwistyVisited = true;
+
 
         setTheItemButton();
         getPreferencesAndUser();
@@ -72,6 +74,7 @@ public class TwistyActivity extends AppCompatActivity {
 
     }
 
+    //Add a bigger bundle here which says if rooms have been visited, validate if room is visited by checking if it's in the bundle
     private void addActionsToIntent(Intent intent){
         String actionString = String.valueOf(mActions);
         intent.putExtra("theActions", actionString);
