@@ -59,6 +59,15 @@ public class MermaidActivity extends AppCompatActivity {
             }
         });
 
+        mOptionChoice2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MermaidActivity.this, OceanActivity.class);
+                addActionsToIntent(intent);
+                startActivity(intent);
+            }
+        });
+
 
         //"Throw crab at her"
         mOptionChoice3.setOnClickListener(new View.OnClickListener() {

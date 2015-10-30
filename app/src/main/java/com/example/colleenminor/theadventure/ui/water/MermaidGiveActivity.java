@@ -53,7 +53,7 @@ public class MermaidGiveActivity extends AppCompatActivity {
 
         lv = (ListView) findViewById(R.id.listView);
 
-        List<String> itemStringList = new ArrayList<String>();
+        List<String> itemStringList = new ArrayList<>();
         for(int i = 0; i < mItems.size(); i++){
             Item item = mItems.get(i);
             itemStringList.add(item.getItem());
@@ -95,7 +95,6 @@ public class MermaidGiveActivity extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
         String myActions = extras.getString("theActions");
         mActions = Integer.parseInt(myActions);
-        // mUser.setActions(mActions);
     }
 
 

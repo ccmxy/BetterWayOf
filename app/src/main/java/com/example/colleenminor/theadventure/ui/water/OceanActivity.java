@@ -48,8 +48,9 @@ private TextView mOptionChoice3; //explore this strange place
             @Override
             public void onClick(View v) {
                 addItem("seashells");
-                subtractActions(1);
+                subtractActions(2);
                 setActionsText();
+                actionButtonAnimation();
                 mOptionChoice1.setVisibility(View.GONE);
             }
         });
@@ -61,6 +62,7 @@ private TextView mOptionChoice3; //explore this strange place
                 addItem("crab");
                 subtractActions(1);
                 setActionsText();
+                actionButtonAnimation();
                 mOptionChoice2.setVisibility(View.GONE);
             }
         });
