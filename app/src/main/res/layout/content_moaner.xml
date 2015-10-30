@@ -34,11 +34,12 @@
             android:layout_height="wrap_content"
             android:layout_above="@+id/whatDo"
             android:layout_below="@+id/introText"
-            android:id="@+id/theImage2"
+            android:id="@+id/theImage7"
             android:layout_centerHorizontal="true"
-            android:src="@drawable/melinda"
+            android:src="@drawable/twisty"
             android:padding="8dp"
-            android:layout_alignParentStart="false" />
+            android:layout_alignParentStart="false"
+            android:layout_alignParentLeft="false"/>
 
         <TextView
             android:layout_width="wrap_content"

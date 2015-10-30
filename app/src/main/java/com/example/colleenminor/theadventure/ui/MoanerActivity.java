@@ -27,7 +27,7 @@ public class MoanerActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_twisty);
+        setContentView(R.layout.activity_moaner);
         getActionsFromIntent();
 
         setTheItemButton();
@@ -41,7 +41,7 @@ public class MoanerActivity extends AppCompatActivity {
         mOptionChoice3 = (TextView) findViewById(R.id.optionChoice3);
 
 //Give the old man what he needs
-        mOptionChoice2.setOnClickListener(new View.OnClickListener() {
+        mOptionChoice1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MoanerActivity.this, GiveActivity.class);
@@ -52,7 +52,7 @@ public class MoanerActivity extends AppCompatActivity {
             }
         });
 
-        mOptionChoice3.setOnClickListener(new View.OnClickListener() {
+        mOptionChoice2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MoanerActivity.this, OceanActivity.class);

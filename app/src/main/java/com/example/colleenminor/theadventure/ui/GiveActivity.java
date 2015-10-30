@@ -40,9 +40,7 @@ public class GiveActivity extends AppCompatActivity {
         for(int i = 0; i < mItems.size(); i++){
             Item item = mItems.get(i);
             String itemName = item.getItem();
-            if(itemName != "rabies") {
                 itemStringList.add(item.getItem());
-            }
         }
 
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
