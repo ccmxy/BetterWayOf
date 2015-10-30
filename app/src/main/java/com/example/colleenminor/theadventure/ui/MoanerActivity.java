@@ -52,10 +52,13 @@ public class MoanerActivity extends AppCompatActivity {
             }
         });
 
+        //"Leave"
+
         mOptionChoice2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MoanerActivity.this, OceanActivity.class);
+                subtractActions(1);
+                Intent intent = new Intent(MoanerActivity.this, TwistyActivity.class);
                 addActionsToIntent(intent);
                 startActivity(intent);
             }

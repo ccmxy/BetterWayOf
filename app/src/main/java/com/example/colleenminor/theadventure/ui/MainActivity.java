@@ -12,16 +12,17 @@ import android.widget.Toast;
 
 import com.example.colleenminor.theadventure.R;
 import com.example.colleenminor.theadventure.models.Item;
+import com.example.colleenminor.theadventure.models.Rooms;
 import com.example.colleenminor.theadventure.models.User;
 
 public class MainActivity extends AppCompatActivity {
     private SharedPreferences mPreferences;
     private User mUser;
     private int mActions;
+    private Rooms mRooms;
     private TextView mTakeItem;
     private TextView mActionsTextView;
     private TextView mNextRoom;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +43,6 @@ public class MainActivity extends AppCompatActivity {
         setActionsText();
 
         deleteAllItems();
-
 
             mTakeItem.setOnClickListener(new View.OnClickListener() {
             @Override

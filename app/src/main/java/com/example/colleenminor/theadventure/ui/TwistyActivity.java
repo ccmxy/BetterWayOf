@@ -12,9 +12,11 @@ import android.widget.Toast;
 
 import com.example.colleenminor.theadventure.R;
 import com.example.colleenminor.theadventure.models.Item;
+import com.example.colleenminor.theadventure.models.Rooms;
 import com.example.colleenminor.theadventure.models.User;
 
 public class TwistyActivity extends AppCompatActivity {
+    private Rooms mRooms;
     private User mUser;
     private SharedPreferences mPreferences;
     private int mActions;

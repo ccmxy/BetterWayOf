@@ -72,6 +72,11 @@
             android:label="@string/title_activity_give"
             android:theme="@style/Theme.AppCompat.NoActionBar" >
         </activity>
+        <activity
+            android:name=".ui.MermaidPalaceActivity"
+            android:label="@string/title_activity_mermaid_palace"
+            android:theme="@style/Theme.AppCompat.NoActionBar" >
+        </activity>
     </application>
 
 </manifest>
