@@ -57,19 +57,9 @@
                 android:id="@+id/optionChoice1"
                 android:layout_centerVertical="true"
                 android:layout_centerHorizontal="true"
-                android:layout_above="@+id/optionChoice2"
                 android:text="&quot;I have no idea who I am. I woke up and I was here.&quot;"
-                android:padding="8dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/optionChoice2"
-                android:layout_centerVertical="true"
-                android:layout_centerHorizontal="true"
-                android:layout_above="@+id/optionChoice3"
-                android:text="&quot;I mean no harm. I was just leaving.&quot;"
-                android:padding="8dp" />
+                android:padding="8dp"
+                android:layout_above="@+id/optionChoice3" />
 
             <TextView
                 android:layout_width="wrap_content"

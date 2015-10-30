@@ -8,7 +8,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.colleenminor.theadventure.R;
@@ -19,6 +21,8 @@ import java.util.List;
 
 public class MermaidGiveActivity extends AppCompatActivity {
     private SharedPreferences mPreferences;
+    private TextView mNoItems;
+    private Button mBackButton;
     private ArrayList<Item> mItems;
     private ArrayList<String> mItemsString;
     private ListView lv;
@@ -29,10 +33,23 @@ public class MermaidGiveActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mermaid_give);
         mPreferences = getApplicationContext().getSharedPreferences("TheAdventure", Context.MODE_PRIVATE);
+        mNoItems = (TextView) findViewById(R.id.noItems);
+        mBackButton = (Button) findViewById(R.id.backButton);
         String username = mPreferences.getString("username", null);
         mItems = (ArrayList) Item.all();
+        if (mItems.size() == 0){
+            mNoItems.setVisibility(TextView.VISIBLE);
+        }
 
-        lv = (ListView) findViewById(R.id.list);
+        mBackButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MermaidGiveActivity.this, MermaidActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        lv = (ListView) findViewById(R.id.listView);
 
         List<String> itemStringList = new ArrayList<String>();
         for(int i = 0; i < mItems.size(); i++){
@@ -40,12 +57,14 @@ public class MermaidGiveActivity extends AppCompatActivity {
             itemStringList.add(item.getItem());
         }
 
+
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
                 this,
                 android.R.layout.simple_list_item_1,
                 itemStringList);
 
         lv.setAdapter(arrayAdapter);
+        String cheese = "test";
 
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
@@ -61,9 +80,13 @@ public class MermaidGiveActivity extends AppCompatActivity {
                     Toast toast = Toast.makeText(getApplicationContext(),
                             "The conch shell of DESTINY!!!", Toast.LENGTH_SHORT);
                     toast.show();
+                    Item.delete("seashells");
                     Intent intent = new Intent(MermaidGiveActivity.this, MermaidPalaceActivity.class);
+                    startActivity(intent);
+
                 }
             }
+
 
 
         });

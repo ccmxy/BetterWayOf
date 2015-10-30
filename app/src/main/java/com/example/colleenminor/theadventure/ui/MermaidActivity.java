@@ -48,14 +48,8 @@ public class MermaidActivity extends AppCompatActivity {
         mOptionChoice1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-            }
-        });
-
-
-        mOptionChoice2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+                Intent intent = new Intent(MermaidActivity.this, MermaidGiveActivity.class);
+                startActivity(intent);
 
             }
         });
