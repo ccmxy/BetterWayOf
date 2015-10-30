@@ -12,14 +12,12 @@ import android.widget.Toast;
 
 import com.example.colleenminor.theadventure.R;
 import com.example.colleenminor.theadventure.models.Item;
-import com.example.colleenminor.theadventure.models.Rooms;
 import com.example.colleenminor.theadventure.models.User;
 
 public class MainActivity extends AppCompatActivity {
     private SharedPreferences mPreferences;
     private User mUser;
     private int mActions;
-    private Rooms mRooms;
     private TextView mTakeItem;
     private TextView mActionsTextView;
     private TextView mNextRoom;
@@ -33,7 +31,8 @@ public class MainActivity extends AppCompatActivity {
         mTakeItem = (TextView) findViewById(R.id.takeItem);
         mNextRoom = (TextView) findViewById(R.id.nextLagoon);
         mPreferences = getApplicationContext().getSharedPreferences("TheAdventure", Context.MODE_PRIVATE);
-        mRooms = new Rooms();
+        resetRooms();
+        deleteAllItems();
 
         if (!nameChosen()) {
             Intent intent = new Intent(this, NameActivity.class);
@@ -42,9 +41,7 @@ public class MainActivity extends AppCompatActivity {
         mUser.setActions(1);
         setActionsText();
 
-        deleteAllItems();
-
-            mTakeItem.setOnClickListener(new View.OnClickListener() {
+        mTakeItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 addItem("candlestick");
@@ -57,13 +54,25 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, TwistyActivity.class);
-                String actionString = String.valueOf(mActions);
-                intent.putExtra("theActions", actionString);
+                addActionsToIntent(intent);
                 startActivity(intent);
             }
 
         });
 
+    }
+
+    private void resetRooms() {
+        SharedPreferences.Editor editor = mPreferences.edit();
+        editor.putBoolean("Twisty", false);
+        editor.commit();
+    }
+
+
+
+    private void addActionsToIntent(Intent intent){
+        String actionString = String.valueOf(mActions);
+        intent.putExtra("theActions", actionString);
     }
 
     private boolean nameChosen() {

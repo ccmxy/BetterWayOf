@@ -12,11 +12,9 @@ import android.widget.Toast;
 
 import com.example.colleenminor.theadventure.R;
 import com.example.colleenminor.theadventure.models.Item;
-import com.example.colleenminor.theadventure.models.Rooms;
 import com.example.colleenminor.theadventure.models.User;
 
 public class TwistyActivity extends AppCompatActivity {
-    private Rooms mRooms;
     private User mUser;
     private SharedPreferences mPreferences;
     private int mActions;
@@ -30,16 +28,12 @@ public class TwistyActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_twisty);
-        getActionsFromIntent();
-
-        Rooms.mTwistyVisited = true;
-
 
         setTheItemButton();
         getPreferencesAndUser();
         getActionsFromIntent();
-        addActions(1);
-        setActionsText();
+        checkIfRoomHasBeenVisited("Twisty");
+
 
         mOptionChoice2 = (TextView) findViewById(R.id.optionChoice2);
         mOptionChoice3 = (TextView) findViewById(R.id.optionChoice3);
@@ -74,10 +68,38 @@ public class TwistyActivity extends AppCompatActivity {
 
     }
 
+    private void checkIfRoomHasBeenVisited(String roomName){
+        //Read to see if room has been visited:
+        boolean userHasBeenHere = mPreferences.getBoolean(roomName, false);
+        if(userHasBeenHere == true){
+            return;
+        }
+        else {
+            addActions(1);
+            //If room has not been visited:
+            Toast.makeText(TwistyActivity.this, "New location!", Toast.LENGTH_SHORT).show();
+            SharedPreferences.Editor editor = mPreferences.edit();
+            editor.putBoolean(roomName, true);
+            editor.commit();
+        }
+
+    }
+
     //Add a bigger bundle here which says if rooms have been visited, validate if room is visited by checking if it's in the bundle
     private void addActionsToIntent(Intent intent){
         String actionString = String.valueOf(mActions);
         intent.putExtra("theActions", actionString);
+    }
+
+    private boolean checkIntentForRoom(String roomName) {
+        Bundle extras = getIntent().getExtras();
+        String isRoom = extras.getString(roomName);
+        if(isRoom != null){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
     private void getActionsFromIntent() {
         Bundle extras = getIntent().getExtras();
