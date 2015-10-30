@@ -27,7 +27,6 @@ public class MermaidGiveActivity extends AppCompatActivity {
     private ArrayList<String> mItemsString;
     private ListView lv;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,16 +55,11 @@ public class MermaidGiveActivity extends AppCompatActivity {
             Item item = mItems.get(i);
             itemStringList.add(item.getItem());
         }
-
-
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
                 this,
                 android.R.layout.simple_list_item_1,
                 itemStringList);
-
         lv.setAdapter(arrayAdapter);
-        String cheese = "test";
-
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
@@ -73,7 +67,7 @@ public class MermaidGiveActivity extends AppCompatActivity {
                 String theItem = (String) arg0.getItemAtPosition(position);
                 if (!(theItem.equals("seashells"))) {
                     Toast toast = Toast.makeText(getApplicationContext(),
-                            "No, no the " + (String) arg0.getItemAtPosition(position) + "!", Toast.LENGTH_SHORT);
+                            "No, not the " + (String) arg0.getItemAtPosition(position) + "!", Toast.LENGTH_SHORT);
                     toast.show();
                 }
                 if (theItem.equals("seashells")) {

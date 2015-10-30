@@ -26,19 +26,17 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        setTheItemButton();
 
         mTakeItem = (TextView) findViewById(R.id.takeItem);
         mNextRoom = (TextView) findViewById(R.id.nextLagoon);
         mPreferences = getApplicationContext().getSharedPreferences("TheAdventure", Context.MODE_PRIVATE);
+
         resetRooms();
         deleteAllItems();
+        setTheItemButton();
+        getTheUser();
 
-        if (!nameChosen()) {
-            Intent intent = new Intent(this, NameActivity.class);
-            startActivity(intent);
-        }
-        mUser.setActions(1);
+        mActions = 1;
         setActionsText();
 
         mTakeItem.setOnClickListener(new View.OnClickListener() {
@@ -61,6 +59,8 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
+    //End of onCreate
+
 
     private void resetRooms() {
         SharedPreferences.Editor editor = mPreferences.edit();
@@ -76,6 +76,20 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra("theActions", actionString);
     }
 
+    private void setActionsText() {
+        mActions = mUser.getActions();
+        mActionsTextView = (TextView) findViewById(R.id.actionsRemaining);
+        mActionsTextView.setText("Actions remaining " + mActions);
+    }
+
+    private void getTheUser(){
+        if (!nameChosen()) {
+            Intent intent = new Intent(this, NameActivity.class);
+            startActivity(intent);
+        }
+    }
+
+
     private boolean nameChosen() {
         String username = mPreferences.getString("username", null);
         if (username == null) {
@@ -90,17 +104,17 @@ public class MainActivity extends AppCompatActivity {
         User user = User.find(username);
         if (user != null) {
             mUser = user;
-            mActions = mUser.getActions();
+           // mActions = mUser.getActions();
         } else {
             mUser = new User(username, 1);
             mUser.save();
-            mActions = mUser.getActions();
+           // mActions = mUser.getActions();
         }
         Toast.makeText(this, "Welcome to the start of your great adventure, " + mUser.getName()
                 +"! The number of actions that you have is displayed in " +
                 " the icon in the icon in the bottom left corner. " +
                 " Choices that cost an action are highlighted." +
-                "You can view your item inventory any time by clicking the bottom right icon.", Toast.LENGTH_LONG).show();
+                "You can view your item inventory any time by clicking the bottom right icon.", Toast.LENGTH_SHORT).show();
     }
 
     private void deleteAllItems() {
@@ -112,26 +126,8 @@ public class MainActivity extends AppCompatActivity {
     private void addItem(String itemName) {
         Item item = new Item(itemName, mUser);
         item.save();
-        Toast.makeText(this, mUser.getName() + ", candlestick has been added to your inventory", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, mUser.getName() + ", candlestick has been added to your inventory", Toast.LENGTH_SHORT).show();
 
-    }
-
-    private void setActionsText() {
-        mActions = mUser.getActions();
-        mActionsTextView = (TextView) findViewById(R.id.actionsRemaining);
-        mActionsTextView.setText("Actions remaining " + mActions);
-    }
-
-    private void subtractActions(int numToSubtract) {
-      /*  mUser.subtractActions(numToAdd);
-        mActions = mUser.getActions();*/
-        mActions = mActions - numToSubtract;
-    }
-
-    private void addActions(int numToAdd) {
-        //Got rid of mUser.addActions(numToAdd);
-       // mUser.addActions(numToAdd);
-        mActions = mActions + numToAdd;
     }
 
     private void setTheItemButton() {
@@ -141,8 +137,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, ItemsListActivity.class);
                 startActivity(intent);
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
             }
         });
     }

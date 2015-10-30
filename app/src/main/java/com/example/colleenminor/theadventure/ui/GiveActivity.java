@@ -7,7 +7,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.colleenminor.theadventure.R;
@@ -18,6 +20,8 @@ import java.util.List;
 
 public class GiveActivity extends AppCompatActivity {
     private SharedPreferences mPreferences;
+    private TextView mNoItems;
+    private Button mButton;
     private ArrayList<Item> mItems;
     private ArrayList<String> mItemsString;
     private ListView lv;
@@ -28,11 +32,13 @@ public class GiveActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_items_list);
-//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-//        setSupportActionBar(toolbar);
         mPreferences = getApplicationContext().getSharedPreferences("TheAdventure", Context.MODE_PRIVATE);
-        String username = mPreferences.getString("username", null);
+        mNoItems = (TextView) findViewById(R.id.noItems);
         mItems = (ArrayList) Item.all();
+        //It can't find the noItems for some reason...
+//        if (mItems.size() == 0){
+//            mNoItems.setVisibility(TextView.VISIBLE);
+//        }
 
         lv = (ListView) findViewById(R.id.list);
 
@@ -55,20 +61,32 @@ public class GiveActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
                 String theItem = (String) arg0.getItemAtPosition(position);
-                if(!(theItem.equals("water"))){
+                if (!(theItem.equals("water"))) {
                     Toast toast = Toast.makeText(getApplicationContext(),
                             "No, no the " + (String) arg0.getItemAtPosition(position) + "!", Toast.LENGTH_SHORT);
                     toast.show();
                 }
-                if(theItem.equals("water")){
+                if (theItem.equals("water")) {
                     Toast toast = Toast.makeText(getApplicationContext(),
                             "Ah, that's better! Thanks for the " + (String) arg0.getItemAtPosition(position) + "!", Toast.LENGTH_SHORT);
                     toast.show();
                 }
             }
 
+            public void myClickHandler(View target) {
+                Toast toast = Toast.makeText(getApplicationContext(),
+                        "Ah, that's better! Thanks for the " , Toast.LENGTH_SHORT);
+                toast.show();
+
+                // Do stuff
+            }
+
 
         });
+
+
+
+
     }
 
 
