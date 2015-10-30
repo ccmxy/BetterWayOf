@@ -24,8 +24,9 @@ public class MermaidGiveActivity extends AppCompatActivity {
     private TextView mNoItems;
     private Button mBackButton;
     private ArrayList<Item> mItems;
-    private ArrayList<String> mItemsString;
     private ListView lv;
+    private int mActions;
+    private TextView mActionsTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +35,7 @@ public class MermaidGiveActivity extends AppCompatActivity {
         mPreferences = getApplicationContext().getSharedPreferences("TheAdventure", Context.MODE_PRIVATE);
         mNoItems = (TextView) findViewById(R.id.noItems);
         mBackButton = (Button) findViewById(R.id.backButton);
+        getActionsFromIntent();
         String username = mPreferences.getString("username", null);
         mItems = (ArrayList) Item.all();
         if (mItems.size() == 0){
@@ -44,6 +46,7 @@ public class MermaidGiveActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MermaidGiveActivity.this, MermaidActivity.class);
+                addActionsToIntent(intent);
                 startActivity(intent);
             }
         });
@@ -76,15 +79,25 @@ public class MermaidGiveActivity extends AppCompatActivity {
                     toast.show();
                     Item.delete("seashells");
                     Intent intent = new Intent(MermaidGiveActivity.this, MermaidPalaceActivity.class);
+                    addActionsToIntent(intent);
                     startActivity(intent);
 
                 }
             }
-
-
-
         });
     }
+
+    private void addActionsToIntent(Intent intent){
+        String actionString = String.valueOf(mActions);
+        intent.putExtra("theActions", actionString);
+    }
+    private void getActionsFromIntent() {
+        Bundle extras = getIntent().getExtras();
+        String myActions = extras.getString("theActions");
+        mActions = Integer.parseInt(myActions);
+        // mUser.setActions(mActions);
+    }
+
 
 
 }

@@ -53,6 +53,7 @@ public class MermaidActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MermaidActivity.this, MermaidGiveActivity.class);
+                addActionsToIntent(intent);
                 startActivity(intent);
 
             }
@@ -64,6 +65,7 @@ public class MermaidActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MermaidActivity.this, MermerActivity.class);
+                addActionsToIntent(intent);
                 startActivity(intent);
             }
         });
