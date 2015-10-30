@@ -32,11 +32,10 @@ public class MoanerActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_moaner);
-        getActionsFromIntent();
 
         setTheItemButton();
         getPreferencesAndUser();
-        getActionsFromIntent();
+        getActionsFromIntent(); //new
 
         checkIfRoomHasBeenVisited("Moaner");
         setActionsText();
@@ -50,7 +49,8 @@ public class MoanerActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MoanerActivity.this, GiveActivity.class);
-                addActionsToIntent(intent);
+               // addActionsToIntent(intent);
+                putActionsInPrefs();
                 startActivity(intent);
 
 
@@ -100,6 +100,18 @@ public class MoanerActivity extends AppCompatActivity {
         mActionsTextView.startAnimation(animation);
 
     }
+
+    private void getActionsFromPrefs() {
+        mActions = mPreferences.getInt("Actions", -1);
+    }
+
+    private void putActionsInPrefs() {
+        SharedPreferences.Editor editor = mPreferences.edit();
+        editor.putInt("Actions", mActions);
+        editor.commit();
+    }
+
+
 
 
     private void addActionsToIntent(Intent intent){

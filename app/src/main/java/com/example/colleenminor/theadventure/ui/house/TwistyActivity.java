@@ -39,7 +39,9 @@ public class TwistyActivity extends AppCompatActivity {
 
         setTheItemButton();
         getPreferencesAndUser();
+       // getActionsFromIntent();
         getActionsFromIntent();
+        //getActionsFromPrefs();
         checkIfRoomHasBeenVisited("Twisty");
 
         mOptionChoice2 = (TextView) findViewById(R.id.optionChoice2);
@@ -49,7 +51,8 @@ public class TwistyActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(TwistyActivity.this, MoanerActivity.class);
-                addActionsToIntent(intent);
+               addActionsToIntent(intent);
+                putActionsInPrefs();
                 startActivity(intent);
 
             }
@@ -59,7 +62,8 @@ public class TwistyActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(TwistyActivity.this, OceanActivity.class);
-                addActionsToIntent(intent);
+              addActionsToIntent(intent);
+                putActionsInPrefs();
                 startActivity(intent);
             }
         });
@@ -87,6 +91,20 @@ public class TwistyActivity extends AppCompatActivity {
             actionButtonAnimation();
         }
 
+    }
+
+    private void putActionsInPrefs() {
+        SharedPreferences.Editor editor = mPreferences.edit();
+//        editor.remove("Actions");
+//        editor.apply();
+        editor.putInt("Actions", mActions);
+        editor.commit();
+    }
+
+
+
+    private void getActionsFromPrefs() {
+        mActions = mPreferences.getInt("Actions", -1);
     }
 
     //Add a bigger bundle here which says if rooms have been visited, validate if room is visited by checking if it's in the bundle

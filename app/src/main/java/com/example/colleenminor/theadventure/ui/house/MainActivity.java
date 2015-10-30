@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         mPreferences = getApplicationContext().getSharedPreferences("TheAdventure", Context.MODE_PRIVATE);
 
         resetRooms();
+        putActionsInPrefs();
         deleteAllItems();
         setTheItemButton();
         getTheUser();
@@ -72,6 +73,13 @@ public class MainActivity extends AppCompatActivity {
         editor.putBoolean("Mermaid", false);
         editor.commit();
     }
+
+    private void putActionsInPrefs() {
+        SharedPreferences.Editor editor = mPreferences.edit();
+        editor.putInt("Actions", 1);
+        editor.commit();
+    }
+
 
     private void addActionsToIntent(Intent intent){
         String actionString = String.valueOf(mActions);
