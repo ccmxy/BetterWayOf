@@ -14,7 +14,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.colleenminor.theadventure.R;
-import com.example.colleenminor.theadventure.models.Item;
 import com.example.colleenminor.theadventure.models.User;
 import com.example.colleenminor.theadventure.ui.ItemsListActivity;
 
@@ -49,11 +48,8 @@ public class MoanerActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MoanerActivity.this, GiveActivity.class);
-               // addActionsToIntent(intent);
                 putActionsInPrefs();
                 startActivity(intent);
-
-
             }
         });
 
@@ -62,7 +58,8 @@ public class MoanerActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MoanerActivity.this, TwistyActivity.class);
-                addActionsToIntent(intent);
+               // addActionsToIntent(intent);
+                putActionsInPrefs();
                 startActivity(intent);
             }
         });
@@ -101,18 +98,14 @@ public class MoanerActivity extends AppCompatActivity {
 
     }
 
-    private void getActionsFromPrefs() {
-        mActions = mPreferences.getInt("Actions", -1);
-    }
-
     private void putActionsInPrefs() {
         SharedPreferences.Editor editor = mPreferences.edit();
+        editor.remove("Actions");
+        editor.apply();
+
         editor.putInt("Actions", mActions);
         editor.commit();
     }
-
-
-
 
     private void addActionsToIntent(Intent intent){
         String actionString = String.valueOf(mActions);
@@ -143,6 +136,16 @@ public class MoanerActivity extends AppCompatActivity {
         });
     }
 
+    private void addActions(int numToAdd) {
+        mActions += numToAdd;
+    }
+
+}
+
+
+/*
+
+
     private void deleteItem(String itemName) {
         Item.delete(itemName);
     }
@@ -158,8 +161,12 @@ public class MoanerActivity extends AppCompatActivity {
         mActions -= numToSubtract;
     }
 
-    private void addActions(int numToAdd) {
-        mActions += numToAdd;
+
+
+    private void getActionsFromPrefs() {
+        mActions = mPreferences.getInt("Actions", -1);
     }
 
-}
+
+
+*/

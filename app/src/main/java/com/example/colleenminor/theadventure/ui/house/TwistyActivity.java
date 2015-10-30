@@ -39,9 +39,7 @@ public class TwistyActivity extends AppCompatActivity {
 
         setTheItemButton();
         getPreferencesAndUser();
-       // getActionsFromIntent();
-        getActionsFromIntent();
-        //getActionsFromPrefs();
+        getActionsFromPrefs();
         checkIfRoomHasBeenVisited("Twisty");
 
         mOptionChoice2 = (TextView) findViewById(R.id.optionChoice2);
@@ -75,7 +73,6 @@ public class TwistyActivity extends AppCompatActivity {
         boolean userHasBeenHere = mPreferences.getBoolean(roomName, false);
         if(userHasBeenHere == true){
             setActionsText();
-            return;
         }
         else {
             //If room has not been visited:
@@ -95,8 +92,8 @@ public class TwistyActivity extends AppCompatActivity {
 
     private void putActionsInPrefs() {
         SharedPreferences.Editor editor = mPreferences.edit();
-//        editor.remove("Actions");
-//        editor.apply();
+    editor.remove("Actions");
+        editor.apply();
         editor.putInt("Actions", mActions);
         editor.commit();
     }
