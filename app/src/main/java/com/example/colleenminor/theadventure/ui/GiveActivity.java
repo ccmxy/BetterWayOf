@@ -54,9 +54,17 @@ public class GiveActivity extends AppCompatActivity {
 
             @Override
             public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
-                Toast toast = Toast.makeText(getApplicationContext(),
-                        (String) arg0.getItemAtPosition(position), Toast.LENGTH_SHORT);
-                toast.show();
+                String theItem = (String) arg0.getItemAtPosition(position);
+                if(!(theItem.equals("water"))){
+                    Toast toast = Toast.makeText(getApplicationContext(),
+                            "No, no the " + (String) arg0.getItemAtPosition(position) + "!", Toast.LENGTH_SHORT);
+                    toast.show();
+                }
+                if(theItem.equals("water")){
+                    Toast toast = Toast.makeText(getApplicationContext(),
+                            "Ah, that's better! Thanks for the " + (String) arg0.getItemAtPosition(position) + "!", Toast.LENGTH_SHORT);
+                    toast.show();
+                }
             }
 
 
