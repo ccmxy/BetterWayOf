@@ -31,7 +31,7 @@ private TextView mOptionChoice3; //explore this strange place
         setTheItemButton();
         getPreferencesAndUserAndActions();
         getActionsFromIntent();
-        addActions(1);
+        checkIfRoomHasBeenVisited("Ocean");
         setActionsText();
 
         mOptionChoice1 = (TextView) findViewById(R.id.optionChoice1);
@@ -121,6 +121,22 @@ private TextView mOptionChoice3; //explore this strange place
 
     private void addActions(int numToAdd) {
             mActions += numToAdd;
+    }
+    private void checkIfRoomHasBeenVisited(String roomName){
+        //Read to see if room has been visited:
+        boolean userHasBeenHere = mPreferences.getBoolean(roomName, false);
+        if(userHasBeenHere == true){
+            return;
+        }
+        else {
+            addActions(1);
+            //If room has not been visited:
+            Toast.makeText(OceanActivity.this, "New location! +1 action", Toast.LENGTH_SHORT).show();
+            SharedPreferences.Editor editor = mPreferences.edit();
+            editor.putBoolean(roomName, true);
+            editor.commit();
+        }
+
     }
 
 }

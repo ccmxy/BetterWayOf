@@ -33,7 +33,8 @@ public class MoanerActivity extends AppCompatActivity {
         setTheItemButton();
         getPreferencesAndUser();
         getActionsFromIntent();
-        addActions(1);
+
+        checkIfRoomHasBeenVisited("Moaner");
         setActionsText();
 
         mOptionChoice1 = (TextView) findViewById(R.id.optionChoice1);
@@ -53,23 +54,30 @@ public class MoanerActivity extends AppCompatActivity {
         });
 
         //"Leave"
-
         mOptionChoice2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                subtractActions(1);
                 Intent intent = new Intent(MoanerActivity.this, TwistyActivity.class);
                 addActionsToIntent(intent);
                 startActivity(intent);
             }
         });
-        //Where other stuff goes
+    }
 
-
-
-
-        //End of custom stuffs
-
+    private void checkIfRoomHasBeenVisited(String roomName){
+        //Read to see if room has been visited:
+        boolean userHasBeenHere = mPreferences.getBoolean(roomName, false);
+        if(userHasBeenHere == true){
+            return;
+        }
+        else {
+            addActions(1);
+            //If room has not been visited:
+            Toast.makeText(MoanerActivity.this, "New location! +1 action", Toast.LENGTH_SHORT).show();
+            SharedPreferences.Editor editor = mPreferences.edit();
+            editor.putBoolean(roomName, true);
+            editor.commit();
+        }
 
     }
 

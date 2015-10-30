@@ -32,7 +32,7 @@ public class MermaidActivity extends AppCompatActivity {
         setTheItemButton();
         getPreferencesAndUser();
         getActionsFromIntent();
-        addActions(1);
+        checkIfRoomHasBeenVisited("Mermaid");
         setActionsText();
 
         mOptionChoice1 = (TextView) findViewById(R.id.optionChoice1);
@@ -71,9 +71,6 @@ public class MermaidActivity extends AppCompatActivity {
         });
 
         //Where other stuff goes
-
-
-
 
         //End of custom stuffs
 
@@ -142,6 +139,23 @@ public class MermaidActivity extends AppCompatActivity {
 
     private void addActions(int numToAdd) {
         mActions += numToAdd;
+    }
+
+    private void checkIfRoomHasBeenVisited(String roomName){
+        //Read to see if room has been visited:
+        boolean userHasBeenHere = mPreferences.getBoolean(roomName, false);
+        if(userHasBeenHere == true){
+            return;
+        }
+        else {
+            addActions(1);
+            //If room has not been visited:
+            Toast.makeText(MermaidActivity.this, "New location! +1 action", Toast.LENGTH_SHORT).show();
+            SharedPreferences.Editor editor = mPreferences.edit();
+            editor.putBoolean(roomName, true);
+            editor.commit();
+        }
+
     }
 
 //    private void subtractActions(int numToSubtract) {

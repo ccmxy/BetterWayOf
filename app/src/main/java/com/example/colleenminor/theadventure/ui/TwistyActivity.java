@@ -32,12 +32,11 @@ public class TwistyActivity extends AppCompatActivity {
         setTheItemButton();
         getPreferencesAndUser();
         getActionsFromIntent();
+        setActionsText();
         checkIfRoomHasBeenVisited("Twisty");
-
 
         mOptionChoice2 = (TextView) findViewById(R.id.optionChoice2);
         mOptionChoice3 = (TextView) findViewById(R.id.optionChoice3);
-
 
         mOptionChoice2.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,7 +48,6 @@ public class TwistyActivity extends AppCompatActivity {
             }
         });
 
-
         mOptionChoice3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -58,13 +56,6 @@ public class TwistyActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        //Where other stuff goes
-
-
-
-
-        //End of custom stuffs
-
 
     }
 
@@ -75,9 +66,9 @@ public class TwistyActivity extends AppCompatActivity {
             return;
         }
         else {
-            addActions(1);
             //If room has not been visited:
-            Toast.makeText(TwistyActivity.this, "New location!", Toast.LENGTH_SHORT).show();
+            addActions(1);
+            Toast.makeText(TwistyActivity.this, "New location! +1 action", Toast.LENGTH_SHORT).show();
             SharedPreferences.Editor editor = mPreferences.edit();
             editor.putBoolean(roomName, true);
             editor.commit();
