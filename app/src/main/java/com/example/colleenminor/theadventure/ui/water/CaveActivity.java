@@ -153,6 +153,10 @@ public class CaveActivity extends AppCompatActivity {
         if(mSegmentTracker == 3){
             mCaveSegment.setText("Cave Segment 3");
         }
+        if(mSegmentTracker == 4){
+            Intent intent = new Intent(CaveActivity.this, LostActivity.class);
+            startActivity(intent);
+        }
 
     }
 }
