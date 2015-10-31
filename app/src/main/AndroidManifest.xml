@@ -87,6 +87,11 @@
             android:label="@string/title_activity_no_air"
             android:theme="@style/Theme.AppCompat.NoActionBar" >
         </activity>
+        <activity
+            android:name=".ui.water.QuitterActivity"
+            android:label="@string/title_activity_quitter"
+            android:theme="@style/Theme.AppCompat.NoActionBar" >
+        </activity>
     </application>
 
 </manifest>

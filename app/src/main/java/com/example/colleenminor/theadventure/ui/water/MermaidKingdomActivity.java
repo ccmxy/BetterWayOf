@@ -14,11 +14,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.colleenminor.theadventure.R;
+import com.example.colleenminor.theadventure.models.User;
 import com.example.colleenminor.theadventure.ui.ItemsListActivity;
 
 public class MermaidKingdomActivity extends AppCompatActivity {
 
-   // private User mUser;
+    private User mUser;
     private SharedPreferences mPreferences;
     private int mActions;
     private TextView mActionsTextView;
@@ -30,7 +31,7 @@ public class MermaidKingdomActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mermaid_kingdom);
         setTheItemButton();
-        getPreferences();
+        getPreferencesAndUser();
         getActionsFromPrefs();
         checkIfRoomHasBeenVisited("MermaidKingdom");
         setActionsText();
@@ -42,8 +43,8 @@ public class MermaidKingdomActivity extends AppCompatActivity {
                 subtractActions(2);
                 setActionsText();
                 actionButtonAnimation();
-//                mOptionChoice1 = (TextView) findViewById(R.id.optionChoice1);
-//                mOptionChoice1.setVisibility(View.INVISIBLE);
+                mOptionChoice1 = (TextView) findViewById(R.id.optionChoice1);
+                mOptionChoice1.setVisibility(View.INVISIBLE);
             }
         });
         mOptionChoice2 = (TextView) findViewById(R.id.optionChoice2);
@@ -92,8 +93,11 @@ public class MermaidKingdomActivity extends AppCompatActivity {
         mActions = mPreferences.getInt("Actions", 0);
     }
 
-    private void getPreferences() {
+    private void getPreferencesAndUser() {
         mPreferences = getApplicationContext().getSharedPreferences("TheAdventure", Context.MODE_PRIVATE);
+        String username =  mPreferences.getString("username", null);
+        mUser = User.find(username);
+        //mActions = mUser.getActions();
     }
 
     //Have to set the correct intent for this one
