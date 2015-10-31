@@ -33,7 +33,7 @@
             android:layout_height="wrap_content"
             android:layout_above="@+id/whatDo"
             android:layout_below="@+id/introText"
-            android:id="@+id/theImage7"
+            android:id="@+id/oldManImage"
             android:layout_centerHorizontal="true"
             android:src="@drawable/moaningman"
             android:padding="8dp"
@@ -69,6 +69,16 @@
             android:layout_marginBottom="31dp"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bash head with skull of seo"
+            android:id="@+id/optionChoice4"
+            android:layout_alignParentBottom="true"
+            android:layout_alignLeft="@+id/optionChoice2"
+            android:layout_alignStart="@+id/optionChoice2"
+            android:visibility="invisible" />
 
     </RelativeLayout>
 

@@ -72,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
         editor.putBoolean("Mermaid", false);
         editor.putBoolean("MermaidPalace", false);
         editor.putBoolean("MermaidKingdom", false);
+        editor.putBoolean("OldManDead", false);
         editor.commit();
     }
 

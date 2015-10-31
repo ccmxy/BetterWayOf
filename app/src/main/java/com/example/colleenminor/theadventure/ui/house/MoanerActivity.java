@@ -6,14 +6,17 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Gravity;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.LinearInterpolator;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.colleenminor.theadventure.R;
+import com.example.colleenminor.theadventure.models.Item;
 import com.example.colleenminor.theadventure.models.User;
 import com.example.colleenminor.theadventure.ui.ItemsListActivity;
 
@@ -22,9 +25,13 @@ public class MoanerActivity extends AppCompatActivity {
     private SharedPreferences mPreferences;
     private int mActions;
     private TextView mActionsTextView;
-    private TextView mOptionChoice1; //re-light candle
-    private TextView mOptionChoice2; //go upstairs (moaning)
-    private TextView mOptionChoice3; //go downstairs (ocean)
+    private TextView mOptionChoice1;
+    private TextView mOptionChoice2;
+    private TextView mOptionChoice4;
+    private TextView mIntroText;
+    private ImageView mOldManImage;
+    private boolean mOldManIsDead;
+
 
 
     @Override
@@ -35,14 +42,40 @@ public class MoanerActivity extends AppCompatActivity {
         setTheItemButton();
         getPreferencesAndUser();
         getActionsFromPrefs();
-
+        checkIfOldManIsDead();
         checkIfRoomHasBeenVisited("Moaner");
         setActionsText();
 
         mOptionChoice1 = (TextView) findViewById(R.id.optionChoice1);
         mOptionChoice2 = (TextView) findViewById(R.id.optionChoice2);
-        mOptionChoice3 = (TextView) findViewById(R.id.optionChoice3);
+        mOptionChoice4 = (TextView) findViewById(R.id.optionChoice4);
+        mIntroText = (TextView) findViewById(R.id.introText);
+        mOldManImage = (ImageView) findViewById(R.id.oldManImage);
 
+        if(mOldManIsDead) {
+            mOptionChoice1.setVisibility(View.INVISIBLE);
+            mOptionChoice4.setVisibility(View.INVISIBLE);
+            mOldManImage.setVisibility(View.INVISIBLE);
+            mIntroText.setText("You have killed the old man. Go back to the mermaid kingdom to tell the mermaids.");
+        }
+            if (Item.find("skull of seo") != null) {
+                mOptionChoice4.setVisibility(View.VISIBLE);
+                mOptionChoice4.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        mOptionChoice4.setVisibility(View.INVISIBLE);
+                        mOptionChoice1.setVisibility(View.INVISIBLE);
+                        mOldManImage.setVisibility(View.INVISIBLE);
+                        mIntroText.setText("You have killed the old man. Go back to the mermaid kingdom to tell the mermaids.");
+                        SharedPreferences.Editor editor = mPreferences.edit();
+                        editor.putBoolean("OldManDead", true);
+                        editor.commit();
+                        Item.delete("skull of seo");
+                    }
+                });
+
+
+            }
             //Give the old man what he needs
             mOptionChoice1.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -62,6 +95,7 @@ public class MoanerActivity extends AppCompatActivity {
                     startActivity(intent);
                 }
             });
+
     }
 
     private void checkIfRoomHasBeenVisited(String roomName){
@@ -74,7 +108,9 @@ public class MoanerActivity extends AppCompatActivity {
         else {
             //If room has not been visited:
             addActions(1);
-            Toast.makeText(MoanerActivity.this, "New location! +1 action", Toast.LENGTH_SHORT).show();
+            Toast toast = Toast.makeText(MoanerActivity.this, "New location! +1 action", Toast.LENGTH_SHORT);
+            toast.setGravity(Gravity.TOP | Gravity.LEFT, 0, 0);
+            toast.show();
             SharedPreferences.Editor editor = mPreferences.edit();
             editor.putBoolean(roomName, true);
             editor.commit();
@@ -82,6 +118,12 @@ public class MoanerActivity extends AppCompatActivity {
             actionButtonAnimation();
         }
     }
+
+    private void checkIfOldManIsDead(){
+        //Read to see if room has been visited:
+        mOldManIsDead = mPreferences.getBoolean("OldManDead", false);
+    }
+
 
     private void setActionsText() {
         mActionsTextView = (TextView) findViewById(R.id.actionsRemaining);
