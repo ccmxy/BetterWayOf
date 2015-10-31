@@ -61,8 +61,8 @@ public class CaveActivity extends AppCompatActivity {
         mScaryEel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(CaveActivity.this, EelActivity.class);
-                startActivity(intent);
+                    Intent intent = new Intent(CaveActivity.this, EelActivity.class);
+                    startActivity(intent);
             }
         });
 

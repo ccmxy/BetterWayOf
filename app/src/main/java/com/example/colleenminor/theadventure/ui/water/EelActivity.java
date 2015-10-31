@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.example.colleenminor.theadventure.R;
 import com.example.colleenminor.theadventure.models.Item;
+import com.example.colleenminor.theadventure.ui.house.MainActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,54 +34,64 @@ public class EelActivity extends AppCompatActivity {
         mPreferences = getApplicationContext().getSharedPreferences("TheAdventure", Context.MODE_PRIVATE);
         mNoItems = (TextView) findViewById(R.id.noItems);
         mBackButton = (Button) findViewById(R.id.backButton);
-        //  getActionsFromIntent();
-        String username = mPreferences.getString("username", null);
-        mItems = (ArrayList) Item.all();
-        if (mItems.size() == 0){
-            mNoItems.setVisibility(TextView.VISIBLE);
-        }
+        Item crab = Item.find("crab");
+        if(crab != null) {
+            mBackButton.setVisibility(View.INVISIBLE);
 
-        mBackButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(EelActivity.this, MermaidActivity.class);
-                startActivity(intent);
+            //  getActionsFromIntent();
+            String username = mPreferences.getString("username", null);
+            mItems = (ArrayList) Item.all();
+            if (mItems.size() == 0) {
+                mNoItems.setVisibility(TextView.VISIBLE);
             }
-        });
 
-        lv = (ListView) findViewById(R.id.listView);
 
-        List<String> itemStringList = new ArrayList<>();
-        for(int i = 0; i < mItems.size(); i++){
-            Item item = mItems.get(i);
-            itemStringList.add(item.getItem());
-        }
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(
-                this,
-                android.R.layout.simple_list_item_1,
-                itemStringList);
-        lv.setAdapter(arrayAdapter);
-        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            lv = (ListView) findViewById(R.id.listView);
 
-            @Override
-            public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
-                String theItem = (String) arg0.getItemAtPosition(position);
-                if (!(theItem.equals("crab"))) {
-                    Toast toast = Toast.makeText(getApplicationContext(),
-                            "You can't kill an eel with the " + arg0.getItemAtPosition(position) + "!", Toast.LENGTH_SHORT);
-                    toast.show();
+            List<String> itemStringList = new ArrayList<>();
+            for (int i = 0; i < mItems.size(); i++) {
+                Item item = mItems.get(i);
+                itemStringList.add(item.getItem());
+            }
+            ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(
+                    this,
+                    android.R.layout.simple_list_item_1,
+                    itemStringList);
+            lv.setAdapter(arrayAdapter);
+            lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+                @Override
+                public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
+                    String theItem = (String) arg0.getItemAtPosition(position);
+                    if (!(theItem.equals("crab"))) {
+                        Toast toast = Toast.makeText(getApplicationContext(),
+                                "You can't kill an eel with the " + arg0.getItemAtPosition(position) + "!", Toast.LENGTH_SHORT);
+                        toast.show();
+                    }
+                    if (theItem.equals("crab")) {
+                        Toast toast = Toast.makeText(getApplicationContext(),
+                                "DIE, SEO!!!", Toast.LENGTH_LONG);
+                        toast.show();
+                        Item.delete("crab");
+                        Intent intent = new Intent(EelActivity.this, MermaidPalaceActivity.class);
+                        startActivity(intent);
+
+                    }
                 }
-                if (theItem.equals("crab")) {
-                    Toast toast = Toast.makeText(getApplicationContext(),
-                            "DIE, SEO!!!", Toast.LENGTH_LONG);
-                    toast.show();
-                    Item.delete("crab");
-                    Intent intent = new Intent(EelActivity.this, MermaidPalaceActivity.class);
+            });
+        }
+        else{
+            mBackButton.setVisibility(View.VISIBLE);
+            mBackButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(EelActivity.this, MainActivity.class);
                     startActivity(intent);
-
                 }
-            }
-        });
+            });
+
+
+        }
     }
 
 }
