@@ -82,6 +82,11 @@
             android:label="@string/title_activity_mermaid_kingdom"
             android:theme="@style/Theme.AppCompat.NoActionBar" >
         </activity>
+        <activity
+            android:name=".ui.water.NoAirActivity"
+            android:label="@string/title_activity_no_air"
+            android:theme="@style/Theme.AppCompat.NoActionBar" >
+        </activity>
     </application>
 
 </manifest>

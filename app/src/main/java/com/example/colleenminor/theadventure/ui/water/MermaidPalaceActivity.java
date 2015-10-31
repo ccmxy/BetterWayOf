@@ -37,11 +37,12 @@ public class MermaidPalaceActivity extends AppCompatActivity {
         mOptionChoice1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MermaidPalaceActivity.this, MermerActivity.class);
+                Intent intent = new Intent(MermaidPalaceActivity.this, MermaidKingdomActivity.class);
                 putActionsInPrefs();
                 startActivity(intent);
             }
         });
+
 
     }
 

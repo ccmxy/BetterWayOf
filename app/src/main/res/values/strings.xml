@@ -13,4 +13,5 @@
     <string name="title_activity_mermaid_palace">MermaidPalaceActivity</string>
     <string name="title_activity_mermaid_give">MermaidGiveActivity</string>
     <string name="title_activity_mermaid_kingdom">MermaidKingdomActivity</string>
+    <string name="title_activity_no_air">NoAirActivity</string>
 </resources>
