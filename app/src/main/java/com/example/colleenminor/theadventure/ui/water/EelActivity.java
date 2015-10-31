@@ -23,6 +23,7 @@ import java.util.List;
 public class EelActivity extends AppCompatActivity {
     private SharedPreferences mPreferences;
     private TextView mNoItems;
+    private TextView mSlayEel;
     private Button mBackButton;
     private ArrayList<Item> mItems;
     private ListView lv;
@@ -32,18 +33,18 @@ public class EelActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_eel);
         mPreferences = getApplicationContext().getSharedPreferences("TheAdventure", Context.MODE_PRIVATE);
+        mSlayEel = (TextView) findViewById(R.id.slayEel);
         mNoItems = (TextView) findViewById(R.id.noItems);
         mBackButton = (Button) findViewById(R.id.backButton);
-        Item crab = Item.find("crab");
-        if(crab != null) {
-            mBackButton.setVisibility(View.INVISIBLE);
 
-            //  getActionsFromIntent();
-            String username = mPreferences.getString("username", null);
-            mItems = (ArrayList) Item.all();
-            if (mItems.size() == 0) {
-                mNoItems.setVisibility(TextView.VISIBLE);
-            }
+        mItems = (ArrayList) Item.all();
+        if (mItems.size() == 0) {
+            mNoItems.setVisibility(TextView.VISIBLE);
+        }
+        Item crab = Item.find("crab");
+        if(Item.find("crab") != null) {
+            mBackButton.setVisibility(View.INVISIBLE);
+            mSlayEel.setVisibility(View.VISIBLE);
 
 
             lv = (ListView) findViewById(R.id.listView);
@@ -82,6 +83,7 @@ public class EelActivity extends AppCompatActivity {
         }
         else{
             mBackButton.setVisibility(View.VISIBLE);
+            mSlayEel.setVisibility(View.INVISIBLE);
             mBackButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
