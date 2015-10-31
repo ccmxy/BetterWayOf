@@ -23,6 +23,7 @@ public class MermaidPalaceActivity extends AppCompatActivity {
     private int mActions;
     private TextView mActionsTextView;
     private TextView mOptionChoice1;
+    private boolean mOldManIsDead;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,18 +34,32 @@ public class MermaidPalaceActivity extends AppCompatActivity {
         checkIfRoomHasBeenVisited("MermaidPalace");
         setActionsText();
 
+        checkIfOldManIsDead();
+
         mOptionChoice1 = (TextView) findViewById(R.id.optionChoice1);
         mOptionChoice1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MermaidPalaceActivity.this, MermaidKingdomActivity.class);
-                putActionsInPrefs();
-                startActivity(intent);
+                if(!mOldManIsDead) {
+                    Intent intent = new Intent(MermaidPalaceActivity.this, MermaidKingdomActivity.class);
+                    putActionsInPrefs();
+                    startActivity(intent);
+                }
+                else{
+                    Intent intent = new Intent(MermaidPalaceActivity.this, MermaidConfessionActivity.class);
+                    startActivity(intent);
+                }
             }
         });
 
 
     }
+
+    private void checkIfOldManIsDead(){
+        //Read to see if room has been visited:
+        mOldManIsDead = mPreferences.getBoolean("OldManDead", false);
+    }
+
 
     private void checkIfRoomHasBeenVisited(String roomName){
         //Read to see if room has been visited:

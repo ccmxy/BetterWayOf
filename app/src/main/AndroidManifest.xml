@@ -139,6 +139,11 @@
             android:noHistory="true"
             android:theme="@style/Theme.AppCompat.NoActionBar" >
         </activity>
+        <activity
+            android:name=".ui.water.MermaidConfessionActivity"
+            android:label="@string/title_activity_mermaid_confession"
+            android:theme="@style/Theme.AppCompat.NoActionBar" >
+        </activity>
     </application>
 
 </manifest>
