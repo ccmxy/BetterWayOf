@@ -34,7 +34,7 @@ public class MoanerActivity extends AppCompatActivity {
 
         setTheItemButton();
         getPreferencesAndUser();
-        getActionsFromIntent(); //new
+        getActionsFromPrefs();
 
         checkIfRoomHasBeenVisited("Moaner");
         setActionsText();
@@ -58,7 +58,6 @@ public class MoanerActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MoanerActivity.this, TwistyActivity.class);
-               // addActionsToIntent(intent);
                 putActionsInPrefs();
                 startActivity(intent);
             }
@@ -107,16 +106,10 @@ public class MoanerActivity extends AppCompatActivity {
         editor.commit();
     }
 
-    private void addActionsToIntent(Intent intent){
-        String actionString = String.valueOf(mActions);
-        intent.putExtra("theActions", actionString);
+    private void getActionsFromPrefs() {
+        mActions = mPreferences.getInt("Actions", 0);
     }
-    private void getActionsFromIntent() {
-        Bundle extras = getIntent().getExtras();
-        String myActions = extras.getString("theActions");
-        mActions = Integer.parseInt(myActions);
-        //mUser.setActions(mActions);
-    }
+
     private void getPreferencesAndUser() {
         mPreferences = getApplicationContext().getSharedPreferences("TheAdventure", Context.MODE_PRIVATE);
         String username =  mPreferences.getString("username", null);
@@ -144,6 +137,17 @@ public class MoanerActivity extends AppCompatActivity {
 
 
 /*
+
+    private void addActionsToIntent(Intent intent){
+        String actionString = String.valueOf(mActions);
+        intent.putExtra("theActions", actionString);
+    }
+    private void getActionsFromIntent() {
+        Bundle extras = getIntent().getExtras();
+        String myActions = extras.getString("theActions");
+        mActions = Integer.parseInt(myActions);
+        //mUser.setActions(mActions);
+    }
 
 
     private void deleteItem(String itemName) {

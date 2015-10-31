@@ -35,7 +35,7 @@ public class MermaidGiveActivity extends AppCompatActivity {
         mPreferences = getApplicationContext().getSharedPreferences("TheAdventure", Context.MODE_PRIVATE);
         mNoItems = (TextView) findViewById(R.id.noItems);
         mBackButton = (Button) findViewById(R.id.backButton);
-        getActionsFromIntent();
+      //  getActionsFromIntent();
         String username = mPreferences.getString("username", null);
         mItems = (ArrayList) Item.all();
         if (mItems.size() == 0){
@@ -46,7 +46,7 @@ public class MermaidGiveActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MermaidGiveActivity.this, MermaidActivity.class);
-                addActionsToIntent(intent);
+            //    addActionsToIntent(intent);
                 startActivity(intent);
             }
         });
@@ -79,13 +79,14 @@ public class MermaidGiveActivity extends AppCompatActivity {
                     toast.show();
                     Item.delete("seashells");
                     Intent intent = new Intent(MermaidGiveActivity.this, MermaidPalaceActivity.class);
-                    addActionsToIntent(intent);
                     startActivity(intent);
 
                 }
             }
         });
     }
+
+
 
     private void addActionsToIntent(Intent intent){
         String actionString = String.valueOf(mActions);

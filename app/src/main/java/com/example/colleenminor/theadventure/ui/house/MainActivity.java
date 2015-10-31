@@ -71,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
         editor.putBoolean("Moaner", false);
         editor.putBoolean("Ocean", false);
         editor.putBoolean("Mermaid", false);
+        editor.putBoolean("MermaidPalace", false);
         editor.commit();
     }
 
@@ -120,11 +121,11 @@ public class MainActivity extends AppCompatActivity {
             mUser.save();
            // mActions = mUser.getActions();
         }
-        Toast.makeText(this, "Welcome to the start of your great adventure, " + mUser.getName()
-                +"! The number of actions that you have is displayed in " +
-                " the icon in the icon in the bottom left corner. " +
-                " Choices that cost an action are highlighted." +
-                "You can view your item inventory any time by clicking the bottom right icon.", Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, "Welcome to the start of your great adventure, " + mUser.getName()
+//                +"! The number of actions that you have is displayed in " +
+//                " the icon in the icon in the bottom left corner. " +
+//                " Choices that cost an action are highlighted." +
+//                "You can view your item inventory any time by clicking the bottom right icon.", Toast.LENGTH_SHORT).show();
     }
 
     private void deleteAllItems() {

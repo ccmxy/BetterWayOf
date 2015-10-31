@@ -23,6 +23,8 @@ public class MermaidActivity extends AppCompatActivity {
     private User mUser;
     private SharedPreferences mPreferences;
     private int mActions;
+    private boolean mBeenToPalace;
+    private TextView mIntroText;
     private TextView mActionsTextView;
     private TextView mOptionChoice1; //re-light candle
     private TextView mOptionChoice2; //go upstairs (moaning)
@@ -35,16 +37,17 @@ public class MermaidActivity extends AppCompatActivity {
         setContentView(R.layout.activity_mermaid);
         setTheItemButton();
         getPreferencesAndUser();
-        getActionsFromIntent();
+        getActionsFromPrefs();
         checkIfRoomHasBeenVisited("Mermaid");
+        checkForPalaceVisit();
         setActionsText();
 
         mOptionChoice1 = (TextView) findViewById(R.id.optionChoice1);
         mOptionChoice2 = (TextView) findViewById(R.id.optionChoice2);
         mOptionChoice3 = (TextView) findViewById(R.id.optionChoice3);
 
-        boolean hasCrab = checkForCrabs();
 
+        boolean hasCrab = checkForCrabs();
         if(hasCrab){
             mOptionChoice3 .setVisibility(TextView.VISIBLE);
 
@@ -52,38 +55,36 @@ public class MermaidActivity extends AppCompatActivity {
         mOptionChoice1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MermaidActivity.this, MermaidGiveActivity.class);
-                addActionsToIntent(intent);
-                startActivity(intent);
+                if(!mBeenToPalace) {
+                    Intent intent = new Intent(MermaidActivity.this, MermaidGiveActivity.class);
+                    putActionsInPrefs();
+                    startActivity(intent);
+                }
+                else{
+                    Intent intent = new Intent(MermaidActivity.this, MermaidPalaceActivity.class);
+                    putActionsInPrefs();
+                    startActivity(intent);
+                }
 
             }
         });
-
         mOptionChoice2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MermaidActivity.this, OceanActivity.class);
-                addActionsToIntent(intent);
+                putActionsInPrefs();
                 startActivity(intent);
             }
         });
-
-
         //"Throw crab at her"
         mOptionChoice3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MermaidActivity.this, MermerActivity.class);
-                addActionsToIntent(intent);
+                putActionsInPrefs();
                 startActivity(intent);
             }
         });
-
-        //Where other stuff goes
-
-        //End of custom stuffs
-
-
     }
 
     private boolean checkForCrabs() {
@@ -94,22 +95,18 @@ public class MermaidActivity extends AppCompatActivity {
             return false;
         }
     }
-
-    private void addActionsToIntent(Intent intent){
-        String actionString = String.valueOf(mActions);
-        intent.putExtra("theActions", actionString);
-    }
-    private void getActionsFromIntent() {
-        Bundle extras = getIntent().getExtras();
-        String myActions = extras.getString("theActions");
-        mActions = Integer.parseInt(myActions);
-        // mUser.setActions(mActions);
+    private void putActionsInPrefs() {
+        SharedPreferences.Editor editor = mPreferences.edit();
+        editor.remove("Actions");
+        editor.apply();
+        editor.putInt("Actions", mActions);
+        editor.commit();
     }
 
-    private void deleteItem(String itemName) {
-        Item.delete(itemName);
-    }
 
+    private void getActionsFromPrefs() {
+        mActions = mPreferences.getInt("Actions", 0);
+    }
 
     private void getPreferencesAndUser() {
         mPreferences = getApplicationContext().getSharedPreferences("TheAdventure", Context.MODE_PRIVATE);
@@ -131,27 +128,19 @@ public class MermaidActivity extends AppCompatActivity {
     }
 
 
-    private void addItem(String itemName) {
-        Item item = new Item(itemName, mUser);
-        item.save();
-        Toast.makeText(this, mUser.getName() + "," + itemName + " has been added to your inventory", Toast.LENGTH_LONG).show();
-    }
-
-    private void subtractActions(int numToSubtract) {
-        mActions -= numToSubtract;
-    }
-
     private void addActions(int numToAdd) {
         mActions += numToAdd;
     }
     private void checkIfRoomHasBeenVisited(String roomName){
         //Read to see if room has been visited:
         boolean userHasBeenHere = mPreferences.getBoolean(roomName, false);
-        if(userHasBeenHere == true){
+        if(userHasBeenHere){
+            mIntroText = (TextView) findViewById(R.id.introText);
+            mIntroText.setText("Hello again");
+            //mIntroText.setVisibility(TextView.INVISIBLE);
             setActionsText();
-            return;
         }
-        else {
+        else if(!userHasBeenHere){
             //If room has not been visited:
             addActions(1);
             Toast.makeText(MermaidActivity.this, "New location! +1 action", Toast.LENGTH_SHORT).show();
@@ -177,14 +166,13 @@ public class MermaidActivity extends AppCompatActivity {
 
     }
 
-//    private void subtractActions(int numToSubtract) {
-//        mUser.subtractActions(numToSubtract);
-//        mActions = mUser.getActions();
-//    }
-//
-//    private void addActions(int numToAdd) {
-//        mUser.addActions(numToAdd);
-//        mActions = mUser.getActions();
-//    }
+    private void checkForPalaceVisit(){
+       mBeenToPalace = mPreferences.getBoolean("MermaidPalace", false);
+        if(mBeenToPalace){
+            mOptionChoice1 = (TextView) findViewById(R.id.optionChoice1);
+            mOptionChoice1.setText("Could you take me back to the ocean palace?");
+        }
+    }
+
 
 }

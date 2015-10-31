@@ -22,10 +22,12 @@ public class OceanActivity extends AppCompatActivity {
 private User mUser;
 private SharedPreferences mPreferences;
 private int mActions;
+    private boolean mUserHasBeenHere;
 private TextView mActionsTextView;
 private TextView mOptionChoice1; //take seashells
 private TextView mOptionChoice2; //take crab
 private TextView mOptionChoice3; //explore this strange place
+
 
 
     @Override
@@ -33,10 +35,11 @@ private TextView mOptionChoice3; //explore this strange place
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ocean);
         setTheItemButton();
-        getPreferencesAndUserAndActions();
-        getActionsFromIntent();
+        getPreferencesAndUser();
+        getActionsFromPrefs();
         checkIfRoomHasBeenVisited("Ocean");
         setActionsText();
+
 
         mOptionChoice1 = (TextView) findViewById(R.id.optionChoice1);
         mOptionChoice2 = (TextView) findViewById(R.id.optionChoice2);
@@ -51,7 +54,8 @@ private TextView mOptionChoice3; //explore this strange place
                 subtractActions(2);
                 setActionsText();
                 actionButtonAnimation();
-                mOptionChoice1.setVisibility(View.GONE);
+                mOptionChoice1.setVisibility(View.INVISIBLE);
+                //mOptionChoice1.setVisibility(View.GONE);
             }
         });
 
@@ -63,7 +67,9 @@ private TextView mOptionChoice3; //explore this strange place
                 subtractActions(1);
                 setActionsText();
                 actionButtonAnimation();
-                mOptionChoice2.setVisibility(View.GONE);
+                mOptionChoice2.setVisibility(View.INVISIBLE);
+                //mOptionChoice2.setVisibility(View.GONE);
+
             }
         });
 
@@ -71,29 +77,30 @@ private TextView mOptionChoice3; //explore this strange place
         mOptionChoice3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                putActionsInPrefs();
                 Intent intent = new Intent(OceanActivity.this, MermaidActivity.class);
-                addActionsToIntent(intent);
                 startActivity(intent);
             }
         });
 
     }
-    private void addActionsToIntent(Intent intent){
-        String actionString = String.valueOf(mActions);
-        intent.putExtra("theActions", actionString);
-    }
-    private void getActionsFromIntent() {
-        Bundle extras = getIntent().getExtras();
-        String myActions = extras.getString("theActions");
-        mActions = Integer.parseInt(myActions);
-       // mUser.setActions(mActions);
+    private void putActionsInPrefs() {
+        SharedPreferences.Editor editor = mPreferences.edit();
+        editor.remove("Actions");
+        editor.apply();
+        editor.putInt("Actions", mActions);
+        editor.commit();
     }
 
-    private void getPreferencesAndUserAndActions() {
+
+    private void getActionsFromPrefs() {
+        mActions = mPreferences.getInt("Actions", 0);
+    }
+
+    private void getPreferencesAndUser() {
         mPreferences = getApplicationContext().getSharedPreferences("TheAdventure", Context.MODE_PRIVATE);
         String username =  mPreferences.getString("username", null);
         mUser = User.find(username);
-        mActions = mUser.getActions();
     }
 
     //Have to set the correct intent for this one
@@ -124,10 +131,9 @@ private TextView mOptionChoice3; //explore this strange place
     }
     private void checkIfRoomHasBeenVisited(String roomName){
         //Read to see if room has been visited:
-        boolean userHasBeenHere = mPreferences.getBoolean(roomName, false);
-        if(userHasBeenHere == true){
+        mUserHasBeenHere = mPreferences.getBoolean(roomName, false);
+        if(mUserHasBeenHere == true){
             setActionsText();
-            return;
         }
         else {
             //If room has not been visited:
@@ -158,4 +164,19 @@ private TextView mOptionChoice3; //explore this strange place
 }
 
 
+/*
 
+
+
+    private void addActionsToIntent(Intent intent){
+        String actionString = String.valueOf(mActions);
+        intent.putExtra("theActions", actionString);
+    }
+    private void getActionsFromIntent() {
+        Bundle extras = getIntent().getExtras();
+        String myActions = extras.getString("theActions");
+        mActions = Integer.parseInt(myActions);
+       // mUser.setActions(mActions);
+    }
+
+*/

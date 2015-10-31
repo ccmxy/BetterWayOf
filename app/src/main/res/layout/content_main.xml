@@ -46,7 +46,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Add item to inventory (1 action)"
+        android:text="Add item to inventory (cost: 1 action)"
         android:id="@+id/takeItem"
         android:layout_below="@+id/nextLagoon"
         android:layout_centerHorizontal="true"

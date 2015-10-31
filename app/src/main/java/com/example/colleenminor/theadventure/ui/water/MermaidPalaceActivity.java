@@ -14,7 +14,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.colleenminor.theadventure.R;
-import com.example.colleenminor.theadventure.models.Item;
 import com.example.colleenminor.theadventure.models.User;
 import com.example.colleenminor.theadventure.ui.ItemsListActivity;
 
@@ -30,7 +29,7 @@ public class MermaidPalaceActivity extends AppCompatActivity {
         setContentView(R.layout.activity_mermaid_palace);
         setTheItemButton();
         getPreferencesAndUser();
-        getActionsFromIntent();
+        getActionsFromPrefs();
         checkIfRoomHasBeenVisited("MermaidPalace");
         setActionsText();
 
@@ -39,6 +38,7 @@ public class MermaidPalaceActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MermaidPalaceActivity.this, MermerActivity.class);
+                putActionsInPrefs();
                 startActivity(intent);
             }
         });
@@ -62,31 +62,21 @@ public class MermaidPalaceActivity extends AppCompatActivity {
             setActionsText();
             actionButtonAnimation();
         }
-
     }
 
-    //Add a bigger bundle here which says if rooms have been visited, validate if room is visited by checking if it's in the bundle
-    private void addActionsToIntent(Intent intent){
-        String actionString = String.valueOf(mActions);
-        intent.putExtra("theActions", actionString);
+    private void putActionsInPrefs() {
+        SharedPreferences.Editor editor = mPreferences.edit();
+        editor.remove("Actions");
+        editor.apply();
+        editor.putInt("Actions", mActions);
+        editor.commit();
     }
 
-    private boolean checkIntentForRoom(String roomName) {
-        Bundle extras = getIntent().getExtras();
-        String isRoom = extras.getString(roomName);
-        if(isRoom != null){
-            return true;
-        }
-        else{
-            return false;
-        }
+
+    private void getActionsFromPrefs() {
+        mActions = mPreferences.getInt("Actions", 0);
     }
-    private void getActionsFromIntent() {
-        Bundle extras = getIntent().getExtras();
-        String myActions = extras.getString("theActions");
-        mActions = Integer.parseInt(myActions);
-        //mUser.setActions(mActions);
-    }
+
     private void getPreferencesAndUser() {
         mPreferences = getApplicationContext().getSharedPreferences("TheAdventure", Context.MODE_PRIVATE);
         String username =  mPreferences.getString("username", null);
@@ -104,22 +94,6 @@ public class MermaidPalaceActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-    }
-
-
-    private void deleteItem(String itemName) {
-        Item.delete(itemName);
-    }
-
-    private void addItem(String itemName) {
-        Item item = new Item(itemName, mUser);
-        item.save();
-        Toast.makeText(this, mUser.getName() + "," + itemName + " has been added to your inventory", Toast.LENGTH_LONG).show();
-
-    }
-
-    private void subtractActions(int numToSubtract) {
-        mActions -= numToSubtract;
     }
 
     private void addActions(int numToAdd) {

@@ -57,8 +57,9 @@
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
         android:layout_above="@+id/optionChoice2"
-        android:text="Take seashells"
-        android:padding="8dp" />
+        android:text="Take seashells (cost: 2 actions)"
+        android:padding="8dp"
+        android:background="#f1db7e" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -67,9 +68,10 @@
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
         android:layout_above="@+id/optionChoice3"
-        android:text="Take crab"
+        android:text="Take crab (cost: 1 action)"
         android:padding="8dp"
-        android:clickable="true" />
+        android:clickable="true"
+        android:background="#f1db7e" />
 
     <TextView
         android:layout_width="wrap_content"
