@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:showIn="@layout/activity_mermaid_instructions"
+    tools:context="com.example.colleenminor.theadventure.ui.water.MermaidInstructionsActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="&quot;You&apos;ve done it!&quot; Melinda exclaims. &quot;Now there is only one thing left for you to do. Just off the coast of the beach, there is a house.
+        &quot;In the upstairs of the house, you have locked away the evil warlock who turned you into a human and uses magic to wipe your memory every night.
+        &quot;That skull that you have there is very powerful. You warlock is desperate to get it, and he is using spells to prevent you from harnessing its power.
+        &quot;The only way that you can harness the power of the skull is to kill him. He will be able to sense that you have the skull, but he does not know that you know how powerful it is.
+        &quot;He thinks that his memory-wiping spells have left you naive. Go kill the man, and then return the skull to me. I will then use it to turn you back into your mermaid form."
+        android:id="@+id/textView6"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="41dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Head back to the beach"
+        android:id="@+id/backToBeach"
+        android:layout_below="@+id/textView6"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="85dp" />
+</RelativeLayout>

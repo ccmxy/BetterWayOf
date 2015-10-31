@@ -118,11 +118,23 @@
         <activity
             android:name=".ui.water.EelActivity"
             android:label="@string/title_activity_eel"
+            android:noHistory="true"
             android:theme="@style/Theme.AppCompat.NoActionBar" >
         </activity>
         <activity
             android:name=".ui.water.LostActivity"
             android:label="@string/title_activity_lost"
+            android:noHistory="true"
+            android:theme="@style/Theme.AppCompat.NoActionBar" >
+        </activity>
+        <activity
+            android:name=".ui.water.LeaveCaveActivity"
+            android:label="@string/title_activity_leave_cave"
+            android:theme="@style/Theme.AppCompat.NoActionBar" >
+        </activity>
+        <activity
+            android:name=".ui.water.MermaidInstructionsActivity"
+            android:label="@string/title_activity_mermaid_instructions"
             android:theme="@style/Theme.AppCompat.NoActionBar" >
         </activity>
     </application>

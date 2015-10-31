@@ -74,7 +74,7 @@ public class EelActivity extends AppCompatActivity {
                                 "DIE, SEO!!!", Toast.LENGTH_LONG);
                         toast.show();
                         Item.delete("crab");
-                        Intent intent = new Intent(EelActivity.this, MermaidPalaceActivity.class);
+                        Intent intent = new Intent(EelActivity.this, LeaveCaveActivity.class);
                         startActivity(intent);
 
                     }
