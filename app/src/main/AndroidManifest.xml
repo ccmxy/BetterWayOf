@@ -130,11 +130,13 @@
         <activity
             android:name=".ui.water.LeaveCaveActivity"
             android:label="@string/title_activity_leave_cave"
+            android:noHistory="true"
             android:theme="@style/Theme.AppCompat.NoActionBar" >
         </activity>
         <activity
             android:name=".ui.water.MermaidInstructionsActivity"
             android:label="@string/title_activity_mermaid_instructions"
+            android:noHistory="true"
             android:theme="@style/Theme.AppCompat.NoActionBar" >
         </activity>
     </application>

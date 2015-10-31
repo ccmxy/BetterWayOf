@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.example.colleenminor.theadventure.R;
 import com.example.colleenminor.theadventure.models.Item;
+import com.example.colleenminor.theadventure.models.User;
 import com.example.colleenminor.theadventure.ui.house.MainActivity;
 
 import java.util.ArrayList;
@@ -22,6 +23,7 @@ import java.util.List;
 
 public class EelActivity extends AppCompatActivity {
     private SharedPreferences mPreferences;
+    private User mUser;
     private TextView mNoItems;
     private TextView mSlayEel;
     private Button mBackButton;
@@ -32,7 +34,7 @@ public class EelActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_eel);
-        mPreferences = getApplicationContext().getSharedPreferences("TheAdventure", Context.MODE_PRIVATE);
+        getPreferencesAndUser();
         mSlayEel = (TextView) findViewById(R.id.slayEel);
         mNoItems = (TextView) findViewById(R.id.noItems);
         mBackButton = (Button) findViewById(R.id.backButton);
@@ -41,7 +43,6 @@ public class EelActivity extends AppCompatActivity {
         if (mItems.size() == 0) {
             mNoItems.setVisibility(TextView.VISIBLE);
         }
-        Item crab = Item.find("crab");
         if(Item.find("crab") != null) {
             mBackButton.setVisibility(View.INVISIBLE);
             mSlayEel.setVisibility(View.VISIBLE);
@@ -74,6 +75,7 @@ public class EelActivity extends AppCompatActivity {
                                 "DIE, SEO!!!", Toast.LENGTH_LONG);
                         toast.show();
                         Item.delete("crab");
+                        addItem("skull of seo");
                         Intent intent = new Intent(EelActivity.this, LeaveCaveActivity.class);
                         startActivity(intent);
 
@@ -94,6 +96,18 @@ public class EelActivity extends AppCompatActivity {
 
 
         }
+    }
+    private void getPreferencesAndUser() {
+        mPreferences = getApplicationContext().getSharedPreferences("TheAdventure", Context.MODE_PRIVATE);
+        String username =  mPreferences.getString("username", null);
+        mUser = User.find(username);
+    }
+
+    private void addItem(String itemName) {
+        Item item = new Item(itemName, mUser);
+        item.save();
+        Toast.makeText(this, mUser.getName() + "," + itemName + " has been added to your inventory", Toast.LENGTH_LONG).show();
+
     }
 
 }

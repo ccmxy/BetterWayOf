@@ -21,7 +21,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="&quot;Oh, I'm so thirsty. Please, just give me what I need!&quot;"
+            android:text="&quot;Oh, I&apos;m so desperate. Please, just give me what I need!&quot;"
             android:id="@+id/introText"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"

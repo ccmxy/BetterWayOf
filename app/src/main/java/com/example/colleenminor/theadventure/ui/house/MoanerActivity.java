@@ -43,25 +43,25 @@ public class MoanerActivity extends AppCompatActivity {
         mOptionChoice2 = (TextView) findViewById(R.id.optionChoice2);
         mOptionChoice3 = (TextView) findViewById(R.id.optionChoice3);
 
-//Give the old man what he needs
-        mOptionChoice1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MoanerActivity.this, GiveActivity.class);
-                putActionsInPrefs();
-                startActivity(intent);
-            }
-        });
+            //Give the old man what he needs
+            mOptionChoice1.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(MoanerActivity.this, GiveActivity.class);
+                    putActionsInPrefs();
+                    startActivity(intent);
+                }
+            });
 
-        //"Leave"
-        mOptionChoice2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MoanerActivity.this, TwistyActivity.class);
-                putActionsInPrefs();
-                startActivity(intent);
-            }
-        });
+            //"Leave"
+            mOptionChoice2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(MoanerActivity.this, TwistyActivity.class);
+                    putActionsInPrefs();
+                    startActivity(intent);
+                }
+            });
     }
 
     private void checkIfRoomHasBeenVisited(String roomName){
