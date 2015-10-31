@@ -20,7 +20,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Suddenly she pulls you under water!"
+            android:text="You find that you have no trouble breathing underwater..."
             android:id="@+id/introText"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
@@ -30,23 +30,14 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/whatDo"
             android:layout_below="@+id/introText"
             android:id="@+id/theMermaidPalace"
             android:layout_centerHorizontal="true"
             android:src="@drawable/kingdom"
             android:padding="8dp"
-            android:layout_alignParentStart="false" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/whatDo"
+            android:layout_alignParentStart="false"
             android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true"
-            android:layout_above="@+id/optionChoice1"
-            android:text="And you can still breath?! Well, it looks like you don&apos;t have much of a choice now..."
-            android:padding="8dp" />
+            android:layout_above="@+id/optionChoice1" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -56,7 +47,8 @@
             android:layout_centerHorizontal="true"
             android:text="Enter kingdom"
             android:padding="8dp"
-            android:layout_above="@+id/optionChoice3" />
+            android:layout_above="@+id/optionChoice3"
+            android:clickable="true" />
 
         <TextView
             android:layout_width="wrap_content"

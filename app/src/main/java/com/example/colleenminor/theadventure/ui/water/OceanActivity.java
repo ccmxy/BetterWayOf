@@ -54,6 +54,7 @@ private TextView mOptionChoice3; //explore this strange place
                 subtractActions(2);
                 setActionsText();
                 actionButtonAnimation();
+                mOptionChoice1 = (TextView) findViewById(R.id.optionChoice1);
                 mOptionChoice1.setVisibility(View.INVISIBLE);
                 //mOptionChoice1.setVisibility(View.GONE);
             }
@@ -67,6 +68,7 @@ private TextView mOptionChoice3; //explore this strange place
                 subtractActions(1);
                 setActionsText();
                 actionButtonAnimation();
+                mOptionChoice2 = (TextView) findViewById(R.id.optionChoice2);
                 mOptionChoice2.setVisibility(View.INVISIBLE);
                 //mOptionChoice2.setVisibility(View.GONE);
 
