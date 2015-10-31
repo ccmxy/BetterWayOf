@@ -25,8 +25,6 @@ public class MermaidGiveActivity extends AppCompatActivity {
     private Button mBackButton;
     private ArrayList<Item> mItems;
     private ListView lv;
-    private int mActions;
-    private TextView mActionsTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +44,6 @@ public class MermaidGiveActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MermaidGiveActivity.this, MermaidActivity.class);
-            //    addActionsToIntent(intent);
                 startActivity(intent);
             }
         });
@@ -58,7 +55,7 @@ public class MermaidGiveActivity extends AppCompatActivity {
             Item item = mItems.get(i);
             itemStringList.add(item.getItem());
         }
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(
                 this,
                 android.R.layout.simple_list_item_1,
                 itemStringList);
@@ -70,12 +67,12 @@ public class MermaidGiveActivity extends AppCompatActivity {
                 String theItem = (String) arg0.getItemAtPosition(position);
                 if (!(theItem.equals("seashells"))) {
                     Toast toast = Toast.makeText(getApplicationContext(),
-                            "No, not the " + (String) arg0.getItemAtPosition(position) + "!", Toast.LENGTH_SHORT);
+                            "No, not the " + arg0.getItemAtPosition(position) + "!", Toast.LENGTH_SHORT);
                     toast.show();
                 }
                 if (theItem.equals("seashells")) {
                     Toast toast = Toast.makeText(getApplicationContext(),
-                            "The conch shell of DESTINY!!!", Toast.LENGTH_SHORT);
+                            "The conch shell of DESTINY!!!", Toast.LENGTH_LONG);
                     toast.show();
                     Item.delete("seashells");
                     Intent intent = new Intent(MermaidGiveActivity.this, MermaidPalaceActivity.class);
@@ -85,19 +82,5 @@ public class MermaidGiveActivity extends AppCompatActivity {
             }
         });
     }
-
-
-
-    private void addActionsToIntent(Intent intent){
-        String actionString = String.valueOf(mActions);
-        intent.putExtra("theActions", actionString);
-    }
-    private void getActionsFromIntent() {
-        Bundle extras = getIntent().getExtras();
-        String myActions = extras.getString("theActions");
-        mActions = Integer.parseInt(myActions);
-    }
-
-
 
 }

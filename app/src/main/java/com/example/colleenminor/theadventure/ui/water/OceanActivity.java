@@ -17,6 +17,7 @@ import com.example.colleenminor.theadventure.R;
 import com.example.colleenminor.theadventure.models.Item;
 import com.example.colleenminor.theadventure.models.User;
 import com.example.colleenminor.theadventure.ui.ItemsListActivity;
+import com.example.colleenminor.theadventure.ui.house.TwistyActivity;
 
 public class OceanActivity extends AppCompatActivity {
 private User mUser;
@@ -27,6 +28,7 @@ private TextView mActionsTextView;
 private TextView mOptionChoice1; //take seashells
 private TextView mOptionChoice2; //take crab
 private TextView mOptionChoice3; //explore this strange place
+    private TextView mOptionChoice4; //return to staircase
 
 
 
@@ -44,6 +46,7 @@ private TextView mOptionChoice3; //explore this strange place
         mOptionChoice1 = (TextView) findViewById(R.id.optionChoice1);
         mOptionChoice2 = (TextView) findViewById(R.id.optionChoice2);
         mOptionChoice3 = (TextView) findViewById(R.id.optionChoice3);
+        mOptionChoice4 = (TextView) findViewById(R.id.optionChoice4);
 
 
         //"Take seashells"
@@ -56,7 +59,6 @@ private TextView mOptionChoice3; //explore this strange place
                 actionButtonAnimation();
                 mOptionChoice1 = (TextView) findViewById(R.id.optionChoice1);
                 mOptionChoice1.setVisibility(View.INVISIBLE);
-                //mOptionChoice1.setVisibility(View.GONE);
             }
         });
 
@@ -70,8 +72,6 @@ private TextView mOptionChoice3; //explore this strange place
                 actionButtonAnimation();
                 mOptionChoice2 = (TextView) findViewById(R.id.optionChoice2);
                 mOptionChoice2.setVisibility(View.INVISIBLE);
-                //mOptionChoice2.setVisibility(View.GONE);
-
             }
         });
 
@@ -84,6 +84,16 @@ private TextView mOptionChoice3; //explore this strange place
                 startActivity(intent);
             }
         });
+
+        mOptionChoice4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                putActionsInPrefs();
+                Intent intent = new Intent(OceanActivity.this, TwistyActivity.class);
+                startActivity(intent);
+            }
+        });
+
 
     }
     private void putActionsInPrefs() {
@@ -134,7 +144,7 @@ private TextView mOptionChoice3; //explore this strange place
     private void checkIfRoomHasBeenVisited(String roomName){
         //Read to see if room has been visited:
         mUserHasBeenHere = mPreferences.getBoolean(roomName, false);
-        if(mUserHasBeenHere == true){
+        if(mUserHasBeenHere){
             setActionsText();
         }
         else {
