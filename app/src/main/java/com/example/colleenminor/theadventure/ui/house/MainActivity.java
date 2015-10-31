@@ -3,11 +3,9 @@ package com.example.colleenminor.theadventure.ui.house;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
-import android.util.LruCache;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,31 +23,11 @@ public class MainActivity extends AppCompatActivity {
     private TextView mTakeItem;
     private TextView mActionsTextView;
     private TextView mNextRoom;
-    private LruCache<String, Bitmap> mMemoryCache;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        // Get max available VM memory, exceeding this amount will throw an
-        // OutOfMemory exception. Stored in kilobytes as LruCache takes an
-        // int in its constructor.
-        final int maxMemory = (int) (Runtime.getRuntime().maxMemory() / 1024);
-
-        // Use 1/8th of the available memory for this memory cache.
-        final int cacheSize = maxMemory / 8;
-
-        mMemoryCache = new LruCache<String, Bitmap>(cacheSize) {
-            @Override
-            protected int sizeOf(String key, Bitmap bitmap) {
-                // The cache size will be measured in kilobytes rather than
-                // number of items.
-                return bitmap.getByteCount() / 1024;
-            }
-        };
-
-
         mTakeItem = (TextView) findViewById(R.id.takeItem);
         mNextRoom = (TextView) findViewById(R.id.nextLagoon);
         mPreferences = getApplicationContext().getSharedPreferences("TheAdventure", Context.MODE_PRIVATE);
@@ -85,18 +63,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
     //End of onCreate
-
-    public void addBitmapToMemoryCache(String key, Bitmap bitmap) {
-        if (getBitmapFromMemCache(key) == null) {
-            mMemoryCache.put(key, bitmap);
-        }
-    }
-
-    public Bitmap getBitmapFromMemCache(String key) {
-        return mMemoryCache.get(key);
-    }
-
-
 
     private void resetRooms() {
         SharedPreferences.Editor editor = mPreferences.edit();
