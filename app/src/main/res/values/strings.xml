@@ -16,4 +16,5 @@
     <string name="title_activity_no_air">NoAirActivity</string>
     <string name="title_activity_quitter">QuitterActivity</string>
     <string name="title_activity_cave_point">CavePointActivity</string>
+    <string name="title_activity_cave">CaveActivity</string>
 </resources>

@@ -21,7 +21,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="&quot;Who are you, and how did you get into the mermaid kingdom?&quot;"
+            android:text="This is cave point. You are instructed to wander deep into the cave, using a seaweed plant to not lose your way. You must slay the evil sea dragon that lives deep inside. "
             android:id="@+id/introText"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
@@ -31,54 +31,24 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/whatDo"
             android:layout_below="@+id/introText"
             android:id="@+id/theImage2"
             android:layout_centerHorizontal="true"
             android:src="@drawable/watercavern"
-            android:padding="8dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/whatDo"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true"
-            android:text="What do you do?"
             android:padding="8dp"
+            android:layout_centerVertical="true"
             android:layout_above="@+id/optionChoice1" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/optionChoice1"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true"
-            android:text="&quot;I have no idea who I am. I woke up and I was here.&quot;"
+            android:text="Enter cave"
             android:padding="8dp"
-            android:layout_above="@+id/optionChoice2" />
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/optionChoice2"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true"
-            android:text="&quot;I was just leaving!&quot;"
-            android:padding="8dp"
-            android:layout_above="@+id/optionChoice3" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/optionChoice3"
-            android:padding="8dp"
-            android:layout_marginBottom="53dp"
             android:layout_above="@+id/actionsRemaining"
-            android:text="Throw crab at her"
             android:layout_centerHorizontal="true"
-            android:visibility="invisible" />
+            android:layout_marginBottom="55dp" />
+
 
         <TextView
             android:layout_width="wrap_content"

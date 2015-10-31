@@ -39,62 +39,80 @@
         </activity>
         <activity
             android:name=".ui.house.TwistyActivity"
+            android:noHistory="true"
             android:label="@string/title_activity_twisty"
-            android:theme="@style/AppTheme.NoActionBar" >
+        android:theme="@style/AppTheme.NoActionBar" >
         </activity>
         <activity
             android:name=".ui.water.OceanActivity"
+            android:noHistory="true"
             android:label="@string/title_activity_ocean"
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
         <activity
             android:name=".ui.water.MermaidActivity"
+            android:noHistory="true"
             android:label="@string/title_activity_mermaid"
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
         <activity
             android:name=".ui.water.MermerActivity"
+            android:noHistory="true"
             android:label="@string/title_activity_mermer"
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
         <activity
             android:name=".ui.house.MoanerActivity"
+            android:noHistory="true"
             android:label="@string/title_activity_moaner"
             android:theme="@style/Theme.AppCompat.NoActionBar" >
         </activity>
         <activity
             android:name=".ui.house.GiveActivity"
+            android:noHistory="true"
             android:label="@string/title_activity_give"
             android:theme="@style/Theme.AppCompat.NoActionBar" >
         </activity>
         <activity
             android:name=".ui.water.MermaidPalaceActivity"
+            android:noHistory="true"
             android:label="@string/title_activity_mermaid_palace"
             android:theme="@style/Theme.AppCompat.NoActionBar" >
         </activity>
         <activity
             android:name=".ui.water.MermaidGiveActivity"
+            android:noHistory="true"
             android:label="@string/title_activity_mermaid_give"
             android:theme="@style/Theme.AppCompat.NoActionBar" >
         </activity>
         <activity
             android:name=".ui.water.MermaidKingdomActivity"
+            android:noHistory="true"
             android:label="@string/title_activity_mermaid_kingdom"
             android:theme="@style/Theme.AppCompat.NoActionBar" >
         </activity>
         <activity
             android:name=".ui.water.NoAirActivity"
+            android:noHistory="true"
             android:label="@string/title_activity_no_air"
             android:theme="@style/Theme.AppCompat.NoActionBar" >
         </activity>
         <activity
             android:name=".ui.water.QuitterActivity"
+            android:noHistory="true"
             android:label="@string/title_activity_quitter"
             android:theme="@style/Theme.AppCompat.NoActionBar" >
         </activity>
         <activity
             android:name=".ui.water.CavePointActivity"
+            android:noHistory="true"
             android:label="@string/title_activity_cave_point"
+            android:theme="@style/Theme.AppCompat.NoActionBar" >
+        </activity>
+        <activity
+            android:name=".ui.water.CaveActivity"
+            android:noHistory="true"
+            android:label="@string/title_activity_cave"
             android:theme="@style/Theme.AppCompat.NoActionBar" >
         </activity>
     </application>

@@ -82,6 +82,8 @@ private TextView mOptionChoice3; //explore this strange place
                 putActionsInPrefs();
                 Intent intent = new Intent(OceanActivity.this, MermaidActivity.class);
                 startActivity(intent);
+                finish();
+
             }
         });
 
@@ -91,6 +93,8 @@ private TextView mOptionChoice3; //explore this strange place
                 putActionsInPrefs();
                 Intent intent = new Intent(OceanActivity.this, TwistyActivity.class);
                 startActivity(intent);
+                finish();
+
             }
         });
 
