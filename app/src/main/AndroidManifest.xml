@@ -92,6 +92,11 @@
             android:label="@string/title_activity_quitter"
             android:theme="@style/Theme.AppCompat.NoActionBar" >
         </activity>
+        <activity
+            android:name=".ui.water.CavePointActivity"
+            android:label="@string/title_activity_cave_point"
+            android:theme="@style/Theme.AppCompat.NoActionBar" >
+        </activity>
     </application>
 
 </manifest>

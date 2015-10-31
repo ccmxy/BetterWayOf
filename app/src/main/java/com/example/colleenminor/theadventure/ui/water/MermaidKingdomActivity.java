@@ -43,8 +43,9 @@ public class MermaidKingdomActivity extends AppCompatActivity {
                 subtractActions(2);
                 setActionsText();
                 actionButtonAnimation();
-                mOptionChoice1 = (TextView) findViewById(R.id.optionChoice1);
-                mOptionChoice1.setVisibility(View.INVISIBLE);
+                putActionsInPrefs();
+                Intent intent = new Intent(MermaidKingdomActivity.this, CavePointActivity.class);
+                startActivity(intent);
             }
         });
         mOptionChoice2 = (TextView) findViewById(R.id.optionChoice2);

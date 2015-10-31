@@ -137,7 +137,6 @@ public class MermaidActivity extends AppCompatActivity {
         if(userHasBeenHere){
             mIntroText = (TextView) findViewById(R.id.introText);
             mIntroText.setText("Hello again");
-            //mIntroText.setVisibility(TextView.INVISIBLE);
             setActionsText();
         }
         else if(!userHasBeenHere){
