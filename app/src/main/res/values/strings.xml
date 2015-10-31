@@ -17,4 +17,5 @@
     <string name="title_activity_quitter">QuitterActivity</string>
     <string name="title_activity_cave_point">CavePointActivity</string>
     <string name="title_activity_cave">CaveActivity</string>
+    <string name="title_activity_eel">EelActivity</string>
 </resources>

@@ -39,80 +39,85 @@
         </activity>
         <activity
             android:name=".ui.house.TwistyActivity"
-            android:noHistory="true"
             android:label="@string/title_activity_twisty"
-        android:theme="@style/AppTheme.NoActionBar" >
+            android:noHistory="true"
+            android:theme="@style/AppTheme.NoActionBar" >
         </activity>
         <activity
             android:name=".ui.water.OceanActivity"
-            android:noHistory="true"
             android:label="@string/title_activity_ocean"
+            android:noHistory="true"
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
         <activity
             android:name=".ui.water.MermaidActivity"
-            android:noHistory="true"
             android:label="@string/title_activity_mermaid"
+            android:noHistory="true"
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
         <activity
             android:name=".ui.water.MermerActivity"
-            android:noHistory="true"
             android:label="@string/title_activity_mermer"
+            android:noHistory="true"
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
         <activity
             android:name=".ui.house.MoanerActivity"
-            android:noHistory="true"
             android:label="@string/title_activity_moaner"
+            android:noHistory="true"
             android:theme="@style/Theme.AppCompat.NoActionBar" >
         </activity>
         <activity
             android:name=".ui.house.GiveActivity"
-            android:noHistory="true"
             android:label="@string/title_activity_give"
+            android:noHistory="true"
             android:theme="@style/Theme.AppCompat.NoActionBar" >
         </activity>
         <activity
             android:name=".ui.water.MermaidPalaceActivity"
-            android:noHistory="true"
             android:label="@string/title_activity_mermaid_palace"
+            android:noHistory="true"
             android:theme="@style/Theme.AppCompat.NoActionBar" >
         </activity>
         <activity
             android:name=".ui.water.MermaidGiveActivity"
-            android:noHistory="true"
             android:label="@string/title_activity_mermaid_give"
+            android:noHistory="true"
             android:theme="@style/Theme.AppCompat.NoActionBar" >
         </activity>
         <activity
             android:name=".ui.water.MermaidKingdomActivity"
-            android:noHistory="true"
             android:label="@string/title_activity_mermaid_kingdom"
+            android:noHistory="true"
             android:theme="@style/Theme.AppCompat.NoActionBar" >
         </activity>
         <activity
             android:name=".ui.water.NoAirActivity"
-            android:noHistory="true"
             android:label="@string/title_activity_no_air"
+            android:noHistory="true"
             android:theme="@style/Theme.AppCompat.NoActionBar" >
         </activity>
         <activity
             android:name=".ui.water.QuitterActivity"
-            android:noHistory="true"
             android:label="@string/title_activity_quitter"
+            android:noHistory="true"
             android:theme="@style/Theme.AppCompat.NoActionBar" >
         </activity>
         <activity
             android:name=".ui.water.CavePointActivity"
-            android:noHistory="true"
             android:label="@string/title_activity_cave_point"
+            android:noHistory="true"
             android:theme="@style/Theme.AppCompat.NoActionBar" >
         </activity>
         <activity
             android:name=".ui.water.CaveActivity"
-            android:noHistory="true"
             android:label="@string/title_activity_cave"
+            android:noHistory="true"
+            android:theme="@style/Theme.AppCompat.NoActionBar" >
+        </activity>
+        <activity
+            android:name=".ui.water.EelActivity"
+            android:label="@string/title_activity_eel"
             android:theme="@style/Theme.AppCompat.NoActionBar" >
         </activity>
     </application>
