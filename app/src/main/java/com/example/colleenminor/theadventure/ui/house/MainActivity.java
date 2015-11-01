@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -136,12 +137,12 @@ public class MainActivity extends AppCompatActivity {
         Item.delete("skull of seo");
         Item.delete("Anti-Mermaid Spray");
     }
-    
     private void addItem(String itemName) {
         Item item = new Item(itemName, mUser);
         item.save();
-        Toast.makeText(this, mUser.getName() + ", candlestick has been added to your inventory", Toast.LENGTH_SHORT).show();
-
+        Toast toast = Toast.makeText(this, mUser.getName() + "," + itemName + " has been added to your inventory", Toast.LENGTH_LONG);
+        toast.setGravity(Gravity.TOP | Gravity.RIGHT, 0, 0);
+        toast.show();
     }
 
     private void setTheItemButton() {

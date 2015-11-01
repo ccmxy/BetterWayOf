@@ -20,7 +20,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="You find that you have no trouble breathing underwater..."
+            android:text="The mermaid grabs you and pulls you deep into the sea. You find that you have no trouble breathing underwater..."
             android:id="@+id/introText"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"

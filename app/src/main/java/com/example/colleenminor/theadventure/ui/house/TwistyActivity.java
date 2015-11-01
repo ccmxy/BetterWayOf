@@ -15,7 +15,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.colleenminor.theadventure.R;
-import com.example.colleenminor.theadventure.models.Item;
 import com.example.colleenminor.theadventure.models.User;
 import com.example.colleenminor.theadventure.ui.ItemsListActivity;
 import com.example.colleenminor.theadventure.ui.water.OceanActivity;
@@ -30,8 +29,6 @@ public class TwistyActivity extends AppCompatActivity {
     private TextView mOptionChoice1; //re-light candle
     private TextView mOptionChoice2; //go upstairs (moaning)
     private TextView mOptionChoice3; //go downstairs (ocean)
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,8 +69,6 @@ public class TwistyActivity extends AppCompatActivity {
 
     }
 
-
-
     private void checkIfRoomHasBeenVisited(String roomName){
         //Read to see if room has been visited:
         boolean userHasBeenHere = mPreferences.getBoolean(roomName, false);
@@ -104,34 +99,10 @@ public class TwistyActivity extends AppCompatActivity {
         editor.commit();
     }
 
-
-
     private void getActionsFromPrefs() {
         mActions = mPreferences.getInt("Actions", 0);
     }
 
-    //Add a bigger bundle here which says if rooms have been visited, validate if room is visited by checking if it's in the bundle
-    private void addActionsToIntent(Intent intent){
-        String actionString = String.valueOf(mActions);
-        intent.putExtra("theActions", actionString);
-    }
-
-    private boolean checkIntentForRoom(String roomName) {
-        Bundle extras = getIntent().getExtras();
-        String isRoom = extras.getString(roomName);
-        if(isRoom != null){
-            return true;
-        }
-        else{
-            return false;
-        }
-    }
-    private void getActionsFromIntent() {
-        Bundle extras = getIntent().getExtras();
-        String myActions = extras.getString("theActions");
-        mActions = Integer.parseInt(myActions);
-        //mUser.setActions(mActions);
-    }
     private void getPreferencesAndUser() {
         mPreferences = getApplicationContext().getSharedPreferences("TheAdventure", Context.MODE_PRIVATE);
         String username =  mPreferences.getString("username", null);
@@ -149,22 +120,6 @@ public class TwistyActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-    }
-
-
-    private void deleteItem(String itemName) {
-        Item.delete(itemName);
-    }
-
-    private void addItem(String itemName) {
-        Item item = new Item(itemName, mUser);
-        item.save();
-        Toast.makeText(this, mUser.getName() + "," + itemName + " has been added to your inventory", Toast.LENGTH_LONG).show();
-
-    }
-
-    private void subtractActions(int numToSubtract) {
-       mActions -= numToSubtract;
     }
 
     private void addActions(int numToAdd) {
@@ -186,3 +141,26 @@ public class TwistyActivity extends AppCompatActivity {
     }
 
 }
+
+/*    //Add a bigger bundle here which says if rooms have been visited, validate if room is visited by checking if it's in the bundle
+    private void addActionsToIntent(Intent intent){
+        String actionString = String.valueOf(mActions);
+        intent.putExtra("theActions", actionString);
+    }
+
+    private boolean checkIntentForRoom(String roomName) {
+        Bundle extras = getIntent().getExtras();
+        String isRoom = extras.getString(roomName);
+        if(isRoom != null){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    private void getActionsFromIntent() {
+        Bundle extras = getIntent().getExtras();
+        String myActions = extras.getString("theActions");
+        mActions = Integer.parseInt(myActions);
+        //mUser.setActions(mActions);
+    }*/

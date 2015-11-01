@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Gravity;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
@@ -72,7 +73,9 @@ public class MermaidKingdomActivity extends AppCompatActivity {
         else {
             //If room has not been visited:
             addActions(1);
-            Toast.makeText(MermaidKingdomActivity.this, "New location! +1 action", Toast.LENGTH_SHORT).show();
+            Toast toast = Toast.makeText(MermaidKingdomActivity.this, "New location! +1 action", Toast.LENGTH_SHORT);
+            toast.setGravity(Gravity.TOP | Gravity.LEFT, 0, 0);
+            toast.show();
             SharedPreferences.Editor editor = mPreferences.edit();
             editor.putBoolean(roomName, true);
             editor.commit();

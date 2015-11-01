@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -62,6 +63,8 @@ public class MermaidFinalGiveActivity extends AppCompatActivity {
                 if ((!(theItem.equals("Anti-Mermaid Spray")))  && (!(theItem.equals("skull of seo")))) {
                     Toast toast = Toast.makeText(getApplicationContext(),
                             "No, not the " + arg0.getItemAtPosition(position) + "!", Toast.LENGTH_SHORT);
+                    toast.setGravity(Gravity.CENTER, 0, 0);
+                    toast.show();
                     toast.show();
                 }
 

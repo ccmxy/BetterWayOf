@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Gravity;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
@@ -16,7 +17,6 @@ import android.widget.Toast;
 import com.example.colleenminor.theadventure.R;
 import com.example.colleenminor.theadventure.models.Item;
 import com.example.colleenminor.theadventure.models.User;
-import com.example.colleenminor.theadventure.ui.ItemsListActivity;
 
 public class MermaidActivity extends AppCompatActivity {
 
@@ -26,15 +26,23 @@ public class MermaidActivity extends AppCompatActivity {
     private boolean mBeenToPalace;
     private TextView mIntroText;
     private TextView mActionsTextView;
-    private TextView mOptionChoice1; //re-light candle
-    private TextView mOptionChoice2; //go upstairs (moaning)
-    private TextView mOptionChoice3; //go downstairs (ocean)
+    private TextView mOptionChoice1;
+    private TextView mOptionChoice2;
+    private TextView mOptionChoice3;
+    private TextView mOptionChoice4;
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mermaid);
+
+        mOptionChoice1 = (TextView) findViewById(R.id.optionChoice1);
+        mOptionChoice2 = (TextView) findViewById(R.id.optionChoice2);
+        mOptionChoice3 = (TextView) findViewById(R.id.optionChoice3);
+        mOptionChoice4 = (TextView) findViewById(R.id.optionChoice4);
+
         setTheItemButton();
         getPreferencesAndUser();
         getActionsFromPrefs();
@@ -42,31 +50,19 @@ public class MermaidActivity extends AppCompatActivity {
         checkForPalaceVisit();
         setActionsText();
 
-        mOptionChoice1 = (TextView) findViewById(R.id.optionChoice1);
-        mOptionChoice2 = (TextView) findViewById(R.id.optionChoice2);
-        mOptionChoice3 = (TextView) findViewById(R.id.optionChoice3);
-
 
         boolean hasCrab = checkForCrabs();
         if(hasCrab){
-            mOptionChoice3 .setVisibility(TextView.VISIBLE);
+            mOptionChoice3.setVisibility(TextView.VISIBLE);
 
         }
         mOptionChoice1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!mBeenToPalace) {
-                    Intent intent = new Intent(MermaidActivity.this, MermaidGiveActivity.class);
-                    putActionsInPrefs();
-                    startActivity(intent);
-                }
-                else{
                     Intent intent = new Intent(MermaidActivity.this, MermaidPalaceActivity.class);
                     putActionsInPrefs();
                     startActivity(intent);
                 }
-
-            }
         });
         mOptionChoice2.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,6 +81,13 @@ public class MermaidActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        mOptionChoice4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mOptionChoice4.setText("This mermaid society only allows visitors who bring seashells... you may want to check your inventory.");
+            }
+        });
+
     }
 
     private boolean checkForCrabs() {
@@ -121,7 +124,7 @@ public class MermaidActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MermaidActivity.this, ItemsListActivity.class);
+                Intent intent = new Intent(MermaidActivity.this, MermaidGiveActivity.class);
                 startActivity(intent);
             }
         });
@@ -142,7 +145,9 @@ public class MermaidActivity extends AppCompatActivity {
         else if(!userHasBeenHere){
             //If room has not been visited:
             addActions(1);
-            Toast.makeText(MermaidActivity.this, "New location! +1 action", Toast.LENGTH_SHORT).show();
+            Toast toast = Toast.makeText(MermaidActivity.this, "New location! +1 action", Toast.LENGTH_SHORT);
+            toast.setGravity(Gravity.TOP|Gravity.LEFT, 0, 0);
+            toast.show();
             SharedPreferences.Editor editor = mPreferences.edit();
             editor.putBoolean(roomName, true);
             editor.commit();
@@ -170,6 +175,12 @@ public class MermaidActivity extends AppCompatActivity {
         if(mBeenToPalace){
             mOptionChoice1 = (TextView) findViewById(R.id.optionChoice1);
             mOptionChoice1.setText("Could you take me back to the ocean palace?");
+            mOptionChoice1.setVisibility(View.VISIBLE);
+            mOptionChoice4.setVisibility(View.GONE);
+        }
+        else{
+            mOptionChoice1.setVisibility(View.GONE);
+            mOptionChoice4.setVisibility(View.VISIBLE);
         }
     }
 

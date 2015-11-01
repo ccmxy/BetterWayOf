@@ -71,9 +71,6 @@ public class MermaidGiveActivity extends AppCompatActivity {
                     toast.show();
                 }
                 if (theItem.equals("seashells")) {
-                    Toast toast = Toast.makeText(getApplicationContext(),
-                            "The conch shell of DESTINY!!!", Toast.LENGTH_LONG);
-                    toast.show();
                     Item.delete("seashells");
                     Intent intent = new Intent(MermaidGiveActivity.this, MermaidPalaceActivity.class);
                     startActivity(intent);
