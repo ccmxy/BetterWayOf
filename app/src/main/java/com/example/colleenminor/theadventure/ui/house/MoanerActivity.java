@@ -85,14 +85,14 @@ public class MoanerActivity extends AppCompatActivity {
 
         }
             //Give the old man what he needs
-            mOptionChoice1.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(MoanerActivity.this, GiveActivity.class);
-                    putActionsInPrefs();
-                    startActivity(intent);
-                }
-            });
+//            mOptionChoice1.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    Intent intent = new Intent(MoanerActivity.this, GiveActivity.class);
+//                    putActionsInPrefs();
+//                    startActivity(intent);
+//                }
+//            });
 
             //"Leave"
             mOptionChoice2.setOnClickListener(new View.OnClickListener() {

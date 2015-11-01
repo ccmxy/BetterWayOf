@@ -89,7 +89,8 @@
             android:text="Go back to staircase"
             android:padding="8dp"
             android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"
+            android:background="#c57ef1" />
 
     </RelativeLayout>
 

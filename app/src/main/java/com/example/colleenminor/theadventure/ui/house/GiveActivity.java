@@ -25,9 +25,7 @@ public class GiveActivity extends AppCompatActivity {
     private TextView mNoItems;
     private Button mButton;
     private ArrayList<Item> mItems;
-    private ArrayList<String> mItemsString;
     private ListView lv;
-    // private ItemAdapter mAdapter;
 
 
     @Override
@@ -56,7 +54,6 @@ public class GiveActivity extends AppCompatActivity {
         List<String> itemStringList = new ArrayList<String>();
         for(int i = 0; i < mItems.size(); i++){
             Item item = mItems.get(i);
-            String itemName = item.getItem();
                 itemStringList.add(item.getItem());
         }
 
