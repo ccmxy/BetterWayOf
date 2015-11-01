@@ -47,6 +47,7 @@ public class MermaidPalaceActivity extends AppCompatActivity {
         mIntroText = (TextView) findViewById(R.id.introText);
         if(mOldManMustBeDealtWith){
             mOptionChoice1.setText("Swim back to shore");
+            mIntroText.setText("What are you doing? The old man is upstairs and we don't have legs! Hurry up!");
         }
 
         mOptionChoice1.setOnClickListener(new View.OnClickListener() {
@@ -58,7 +59,6 @@ public class MermaidPalaceActivity extends AppCompatActivity {
                     startActivity(intent);
                 }
                 else if(mOldManMustBeDealtWith){
-                    mIntroText.setText("What are you doing? The old man is upstairs and we don't have legs! Hurry up!");
                     Intent intent = new Intent(MermaidPalaceActivity.this, OceanActivity.class);
                     startActivity(intent);
                 }
@@ -72,6 +72,8 @@ public class MermaidPalaceActivity extends AppCompatActivity {
 
     }
 
+
+
     private void checkIfAntiMerm(){
         if(Item.find("Anti-Mermaid Spray") != null){
             mHasAntiMerm = true;
@@ -80,6 +82,8 @@ public class MermaidPalaceActivity extends AppCompatActivity {
             mHasAntiMerm = false;
         }
     }
+
+
     private void checkIfOldManIsDead(){
         //Read to see if room has been visited:
         mOldManIsDead = mPreferences.getBoolean("OldManDead", false);
@@ -161,6 +165,16 @@ public class MermaidPalaceActivity extends AppCompatActivity {
         animation.setRepeatCount(1); // Repeat animation infinitely
         animation.setRepeatMode(Animation.REVERSE); // Reverse animation at the end so the button will fade back in
         mActionsTextView.startAnimation(animation);
+
+    }
+    private void itemButtonAnimation(){
+        FloatingActionButton mItemButton = (FloatingActionButton) findViewById(R.id.fab);
+        final Animation animation = new AlphaAnimation(1, 0); // Change alpha from fully visible to invisible
+        animation.setDuration(200); // duration - half a second
+        animation.setInterpolator(new LinearInterpolator()); // do not alter animation rate
+        animation.setRepeatCount(7); // Repeat animation infinitely
+        animation.setRepeatMode(Animation.REVERSE); // Reverse animation at the end so the button will fade back in
+        mItemButton.startAnimation(animation);
 
     }
 

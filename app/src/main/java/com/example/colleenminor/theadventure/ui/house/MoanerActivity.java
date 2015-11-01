@@ -53,13 +53,20 @@ public class MoanerActivity extends AppCompatActivity {
         mIntroText = (TextView) findViewById(R.id.introText);
         mOldManImage = (ImageView) findViewById(R.id.oldManImage);
 
+        if(mOldManIsDead) {
+            mOptionChoice1.setVisibility(View.INVISIBLE);
+            mOptionChoice4.setVisibility(View.INVISIBLE);
+            mOldManImage.setVisibility(View.INVISIBLE);
+            mIntroText.setText("You have killed the old man. Go back to the mermaid kingdom to tell the mermaids.");
+        }
+
         if (Item.find("skull of seo") != null) {
             mOptionChoice4.setVisibility(View.VISIBLE);
             mOptionChoice4.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     mOptionChoice4.setVisibility(View.INVISIBLE);
-                    mOptionChoice1.setVisibility(View.INVISIBLE);
+                   // mOptionChoice1.setVisibility(View.INVISIBLE);
                     mOldManImage.setVisibility(View.INVISIBLE);
                     mIntroText.setText("You have killed the old man. Go back to the mermaid kingdom to tell the mermaids.");
                     SharedPreferences.Editor editor = mPreferences.edit();
@@ -71,12 +78,6 @@ public class MoanerActivity extends AppCompatActivity {
         }
 
 
-            if(mOldManIsDead) {
-            mOptionChoice1.setVisibility(View.INVISIBLE);
-            mOptionChoice4.setVisibility(View.INVISIBLE);
-            mOldManImage.setVisibility(View.INVISIBLE);
-            mIntroText.setText("You have killed the old man. Go back to the mermaid kingdom to tell the mermaids.");
-        }
         if(mHasAntiMerm){
             mOptionChoice1.setVisibility(View.INVISIBLE);
             mOptionChoice4.setVisibility(View.INVISIBLE);

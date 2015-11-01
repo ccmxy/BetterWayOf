@@ -81,7 +81,8 @@ public class EelActivity extends AppCompatActivity {
         }
         else{
             mBackButton.setVisibility(View.VISIBLE);
-            mSlayEel.setVisibility(View.INVISIBLE);
+            mSlayEel.setVisibility(View.VISIBLE);
+            mSlayEel.setText("You have shown up to this fight without a weapon, and as a result, you have been killed by the evil eel, Seo.");
             mBackButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

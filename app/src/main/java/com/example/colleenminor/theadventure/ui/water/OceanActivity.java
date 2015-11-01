@@ -57,13 +57,17 @@ private TextView mOptionChoice3; //explore this strange place
         mOptionChoice1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                addItem("seashells");
-                subtractActions(2);
-                putHasTakenShellsInPrefs();
-                setActionsText();
-                actionButtonAnimation();
-                mOptionChoice1 = (TextView) findViewById(R.id.optionChoice1);
-                mOptionChoice1.setVisibility(View.INVISIBLE);
+                if (mActions >= 2) {
+                    addItem("seashells");
+                    subtractActions(2);
+                    putHasTakenShellsInPrefs();
+                    setActionsText();
+                    actionButtonAnimation();
+                    mOptionChoice1 = (TextView) findViewById(R.id.optionChoice1);
+                    mOptionChoice1.setVisibility(View.INVISIBLE);
+                } else {
+                    actionButtonAnimation();
+                }
             }
         });
 
@@ -71,13 +75,18 @@ private TextView mOptionChoice3; //explore this strange place
         mOptionChoice2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                addItem("crab");
-                subtractActions(1);
-                putHasTakenCrabInPrefs();
-                setActionsText();
-                actionButtonAnimation();
-                mOptionChoice2 = (TextView) findViewById(R.id.optionChoice2);
-                mOptionChoice2.setVisibility(View.INVISIBLE);
+                if (mActions >= 1){
+                    addItem("crab");
+                    subtractActions(1);
+                    putHasTakenCrabInPrefs();
+                    setActionsText();
+                    actionButtonAnimation();
+                    mOptionChoice2 = (TextView) findViewById(R.id.optionChoice2);
+                    mOptionChoice2.setVisibility(View.INVISIBLE);
+                 }
+                else {
+                    actionButtonAnimation();
+                }
             }
         });
 

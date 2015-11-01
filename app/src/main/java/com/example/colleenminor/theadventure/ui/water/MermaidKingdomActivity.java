@@ -41,12 +41,12 @@ public class MermaidKingdomActivity extends AppCompatActivity {
         mOptionChoice1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                subtractActions(2);
-                setActionsText();
-                actionButtonAnimation();
-                putActionsInPrefs();
-                Intent intent = new Intent(MermaidKingdomActivity.this, CavePointActivity.class);
-                startActivity(intent);
+                  subtractActions(2);
+                  setActionsText();
+                  actionButtonAnimation();
+                  putActionsInPrefs();
+                  Intent intent = new Intent(MermaidKingdomActivity.this, CavePointActivity.class);
+                  startActivity(intent);
             }
         });
         mOptionChoice2 = (TextView) findViewById(R.id.optionChoice2);
