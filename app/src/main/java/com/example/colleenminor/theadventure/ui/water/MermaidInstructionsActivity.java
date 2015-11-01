@@ -19,6 +19,7 @@ public class MermaidInstructionsActivity extends AppCompatActivity {
         mHeadBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Intent intent = new Intent(MermaidInstructionsActivity.this, OceanActivity.class);
                 startActivity(intent);
             }

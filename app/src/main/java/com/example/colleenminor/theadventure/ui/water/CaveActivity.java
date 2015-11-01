@@ -1,6 +1,8 @@
 package com.example.colleenminor.theadventure.ui.water;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
@@ -180,6 +182,10 @@ public class CaveActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                SharedPreferences mPreferences = getApplicationContext().getSharedPreferences("TheAdventure", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = mPreferences.edit();
+                editor.putString("EnteredItemButtonFrom", "Cave");
+                editor.commit();
                 Intent intent = new Intent(CaveActivity.this, ItemsListActivity.class);
                 startActivity(intent);
             }

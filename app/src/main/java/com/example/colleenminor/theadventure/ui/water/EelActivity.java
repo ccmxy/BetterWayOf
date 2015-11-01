@@ -71,14 +71,10 @@ public class EelActivity extends AppCompatActivity {
                         toast.show();
                     }
                     if (theItem.equals("crab")) {
-                        Toast toast = Toast.makeText(getApplicationContext(),
-                                "DIE, SEO!!!", Toast.LENGTH_LONG);
-                        toast.show();
                         Item.delete("crab");
                         addItem("skull of seo");
                         Intent intent = new Intent(EelActivity.this, LeaveCaveActivity.class);
                         startActivity(intent);
-
                     }
                 }
             });

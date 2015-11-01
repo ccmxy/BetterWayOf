@@ -110,6 +110,9 @@ public class MermaidKingdomActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                SharedPreferences.Editor editor = mPreferences.edit();
+                editor.putString("EnteredItemButtonFrom", "MermaidKingdom");
+                editor.commit();
                 Intent intent = new Intent(MermaidKingdomActivity.this, ItemsListActivity.class);
                 startActivity(intent);
             }
@@ -130,9 +133,9 @@ public class MermaidKingdomActivity extends AppCompatActivity {
     }
     private void actionButtonAnimation(){
         final Animation animation = new AlphaAnimation(1, 0); // Change alpha from fully visible to invisible
-        animation.setDuration(500); // duration - half a second
+        animation.setDuration(1000); // duration - half a second
         animation.setInterpolator(new LinearInterpolator()); // do not alter animation rate
-        animation.setRepeatCount(5); // Repeat animation infinitely
+        animation.setRepeatCount(1); // Repeat animation infinitely
         animation.setRepeatMode(Animation.REVERSE); // Reverse animation at the end so the button will fade back in
         mActionsTextView.startAnimation(animation);
 

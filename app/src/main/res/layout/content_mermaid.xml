@@ -81,9 +81,9 @@
                 android:id="@+id/optionChoice4"
                 android:layout_marginBottom="53dp"
                 android:layout_above="@+id/actionsRemaining"
-                android:text="Click for hint"
+                android:text="Hint"
                 android:layout_centerHorizontal="true"
-                />
+                android:textStyle="bold|italic" />
 
 
 

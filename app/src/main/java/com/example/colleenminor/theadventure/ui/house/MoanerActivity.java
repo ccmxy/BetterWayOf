@@ -84,16 +84,6 @@ public class MoanerActivity extends AppCompatActivity {
 
 
         }
-            //Give the old man what he needs
-//            mOptionChoice1.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    Intent intent = new Intent(MoanerActivity.this, GiveActivity.class);
-//                    putActionsInPrefs();
-//                    startActivity(intent);
-//                }
-//            });
-
             //"Leave"
             mOptionChoice2.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -176,20 +166,9 @@ public class MoanerActivity extends AppCompatActivity {
         //mActions = mUser.getActions();
     }
 
-    //Have to set the correct intent for this one
-//    private void setTheItemButton() {
-//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(MoanerActivity.this, ItemsListActivity.class);
-//                startActivity(intent);
-//            }
-//        });
-//    }
-
     private void setTheItemButton() {
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

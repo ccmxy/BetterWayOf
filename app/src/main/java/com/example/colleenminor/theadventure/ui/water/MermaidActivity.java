@@ -84,7 +84,7 @@ public class MermaidActivity extends AppCompatActivity {
         mOptionChoice4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mOptionChoice4.setText("This mermaid society only allows visitors who bring seashells... you may want to check your inventory.");
+                setItemsHint();
             }
         });
 
@@ -130,6 +130,16 @@ public class MermaidActivity extends AppCompatActivity {
         });
     }
 
+    public void setItemsHint() {
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        final Animation animation = new AlphaAnimation(1, 0); // Change alpha from fully visible to invisible
+        animation.setDuration(500); // duration - half a second
+        animation.setInterpolator(new LinearInterpolator()); // do not alter animation rate
+        animation.setRepeatCount(5); // Repeat animation infinitely
+        animation.setRepeatMode(Animation.REVERSE); // Reverse animation at the end so the button will fade back in
+        fab.startAnimation(animation);
+    }
+
 
     private void addActions(int numToAdd) {
         mActions += numToAdd;
@@ -162,9 +172,9 @@ public class MermaidActivity extends AppCompatActivity {
     }
     private void actionButtonAnimation(){
         final Animation animation = new AlphaAnimation(1, 0); // Change alpha from fully visible to invisible
-        animation.setDuration(500); // duration - half a second
+        animation.setDuration(1000); // duration - half a second
         animation.setInterpolator(new LinearInterpolator()); // do not alter animation rate
-        animation.setRepeatCount(5); // Repeat animation infinitely
+        animation.setRepeatCount(1); // Repeat animation infinitely
         animation.setRepeatMode(Animation.REVERSE); // Reverse animation at the end so the button will fade back in
         mActionsTextView.startAnimation(animation);
 

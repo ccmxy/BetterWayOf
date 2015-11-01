@@ -55,7 +55,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, TwistyActivity.class);
-                //addActionsToIntent(intent);
                 putActionsInPrefs();
                 startActivity(intent);
                 finish();
@@ -160,6 +159,9 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                SharedPreferences.Editor editor = mPreferences.edit();
+                editor.putString("EnteredItemButtonFrom", "Main");
+                editor.commit();
                 Intent intent = new Intent(MainActivity.this, ItemsListActivity.class);
                 startActivity(intent);
             }

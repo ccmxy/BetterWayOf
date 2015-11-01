@@ -167,6 +167,14 @@ private TextView mOptionChoice3; //explore this strange place
         item.save();
         Toast toast = Toast.makeText(this, mUser.getName() + "," + itemName + " has been added to your inventory", Toast.LENGTH_LONG);
         toast.setGravity(Gravity.TOP | Gravity.RIGHT, 0, 0);
+        final Animation animation = new AlphaAnimation(1, 0); // Change alpha from fully visible to invisible
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        animation.setDuration(300); // duration - half a second
+        animation.setInterpolator(new LinearInterpolator()); // do not alter animation rate
+        animation.setRepeatCount(3); // Repeat animation infinitely
+        animation.setRepeatMode(Animation.REVERSE); // Reverse animation at the end so the button will fade back in
+        fab.startAnimation(animation);
+
         toast.show();
     }
 
@@ -203,9 +211,9 @@ private TextView mOptionChoice3; //explore this strange place
     }
     private void actionButtonAnimation(){
         final Animation animation = new AlphaAnimation(1, 0); // Change alpha from fully visible to invisible
-        animation.setDuration(500); // duration - half a second
+        animation.setDuration(1000); // duration - half a second
         animation.setInterpolator(new LinearInterpolator()); // do not alter animation rate
-        animation.setRepeatCount(5); // Repeat animation infinitely
+        animation.setRepeatCount(1); // Repeat animation infinitely
         animation.setRepeatMode(Animation.REVERSE); // Reverse animation at the end so the button will fade back in
         mActionsTextView.startAnimation(animation);
 
