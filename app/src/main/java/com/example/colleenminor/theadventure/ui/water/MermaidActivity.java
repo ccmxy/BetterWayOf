@@ -189,7 +189,7 @@ public class MermaidActivity extends AppCompatActivity {
             mOptionChoice4.setVisibility(View.INVISIBLE);
         }
         else{
-            mOptionChoice1.setVisibility(View.INVISIBLE);
+            mOptionChoice1.setVisibility(View.GONE);
             mOptionChoice4.setVisibility(View.VISIBLE);
         }
     }
