@@ -24,7 +24,6 @@
             android:id="@+id/introText"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:padding="8dp"
             android:layout_marginTop="18dp" />
 
         <ImageView
@@ -35,7 +34,6 @@
             android:id="@+id/theImage7"
             android:layout_centerHorizontal="true"
             android:src="@drawable/mermaidkingdom"
-            android:padding="8dp"
             android:layout_alignParentStart="false"
             android:layout_alignParentLeft="false"/>
 
@@ -46,8 +44,7 @@
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true"
             android:layout_above="@+id/optionChoice1"
-            android:text="What do you do?"
-            android:padding="8dp" />
+            android:text="What do you do?" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -57,8 +54,8 @@
             android:layout_centerHorizontal="true"
             android:layout_above="@+id/optionChoice2"
             android:text="Take seashells (cost: 2 actions)"
-            android:padding="8dp"
-            android:background="#f1db7e" />
+            android:background="#f1db7e"
+            android:layout_margin="8dp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -68,8 +65,8 @@
             android:layout_centerHorizontal="true"
             android:layout_above="@+id/optionChoice3"
             android:text="Take crab (cost: 1 action)"
-            android:padding="8dp"
-            android:background="#f1db7e" />
+            android:background="#f1db7e"
+            android:layout_margin="8dp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -79,18 +76,18 @@
             android:layout_centerHorizontal="true"
             android:layout_above="@+id/optionChoice4"
             android:text="Explore further"
-            android:padding="8dp"
-            android:background="#c57ef1" />
+            android:background="#c57ef1"
+            android:layout_margin="8dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/optionChoice4"
             android:text="Go back to staircase"
-            android:padding="8dp"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:background="#c57ef1" />
+            android:background="#c57ef1"
+            android:layout_margin="8dp" />
 
     </RelativeLayout>
 

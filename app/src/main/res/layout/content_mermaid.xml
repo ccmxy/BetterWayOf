@@ -54,7 +54,8 @@
                 android:text="&quot;I have no idea who I am. I woke up and I was here.&quot;"
                 android:layout_above="@+id/optionChoice2"
                 android:layout_centerHorizontal="true"
-                android:background="#c57ef1" />
+                android:background="#c57ef1"
+                android:layout_margin="8dp" />
 
 
             <TextView
@@ -64,17 +65,18 @@
                 android:layout_centerHorizontal="true"
                 android:text="&quot;I was just leaving!&quot;"
                 android:layout_above="@+id/optionChoice3"
-                android:background="#c57ef1" />
+                android:background="#c57ef1"
+                android:layout_margin="8dp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/optionChoice3"
                 android:layout_above="@+id/optionChoice4"
-                android:text="Throw crab at her"
+                android:text="Throw crab at her (cost: 1 action)"
                 android:layout_centerHorizontal="true"
                 android:visibility="gone"
-                android:background="#c57ef1" />
+                android:background="#f1db7e" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -83,7 +85,8 @@
                 android:layout_above="@+id/actionsRemaining"
                 android:text="Hint"
                 android:layout_centerHorizontal="true"
-                android:textStyle="bold|italic" />
+                android:textStyle="bold|italic"
+                android:layout_margin="8dp" />
 
 
 
