@@ -53,22 +53,23 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/optionChoice1"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true"
-            android:layout_above="@+id/optionChoice2"
             android:text="Yes (cost: 2 actions)"
             android:padding="8dp"
-            android:background="#f1db7e" />
+            android:background="#f1db7e"
+            android:layout_marginBottom="28dp"
+            android:layout_above="@+id/optionChoice2"
+            android:layout_alignLeft="@+id/optionChoice4"
+            android:layout_alignStart="@+id/optionChoice4" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/optionChoice2"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true"
-            android:layout_above="@+id/optionChoice3"
             android:text="No"
-            android:padding="8dp" />
+            android:padding="8dp"
+            android:layout_alignBaseline="@+id/optionChoice3"
+            android:layout_alignBottom="@+id/optionChoice3"
+            android:layout_centerHorizontal="true" />
 
         <TextView
             android:layout_width="wrap_content"

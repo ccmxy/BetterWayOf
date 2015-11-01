@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.colleenminor.theadventure.R;
+import com.example.colleenminor.theadventure.models.Item;
 import com.example.colleenminor.theadventure.models.User;
 import com.example.colleenminor.theadventure.ui.ItemsListActivity;
 
@@ -24,6 +25,7 @@ public class MermaidPalaceActivity extends AppCompatActivity {
     private TextView mActionsTextView;
     private TextView mOptionChoice1;
     private boolean mOldManIsDead;
+    private boolean mHasAntiMerm;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,18 +37,19 @@ public class MermaidPalaceActivity extends AppCompatActivity {
         setActionsText();
 
         checkIfOldManIsDead();
+        checkIfAntiMerm();
 
         mOptionChoice1 = (TextView) findViewById(R.id.optionChoice1);
         mOptionChoice1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!mOldManIsDead) {
+                if(!mOldManIsDead && !mHasAntiMerm) {
                     Intent intent = new Intent(MermaidPalaceActivity.this, MermaidKingdomActivity.class);
                     putActionsInPrefs();
                     startActivity(intent);
                 }
                 else{
-                    Intent intent = new Intent(MermaidPalaceActivity.this, MermaidConfessionActivity.class);
+                    Intent intent = new Intent(MermaidPalaceActivity.this, MermaidFinalActivity.class);
                     startActivity(intent);
                 }
             }
@@ -55,6 +58,14 @@ public class MermaidPalaceActivity extends AppCompatActivity {
 
     }
 
+    private void checkIfAntiMerm(){
+        if(Item.find("Anti-Mermaid Spray") != null){
+            mHasAntiMerm = true;
+        }
+        else{
+            mHasAntiMerm = false;
+        }
+    }
     private void checkIfOldManIsDead(){
         //Read to see if room has been visited:
         mOldManIsDead = mPreferences.getBoolean("OldManDead", false);

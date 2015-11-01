@@ -45,7 +45,7 @@
                 android:layout_centerHorizontal="true"
                 android:text="What do you do?"
                 android:padding="8dp"
-                android:layout_above="@+id/optionChoice2" />
+                android:layout_above="@+id/optionChoice1" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -53,7 +53,7 @@
                 android:layout_centerVertical="true"
                 android:layout_centerHorizontal="true"
                 android:layout_above="@+id/optionChoice3"
-                android:id="@+id/optionChoice2"
+                android:id="@+id/optionChoice1"
                 android:text="Go upstairs"
                 android:padding="8dp" />
 

@@ -43,7 +43,7 @@ public class TwistyActivity extends AppCompatActivity {
         getActionsFromPrefs();
         checkIfRoomHasBeenVisited("Twisty");
 
-        mOptionChoice2 = (TextView) findViewById(R.id.optionChoice2);
+        mOptionChoice2 = (TextView) findViewById(R.id.optionChoice1);
         mOptionChoice3 = (TextView) findViewById(R.id.optionChoice3);
 
         mOptionChoice2.setOnClickListener(new View.OnClickListener() {

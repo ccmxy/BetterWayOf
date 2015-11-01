@@ -50,13 +50,13 @@
                 android:id="@+id/optionChoice1"
                 android:layout_centerVertical="true"
                 android:layout_centerHorizontal="true"
-                android:layout_above="@+id/optionChoice2"
+                android:layout_above="@+id/optionChoice1"
                 android:text="optionChoice1" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/optionChoice2"
+                android:id="@+id/optionChoice1"
                 android:layout_centerVertical="true"
                 android:layout_centerHorizontal="true"
                 android:layout_above="@+id/optionChoice3"

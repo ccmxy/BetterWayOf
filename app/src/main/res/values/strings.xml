@@ -22,4 +22,8 @@
     <string name="title_activity_leave_cave">LeaveCaveActivit</string>
     <string name="title_activity_mermaid_instructions">MermaidInstructionsActivity</string>
     <string name="title_activity_mermaid_confession">MermaidConfessionActivity</string>
+    <string name="title_activity_explanation">ExplanationActivit</string>
+    <string name="title_activity_mermaid_final">MermaidFinalActivity</string>
+    <string name="title_activity_mermaid_final_give">MermaidFinalGiveActivity</string>
+    <string name="title_activity_mermaid_massacre">MermaidMassacreActivity</string>
 </resources>

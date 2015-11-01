@@ -52,18 +52,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/optionChoice1"
-                android:layout_centerVertical="true"
-                android:layout_centerHorizontal="true"
                 android:text="&quot;I have no idea who I am. I woke up and I was here.&quot;"
                 android:padding="8dp"
-                android:layout_above="@+id/optionChoice2" />
+                android:layout_above="@+id/optionChoice2"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="26dp" />
 
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/optionChoice2"
-                android:layout_centerVertical="true"
                 android:layout_centerHorizontal="true"
                 android:text="&quot;I was just leaving!&quot;"
                 android:padding="8dp"

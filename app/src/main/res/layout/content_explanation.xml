@@ -7,8 +7,8 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:showIn="@layout/activity_moaner"
-    tools:context="com.example.colleenminor.theadventure.ui.house.MoanerActivity">
+    tools:showIn="@layout/activity_explanation"
+    tools:context="com.example.colleenminor.theadventure.ui.house.ExplanationActivity">
 
 
     <RelativeLayout
@@ -21,7 +21,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="&quot;Oh, I&apos;m so desperate. Please, just give me what I need!&quot;"
+            android:text="&quot;Thank you so much!&quot; cries the old man. &quot;The mermaids have finally almost accomplished their dream of exterminating every human soul on this island. They need to kill me in order to move onto their ultimate goal, of taking over the world. The primary one, Melinda, cast a spell on you and got you to lock me in here. I didn&apos;t resist because I could tell you were under her power and I didn&apos;t want to hurt you. I&apos;m glad you finally came to your senses and let me out!&quot;
+            He pauses. &quot;They have probably told you that you are a mermaid. The real reason you can breath under water is because they cast a spell on you. Please take this anti-mermaid spray back to the depths of the ocean. When Melinda asks for the skull of seo, spray her with it!  "
             android:id="@+id/introText"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
@@ -31,40 +32,21 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/whatDo"
             android:layout_below="@+id/introText"
             android:id="@+id/oldManImage"
             android:layout_centerHorizontal="true"
             android:src="@drawable/moaningman"
             android:padding="8dp"
             android:layout_alignParentStart="false"
-            android:layout_alignParentLeft="false"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/whatDo"
+            android:layout_alignParentLeft="false"
             android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true"
-            android:layout_above="@+id/optionChoice1"
-            android:text="What do?"
-            android:padding="8dp" />
+            android:layout_above="@+id/optionChoice1" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/optionChoice1"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true"
-            android:layout_above="@+id/optionChoice1"
-            android:text="Give the old man an item"
-            android:padding="8dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/optionChoice1"
-            android:text="Go back to staircase"
+            android:text="Take anti-mermaid spray."
             android:padding="8dp"
             android:layout_marginBottom="31dp"
             android:layout_alignParentBottom="true"
@@ -73,12 +55,10 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Bash head with skull of seo"
-            android:id="@+id/optionChoice4"
+            android:text="Go back to the staircase."
+            android:id="@+id/optionChoice3"
             android:layout_alignParentBottom="true"
-            android:layout_alignLeft="@+id/optionChoice1"
-            android:layout_alignStart="@+id/optionChoice1"
-            android:visibility="invisible" />
+            android:layout_centerHorizontal="true" />
 
     </RelativeLayout>
 

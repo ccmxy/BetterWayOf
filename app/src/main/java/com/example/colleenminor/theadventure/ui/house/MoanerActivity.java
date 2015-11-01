@@ -31,6 +31,7 @@ public class MoanerActivity extends AppCompatActivity {
     private TextView mIntroText;
     private ImageView mOldManImage;
     private boolean mOldManIsDead;
+    private boolean mHasAntiMerm;
 
 
 
@@ -43,11 +44,12 @@ public class MoanerActivity extends AppCompatActivity {
         getPreferencesAndUser();
         getActionsFromPrefs();
         checkIfOldManIsDead();
+        checkIfAntiMerm();
         checkIfRoomHasBeenVisited("Moaner");
         setActionsText();
 
         mOptionChoice1 = (TextView) findViewById(R.id.optionChoice1);
-        mOptionChoice2 = (TextView) findViewById(R.id.optionChoice2);
+        mOptionChoice2 = (TextView) findViewById(R.id.optionChoice1);
         mOptionChoice4 = (TextView) findViewById(R.id.optionChoice4);
         mIntroText = (TextView) findViewById(R.id.introText);
         mOldManImage = (ImageView) findViewById(R.id.oldManImage);
@@ -57,6 +59,14 @@ public class MoanerActivity extends AppCompatActivity {
             mOptionChoice4.setVisibility(View.INVISIBLE);
             mOldManImage.setVisibility(View.INVISIBLE);
             mIntroText.setText("You have killed the old man. Go back to the mermaid kingdom to tell the mermaids.");
+        }
+        if(mHasAntiMerm){
+            mOptionChoice1.setVisibility(View.INVISIBLE);
+            mOptionChoice4.setVisibility(View.INVISIBLE);
+            mOldManImage.setVisibility(View.INVISIBLE);
+            mIntroText.setText("You have the anti-mermaid spray. Go back to the mermaid kingdom to spray them with it.");
+
+
         }
             if (Item.find("skull of seo") != null) {
                 mOptionChoice4.setVisibility(View.VISIBLE);
@@ -116,6 +126,15 @@ public class MoanerActivity extends AppCompatActivity {
             editor.commit();
             setActionsText();
             actionButtonAnimation();
+        }
+    }
+
+    private void checkIfAntiMerm(){
+        if(Item.find("Anti-Mermaid Spray") != null){
+            mHasAntiMerm = true;
+        }
+        else{
+            mHasAntiMerm = false;
         }
     }
 
