@@ -69,6 +69,10 @@ public class MermaidFinalGiveActivity extends AppCompatActivity {
                     Intent intent = new Intent(MermaidFinalGiveActivity.this, MermaidMassacreActivity.class);
                     startActivity(intent);
                 }
+                if (theItem.equals("skull of seo")) {
+                    Intent intent = new Intent(MermaidFinalGiveActivity.this, MermaidConfessionActivity.class);
+                    startActivity(intent);
+                }
             }
         });
     }

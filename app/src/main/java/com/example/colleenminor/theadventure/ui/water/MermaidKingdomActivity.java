@@ -48,7 +48,7 @@ public class MermaidKingdomActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        mOptionChoice2 = (TextView) findViewById(R.id.optionChoice1);
+        mOptionChoice2 = (TextView) findViewById(R.id.optionChoice2);
 
         mOptionChoice2.setOnClickListener(new View.OnClickListener() {
             @Override

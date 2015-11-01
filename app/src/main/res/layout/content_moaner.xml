@@ -56,14 +56,14 @@
             android:id="@+id/optionChoice1"
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true"
-            android:layout_above="@+id/optionChoice1"
+            android:layout_above="@+id/optionChoice2"
             android:text="Give the old man an item"
             android:padding="8dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/optionChoice1"
+            android:id="@+id/optionChoice2"
             android:text="Go back to staircase"
             android:padding="8dp"
             android:layout_marginBottom="31dp"
@@ -75,10 +75,10 @@
             android:layout_height="wrap_content"
             android:text="Bash head with skull of seo"
             android:id="@+id/optionChoice4"
+            android:visibility="invisible"
             android:layout_alignParentBottom="true"
             android:layout_alignLeft="@+id/optionChoice1"
-            android:layout_alignStart="@+id/optionChoice1"
-            android:visibility="invisible" />
+            android:layout_alignStart="@+id/optionChoice1" />
 
     </RelativeLayout>
 

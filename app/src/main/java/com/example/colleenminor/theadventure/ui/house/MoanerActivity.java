@@ -49,12 +49,29 @@ public class MoanerActivity extends AppCompatActivity {
         setActionsText();
 
         mOptionChoice1 = (TextView) findViewById(R.id.optionChoice1);
-        mOptionChoice2 = (TextView) findViewById(R.id.optionChoice1);
+        mOptionChoice2 = (TextView) findViewById(R.id.optionChoice2);
         mOptionChoice4 = (TextView) findViewById(R.id.optionChoice4);
         mIntroText = (TextView) findViewById(R.id.introText);
         mOldManImage = (ImageView) findViewById(R.id.oldManImage);
 
-        if(mOldManIsDead) {
+        if (Item.find("skull of seo") != null) {
+            mOptionChoice4.setVisibility(View.VISIBLE);
+            mOptionChoice4.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mOptionChoice4.setVisibility(View.INVISIBLE);
+                    mOptionChoice1.setVisibility(View.INVISIBLE);
+                    mOldManImage.setVisibility(View.INVISIBLE);
+                    mIntroText.setText("You have killed the old man. Go back to the mermaid kingdom to tell the mermaids.");
+                    SharedPreferences.Editor editor = mPreferences.edit();
+                    editor.putBoolean("OldManDead", true);
+                    editor.commit();
+                }
+            });
+        }
+
+
+            if(mOldManIsDead) {
             mOptionChoice1.setVisibility(View.INVISIBLE);
             mOptionChoice4.setVisibility(View.INVISIBLE);
             mOldManImage.setVisibility(View.INVISIBLE);
@@ -68,24 +85,6 @@ public class MoanerActivity extends AppCompatActivity {
 
 
         }
-            if (Item.find("skull of seo") != null) {
-                mOptionChoice4.setVisibility(View.VISIBLE);
-                mOptionChoice4.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        mOptionChoice4.setVisibility(View.INVISIBLE);
-                        mOptionChoice1.setVisibility(View.INVISIBLE);
-                        mOldManImage.setVisibility(View.INVISIBLE);
-                        mIntroText.setText("You have killed the old man. Go back to the mermaid kingdom to tell the mermaids.");
-                        SharedPreferences.Editor editor = mPreferences.edit();
-                        editor.putBoolean("OldManDead", true);
-                        editor.commit();
-                        Item.delete("skull of seo");
-                    }
-                });
-
-
-            }
             //Give the old man what he needs
             mOptionChoice1.setOnClickListener(new View.OnClickListener() {
                 @Override
