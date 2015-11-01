@@ -146,6 +146,7 @@ public class MainActivity extends AppCompatActivity {
         Item.delete("seashells");
         Item.delete("skull of seo");
         Item.delete("Anti-Mermaid Spray");
+        Item.delete("your bare hands");
     }
     private void addItem(String itemName) {
         Item item = new Item(itemName, mUser);

@@ -39,11 +39,28 @@ public class EelActivity extends AppCompatActivity {
         mNoItems = (TextView) findViewById(R.id.noItems);
         mBackButton = (Button) findViewById(R.id.backButton);
 
-        mItems = (ArrayList) Item.all();
-        if (mItems.size() == 0) {
-            mNoItems.setVisibility(TextView.VISIBLE);
+        //mItems = (ArrayList) Item.all();
+//        if (mItems.size() == 0) {
+//            //mNoItems.setVisibility(TextView.VISIBLE);
+//            addItem("your bare hands");
+//            mItems = (ArrayList) Item.all();
+//        }
+        if(Item.find("crab") == null) {
+            addItem("your bare hands");
+            mItems = (ArrayList) Item.all();
+            mBackButton.setVisibility(View.VISIBLE);
+            mSlayEel.setVisibility(View.VISIBLE);
+            mSlayEel.setText("Looks like you showed up to this fight without a weapon...");
+            mBackButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(EelActivity.this, MainActivity.class);
+                    startActivity(intent);
+                }
+            });
         }
-        if(Item.find("crab") != null) {
+        mItems = (ArrayList) Item.all();
+        // if(Item.find("crab") != null) {
             mBackButton.setVisibility(View.INVISIBLE);
             mSlayEel.setVisibility(View.VISIBLE);
 
@@ -65,10 +82,14 @@ public class EelActivity extends AppCompatActivity {
                 @Override
                 public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
                     String theItem = (String) arg0.getItemAtPosition(position);
-                    if (!(theItem.equals("crab"))) {
+                    if ((!(theItem.equals("crab"))) && (!(theItem.equals("your bare hands")))){
                         Toast toast = Toast.makeText(getApplicationContext(),
                                 "You can't kill an eel with the " + arg0.getItemAtPosition(position) + "!", Toast.LENGTH_SHORT);
                         toast.show();
+                    }
+                    if((theItem.equals("your bare hands"))){
+                        Intent intent = new Intent(EelActivity.this, EelDeathActivity.class);
+                        startActivity(intent);
                     }
                     if (theItem.equals("crab")) {
                         Item.delete("crab");
@@ -78,21 +99,21 @@ public class EelActivity extends AppCompatActivity {
                     }
                 }
             });
-        }
-        else{
-            mBackButton.setVisibility(View.VISIBLE);
-            mSlayEel.setVisibility(View.VISIBLE);
-            mSlayEel.setText("You have shown up to this fight without a weapon, and as a result, you have been killed by the evil eel, Seo.");
-            mBackButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(EelActivity.this, MainActivity.class);
-                    startActivity(intent);
-                }
-            });
-
-
-        }
+        //}
+//        else{
+//            mBackButton.setVisibility(View.VISIBLE);
+//            mSlayEel.setVisibility(View.VISIBLE);
+//            mSlayEel.setText("Looks like you showed up to this fight without a weapon...");
+//            mBackButton.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    Intent intent = new Intent(EelActivity.this, MainActivity.class);
+//                    startActivity(intent);
+//                }
+//            });
+//
+//
+//        }
     }
     private void getPreferencesAndUser() {
         mPreferences = getApplicationContext().getSharedPreferences("TheAdventure", Context.MODE_PRIVATE);
@@ -103,8 +124,6 @@ public class EelActivity extends AppCompatActivity {
     private void addItem(String itemName) {
         Item item = new Item(itemName, mUser);
         item.save();
-        Toast.makeText(this, mUser.getName() + "," + itemName + " has been added to your inventory", Toast.LENGTH_LONG).show();
-
     }
 
 

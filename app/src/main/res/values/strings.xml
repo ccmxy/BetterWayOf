@@ -26,4 +26,5 @@
     <string name="title_activity_mermaid_final">MermaidFinalActivity</string>
     <string name="title_activity_mermaid_final_give">MermaidFinalGiveActivity</string>
     <string name="title_activity_mermaid_massacre">MermaidMassacreActivity</string>
+    <string name="title_activity_eel_death">EelDeathActivity</string>
 </resources>
