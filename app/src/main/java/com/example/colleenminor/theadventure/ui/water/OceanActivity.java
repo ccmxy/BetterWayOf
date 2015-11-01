@@ -156,6 +156,9 @@ private TextView mOptionChoice3; //explore this strange place
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                SharedPreferences.Editor editor = mPreferences.edit();
+                editor.putString("EnteredItemButtonFrom", "Ocean");
+                editor.commit();
                 Intent intent = new Intent(OceanActivity.this, ItemsListActivity.class);
                 startActivity(intent);
             }

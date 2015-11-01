@@ -1,6 +1,8 @@
 package com.example.colleenminor.theadventure.ui.water;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -22,6 +24,10 @@ public class LeaveCaveActivity extends AppCompatActivity {
         mFollowSeawed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                SharedPreferences mPreferences = getApplicationContext().getSharedPreferences("TheAdventure", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = mPreferences.edit();
+                editor.putBoolean("NeedsToDealWithOldMan", true);
+                editor.commit();
                 Intent intent = new Intent(LeaveCaveActivity.this, MermaidInstructionsActivity.class);
                 startActivity(intent);
             }
@@ -30,6 +36,10 @@ public class LeaveCaveActivity extends AppCompatActivity {
         mSeaWeed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                SharedPreferences mPreferences = getApplicationContext().getSharedPreferences("TheAdventure", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = mPreferences.edit();
+                editor.putBoolean("NeedsToDealWithOldMan", true);
+                editor.commit();
                 Intent intent = new Intent(LeaveCaveActivity.this, MermaidInstructionsActivity.class);
                 startActivity(intent);
             }

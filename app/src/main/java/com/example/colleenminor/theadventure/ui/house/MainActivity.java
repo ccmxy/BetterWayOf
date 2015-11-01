@@ -76,6 +76,7 @@ public class MainActivity extends AppCompatActivity {
         editor.putBoolean("OldManDead", false);
         editor.putBoolean("HasTakenShells", false);
         editor.putBoolean("HasTakenCrab", false);
+        editor.putBoolean("NeedsToDealWithOldMan", false);
         editor.commit();
     }
 

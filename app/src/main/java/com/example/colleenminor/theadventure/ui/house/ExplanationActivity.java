@@ -43,6 +43,8 @@ public class ExplanationActivity extends AppCompatActivity {
         mOptionChoice2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                SharedPreferences.Editor editor = mPreferences.edit();
+                editor.putBoolean("NeedsToDealWithOldMan", false);
                 Intent intent = new Intent(ExplanationActivity.this, TwistyActivity.class);
                 startActivity(intent);
             }

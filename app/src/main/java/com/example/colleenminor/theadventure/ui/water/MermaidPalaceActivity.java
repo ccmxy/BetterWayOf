@@ -25,7 +25,9 @@ public class MermaidPalaceActivity extends AppCompatActivity {
     private int mActions;
     private TextView mActionsTextView;
     private TextView mOptionChoice1;
+    private TextView mIntroText;
     private boolean mOldManIsDead;
+    private boolean mOldManMustBeDealtWith;
     private boolean mHasAntiMerm;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,16 +39,27 @@ public class MermaidPalaceActivity extends AppCompatActivity {
         checkIfRoomHasBeenVisited("MermaidPalace");
         setActionsText();
 
+        checkIfOldManMustBeDealtWith();
         checkIfOldManIsDead();
         checkIfAntiMerm();
 
         mOptionChoice1 = (TextView) findViewById(R.id.optionChoice1);
+        mIntroText = (TextView) findViewById(R.id.introText);
+        if(mOldManMustBeDealtWith){
+            mOptionChoice1.setText("Swim back to shore");
+        }
+
         mOptionChoice1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!mOldManIsDead && !mHasAntiMerm) {
+                if(!mOldManIsDead && !mHasAntiMerm && !mOldManMustBeDealtWith) {
                     Intent intent = new Intent(MermaidPalaceActivity.this, MermaidKingdomActivity.class);
                     putActionsInPrefs();
+                    startActivity(intent);
+                }
+                else if(mOldManMustBeDealtWith){
+                    mIntroText.setText("What are you doing? The old man is upstairs and we don't have legs! Hurry up!");
+                    Intent intent = new Intent(MermaidPalaceActivity.this, OceanActivity.class);
                     startActivity(intent);
                 }
                 else{
@@ -70,6 +83,10 @@ public class MermaidPalaceActivity extends AppCompatActivity {
     private void checkIfOldManIsDead(){
         //Read to see if room has been visited:
         mOldManIsDead = mPreferences.getBoolean("OldManDead", false);
+    }
+
+    private void checkIfOldManMustBeDealtWith(){
+        mOldManMustBeDealtWith = mPreferences.getBoolean("NeedsToDealWithOldMan", false);
     }
 
 
@@ -120,6 +137,9 @@ public class MermaidPalaceActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                SharedPreferences.Editor editor = mPreferences.edit();
+                editor.putString("EnteredItemButtonFrom", "MermaidPalace");
+                editor.commit();
                 Intent intent = new Intent(MermaidPalaceActivity.this, ItemsListActivity.class);
                 startActivity(intent);
             }

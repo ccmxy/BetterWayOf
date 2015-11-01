@@ -116,6 +116,9 @@ public class TwistyActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                SharedPreferences.Editor editor = mPreferences.edit();
+                editor.putString("EnteredItemButtonFrom", "Twisty");
+                editor.commit();
                 Intent intent = new Intent(TwistyActivity.this, ItemsListActivity.class);
                 startActivity(intent);
             }

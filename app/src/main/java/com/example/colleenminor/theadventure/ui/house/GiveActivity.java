@@ -81,6 +81,9 @@ public class GiveActivity extends AppCompatActivity {
                     toast.setGravity(Gravity.CENTER, 0, 0);
                     toast.show();
                     Item.delete("skull of seo");
+                    SharedPreferences.Editor editor = mPreferences.edit();
+                    editor.putBoolean("NeedsToDealWithOldMan", false);
+                    editor.commit();
                     Intent intent = new Intent(GiveActivity.this, ExplanationActivity.class);
                     startActivity(intent);
                 }

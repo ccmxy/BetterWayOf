@@ -64,6 +64,7 @@ public class MoanerActivity extends AppCompatActivity {
                     mIntroText.setText("You have killed the old man. Go back to the mermaid kingdom to tell the mermaids.");
                     SharedPreferences.Editor editor = mPreferences.edit();
                     editor.putBoolean("OldManDead", true);
+                    editor.putBoolean("NeedsToDealWithOldMan", false);
                     editor.commit();
                 }
             });
