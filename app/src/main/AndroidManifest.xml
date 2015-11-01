@@ -69,7 +69,7 @@
         </activity>
         <activity
             android:name=".ui.house.GiveActivity"
-            android:label="@string/title_activity_give"
+            android:label="GiveActivity"
             android:noHistory="true"
             android:theme="@style/Theme.AppCompat.NoActionBar" >
         </activity>

@@ -33,16 +33,25 @@ public class GiveActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_items_list);
+        setContentView(R.layout.activity_give);
         mPreferences = getApplicationContext().getSharedPreferences("TheAdventure", Context.MODE_PRIVATE);
         mNoItems = (TextView) findViewById(R.id.noItems);
-        mItems = (ArrayList) Item.all();
-        //It can't find the noItems for some reason...
-//        if (mItems.size() == 0){
-//            mNoItems.setVisibility(TextView.VISIBLE);
-//        }
+        mButton = (Button) findViewById(R.id.tackButton);
+        mButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(GiveActivity.this, MoanerActivity.class);
+                startActivity(intent);
+            }
+        });
 
-        lv = (ListView) findViewById(R.id.list);
+
+         mItems = (ArrayList) Item.all();
+        if (mItems.size() == 0){
+            mNoItems.setVisibility(View.VISIBLE);
+        }
+
+        lv = (ListView) findViewById(R.id.listView);
 
         List<String> itemStringList = new ArrayList<String>();
         for(int i = 0; i < mItems.size(); i++){

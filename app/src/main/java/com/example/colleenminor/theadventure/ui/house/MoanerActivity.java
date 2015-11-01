@@ -18,7 +18,6 @@ import android.widget.Toast;
 import com.example.colleenminor.theadventure.R;
 import com.example.colleenminor.theadventure.models.Item;
 import com.example.colleenminor.theadventure.models.User;
-import com.example.colleenminor.theadventure.ui.ItemsListActivity;
 
 public class MoanerActivity extends AppCompatActivity {
     private User mUser;
@@ -178,12 +177,23 @@ public class MoanerActivity extends AppCompatActivity {
     }
 
     //Have to set the correct intent for this one
+//    private void setTheItemButton() {
+//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+//        fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(MoanerActivity.this, ItemsListActivity.class);
+//                startActivity(intent);
+//            }
+//        });
+//    }
+
     private void setTheItemButton() {
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MoanerActivity.this, ItemsListActivity.class);
+                Intent intent = new Intent(MoanerActivity.this, GiveActivity.class);
                 startActivity(intent);
             }
         });
