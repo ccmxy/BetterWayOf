@@ -2,12 +2,14 @@ package com.example.colleenminor.theadventure.ui.water;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.colleenminor.theadventure.R;
+import com.example.colleenminor.theadventure.ui.ItemsListActivity;
 
 public class CaveActivity extends AppCompatActivity {
     private TextView mCaveSegment;
@@ -32,7 +34,8 @@ public class CaveActivity extends AppCompatActivity {
         mNothingHere = (TextView) findViewById(R.id.nothingHere);
         mWiredEel = (ImageView) findViewById(R.id.wiredEel);
         mScaryEel = (TextView) findViewById(R.id.scaryEel);
-
+        setTheItemButton();
+        setTheItemButton();
 
 
 
@@ -58,13 +61,13 @@ public class CaveActivity extends AppCompatActivity {
             }
         });
 
-        mScaryEel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                    Intent intent = new Intent(CaveActivity.this, EelActivity.class);
-                    startActivity(intent);
-            }
-        });
+//        mScaryEel.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                    Intent intent = new Intent(CaveActivity.this, EelActivity.class);
+//                    startActivity(intent);
+//            }
+//        });
 
 
         mNothingHere.setOnClickListener(new View.OnClickListener() {
@@ -110,6 +113,7 @@ public class CaveActivity extends AppCompatActivity {
                 mMoveForward.setVisibility(View.INVISIBLE);
                 mNothingHere.setVisibility(View.INVISIBLE);
                 mWiredEel.setVisibility(View.VISIBLE);
+                setTheItemButtonForEel();
                 mScaryEel.setVisibility(View.VISIBLE);
 
 
@@ -159,4 +163,28 @@ public class CaveActivity extends AppCompatActivity {
         }
 
     }
+
+    private void setTheItemButtonForEel() {
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(CaveActivity.this, EelActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    private void setTheItemButton() {
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(CaveActivity.this, ItemsListActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+
 }
