@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,6 +20,7 @@ public class ExplanationActivity extends AppCompatActivity {
     private User mUser;
     private TextView mOptionChoice1;
     private TextView mOptionChoice2;
+    private ImageView mOldManImage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,13 +30,14 @@ public class ExplanationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_explanation);
         mOptionChoice1 = (TextView) findViewById(R.id.optionChoice1);
         mOptionChoice2 = (TextView) findViewById(R.id.optionChoice3);
+        mOldManImage = (ImageView) findViewById(R.id.oldManImage);
 
         mOptionChoice1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 addItem("Anti-Mermaid Spray");
                 mOptionChoice1.setVisibility(View.INVISIBLE);
-
+                mOldManImage.setVisibility(View.INVISIBLE);
             }
         });
         mOptionChoice2.setOnClickListener(new View.OnClickListener() {

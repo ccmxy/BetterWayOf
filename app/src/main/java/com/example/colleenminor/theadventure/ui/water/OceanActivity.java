@@ -48,6 +48,9 @@ private TextView mOptionChoice3; //explore this strange place
         mOptionChoice2 = (TextView) findViewById(R.id.optionChoice2);
         mOptionChoice3 = (TextView) findViewById(R.id.optionChoice3);
         mOptionChoice4 = (TextView) findViewById(R.id.optionChoice4);
+        checkTakenCrabFromPrefs();
+        checkTakenShellsFromPrefs();
+
 
 
         //"Take seashells"
@@ -56,6 +59,7 @@ private TextView mOptionChoice3; //explore this strange place
             public void onClick(View v) {
                 addItem("seashells");
                 subtractActions(2);
+                putHasTakenShellsInPrefs();
                 setActionsText();
                 actionButtonAnimation();
                 mOptionChoice1 = (TextView) findViewById(R.id.optionChoice1);
@@ -69,6 +73,7 @@ private TextView mOptionChoice3; //explore this strange place
             public void onClick(View v) {
                 addItem("crab");
                 subtractActions(1);
+                putHasTakenCrabInPrefs();
                 setActionsText();
                 actionButtonAnimation();
                 mOptionChoice2 = (TextView) findViewById(R.id.optionChoice2);
@@ -109,6 +114,31 @@ private TextView mOptionChoice3; //explore this strange place
         editor.commit();
     }
 
+    private void putHasTakenShellsInPrefs() {
+        SharedPreferences.Editor editor = mPreferences.edit();
+        editor.remove("HasTakenShells");
+        editor.apply();
+        editor.putBoolean("HasTakenShells", true);
+        editor.commit();
+    }
+    private void putHasTakenCrabInPrefs() {
+        SharedPreferences.Editor editor = mPreferences.edit();
+        editor.remove("HasTakenCrab");
+        editor.apply();
+        editor.putBoolean("HasTakenCrab", true);
+        editor.commit();
+    }
+
+    private void checkTakenCrabFromPrefs() {
+        if(mPreferences.getBoolean("HasTakenCrab", false)){
+            mOptionChoice2.setVisibility(View.GONE);
+        }
+    }
+    private void checkTakenShellsFromPrefs() {
+        if (mPreferences.getBoolean("HasTakenShells", false)) {
+            mOptionChoice1.setVisibility(View.GONE);
+        }
+    }
 
     private void getActionsFromPrefs() {
         mActions = mPreferences.getInt("Actions", 0);

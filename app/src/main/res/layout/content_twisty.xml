@@ -19,8 +19,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="What a staircase! The noise you heard before is louder now, and it sounds like it's coming from upstairs. Downstairs, you hear... the ocean?"
+                android:text="There is a moaning sound coming from upstairs, and the sound of waves crashing downstairs."
                 android:id="@+id/introText"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
@@ -55,7 +54,9 @@
                 android:layout_above="@+id/optionChoice3"
                 android:id="@+id/optionChoice1"
                 android:text="Go upstairs"
-                android:padding="8dp" />
+                android:padding="8dp"
+                android:clickable="true"
+                android:background="#c57ef1" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -65,7 +66,9 @@
                 android:layout_above="@+id/actionsRemaining"
                 android:id="@+id/optionChoice3"
                 android:text="Go downstairs"
-                android:layout_centerHorizontal="true" />
+                android:layout_centerHorizontal="true"
+                android:background="#c57ef1"
+                android:clickable="true" />
 
             <TextView
                 android:layout_width="wrap_content"

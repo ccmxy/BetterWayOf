@@ -47,7 +47,8 @@
             android:padding="8dp"
             android:layout_above="@+id/actionsRemaining"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="55dp" />
+            android:layout_marginBottom="55dp"
+            android:background="#c57ef1" />
 
 
         <TextView

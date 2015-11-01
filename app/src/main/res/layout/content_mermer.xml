@@ -52,5 +52,16 @@
 
 
 </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tryAgain"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Try again?"
+        android:textColor="#ff1212"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@android:color/black" />
 </RelativeLayout>
 

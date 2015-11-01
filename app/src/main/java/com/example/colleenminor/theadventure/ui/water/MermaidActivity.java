@@ -176,10 +176,10 @@ public class MermaidActivity extends AppCompatActivity {
             mOptionChoice1 = (TextView) findViewById(R.id.optionChoice1);
             mOptionChoice1.setText("Could you take me back to the ocean palace?");
             mOptionChoice1.setVisibility(View.VISIBLE);
-            mOptionChoice4.setVisibility(View.GONE);
+            mOptionChoice4.setVisibility(View.INVISIBLE);
         }
         else{
-            mOptionChoice1.setVisibility(View.GONE);
+            mOptionChoice1.setVisibility(View.INVISIBLE);
             mOptionChoice4.setVisibility(View.VISIBLE);
         }
     }

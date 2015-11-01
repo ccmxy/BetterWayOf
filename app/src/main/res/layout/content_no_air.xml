@@ -46,9 +46,8 @@
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="GAME OVER"
                 android:textColor="#ff1212"
-                android:layout_alignBottom="@+id/theImage2"
-                android:layout_centerHorizontal="true"
-                android:layout_marginBottom="70dp" />
+                android:layout_below="@+id/theImage2"
+                android:layout_centerHorizontal="true" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -56,10 +55,10 @@
                 android:id="@+id/tryAgain"
                 android:text="Try again?"
                 android:textColor="#ff1212"
-                android:layout_alignBottom="@+id/theImage2"
+                android:clickable="true"
+                android:layout_below="@+id/whatDo"
                 android:layout_centerHorizontal="true"
-                android:layout_marginBottom="25dp"
-                android:clickable="true" />
+                android:layout_marginTop="51dp" />
 
 
         </RelativeLayout>

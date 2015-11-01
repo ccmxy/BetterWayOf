@@ -34,7 +34,6 @@ public class MainActivity extends AppCompatActivity {
         mPreferences = getApplicationContext().getSharedPreferences("TheAdventure", Context.MODE_PRIVATE);
 
         resetRooms();
-        putActionsInPrefs();
         deleteAllItems();
         setTheItemButton();
         getTheUser();
@@ -46,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 addItem("candlestick");
+                subtractActions(1);
                 setActionsText();
                 mTakeItem.setVisibility(View.GONE);
             }
@@ -55,7 +55,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, TwistyActivity.class);
-                addActionsToIntent(intent);
+                //addActionsToIntent(intent);
+                putActionsInPrefs();
                 startActivity(intent);
                 finish();
             }
@@ -74,15 +75,26 @@ public class MainActivity extends AppCompatActivity {
         editor.putBoolean("MermaidPalace", false);
         editor.putBoolean("MermaidKingdom", false);
         editor.putBoolean("OldManDead", false);
+        editor.putBoolean("HasTakenShells", false);
+        editor.putBoolean("HasTakenCrab", false);
         editor.commit();
     }
 
+//    private void putActionsInPrefsFirst() {
+//        SharedPreferences.Editor editor = mPreferences.edit();
+//        editor.putInt("Actions", 1);
+//        editor.commit();
+//    }
     private void putActionsInPrefs() {
         SharedPreferences.Editor editor = mPreferences.edit();
-        editor.putInt("Actions", 1);
+        editor.remove("Actions");
+        editor.apply();
+        editor.putInt("Actions", mActions);
         editor.commit();
     }
-
+    private void subtractActions(int numToSub){
+        mActions -= numToSub;
+    }
 
     private void addActionsToIntent(Intent intent){
         String actionString = String.valueOf(mActions);
@@ -90,7 +102,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setActionsText() {
-        mActions = mUser.getActions();
         mActionsTextView = (TextView) findViewById(R.id.actionsRemaining);
         mActionsTextView.setText("Actions remaining " + mActions);
     }
@@ -101,7 +112,6 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         }
     }
-
 
     private boolean nameChosen() {
         String username = mPreferences.getString("username", null);

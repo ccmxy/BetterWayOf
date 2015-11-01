@@ -47,7 +47,7 @@
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true"
             android:layout_above="@+id/optionChoice1"
-            android:text="What do?"
+            android:text="What do you do?"
             android:padding="8dp" />
 
         <TextView
@@ -58,7 +58,8 @@
             android:layout_centerHorizontal="true"
             android:layout_above="@+id/optionChoice2"
             android:text="Give the old man an item"
-            android:padding="8dp" />
+            android:padding="8dp"
+            android:background="#c57ef1" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -68,7 +69,8 @@
             android:padding="8dp"
             android:layout_marginBottom="31dp"
             android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"
+            android:background="#c57ef1" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -78,7 +80,8 @@
             android:visibility="invisible"
             android:layout_alignParentBottom="true"
             android:layout_alignLeft="@+id/optionChoice1"
-            android:layout_alignStart="@+id/optionChoice1" />
+            android:layout_alignStart="@+id/optionChoice1"
+            android:background="#c57ef1" />
 
     </RelativeLayout>
 

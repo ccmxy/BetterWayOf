@@ -8,7 +8,8 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:showIn="@layout/activity_mermaid_kingdom"
-    tools:context="com.example.colleenminor.theadventure.ui.water.MermaidKingdomActivity">
+    tools:context="com.example.colleenminor.theadventure.ui.water.MermaidKingdomActivity"
+    android:background="#1C6BA0">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -69,7 +70,8 @@
             android:padding="8dp"
             android:layout_alignBaseline="@+id/optionChoice3"
             android:layout_alignBottom="@+id/optionChoice3"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"
+            android:background="#c57ef1" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -80,7 +82,8 @@
             android:layout_above="@+id/optionChoice4"
             android:text="Explore further"
             android:padding="8dp"
-            android:visibility="invisible" />
+            android:visibility="invisible"
+            android:background="#c57ef1" />
 
         <TextView
             android:layout_width="wrap_content"

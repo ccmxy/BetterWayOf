@@ -8,7 +8,8 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:showIn="@layout/activity_mermaid_final"
-    tools:context="com.example.colleenminor.theadventure.ui.water.MermaidFinalActivity">
+    tools:context="com.example.colleenminor.theadventure.ui.water.MermaidFinalActivity"
+    android:background="#1C6BA0">
 
 
     <RelativeLayout
@@ -21,7 +22,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="&quot;Oh, just in time! Now that you&apos;ve killed the old man, please give me the skull of seo!&quot; "
+            android:text="&quot;Oh, just in time! Now that you&apos;ve killed the old man, please give us the skull of seo!&quot; "
             android:id="@+id/introText"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
@@ -49,7 +50,8 @@
             android:layout_centerHorizontal="true"
             android:layout_above="@+id/optionChoice3"
             android:text="Give item..."
-            android:padding="8dp" />
+            android:padding="8dp"
+            android:visibility="invisible" />
 
         <TextView
             android:layout_width="wrap_content"
